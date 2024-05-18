@@ -3,5 +3,11 @@
     <!-- COLOR RESOURCES -->
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF034EA2"/>
 
-    <SolidColorBrush x:Key="ImageButtonMouseOverColor" Color="#FF034EB2"/>
+    <SolidColorBrush x:Key="ImageButtonMouseOverColor" Color="#FF135EB2"/>
+    <SolidColorBrush x:Key="ImageButtonMouseOverHightLightColor" Color="#FFD80113"/>
+
+    <BitmapImage x:Key="ImageWindowMinimizeDefault" UriSource="/EQX.UI;component/Resources/Images/minimize_light.png"/>
+    <BitmapImage x:Key="ImageWindowMaximizeDefault" UriSource="/EQX.UI;component/Resources/Images/maximize_light.png"/>
+    <BitmapImage x:Key="ImageWindowNormalDefault" UriSource="/EQX.UI;component/Resources/Images/window_normal_light.png"/>
+    <BitmapImage x:Key="ImageWindowCloseDefault" UriSource="/EQX.UI;component/Resources/Images/close_light.png"/>
 </ResourceDictionary>

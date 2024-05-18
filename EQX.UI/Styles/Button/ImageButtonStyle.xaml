@@ -13,13 +13,23 @@
                 </Setter.Value>
             </Setter>
             <Setter Property="Padding" Value="10"/>
-            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Background" Value="{DynamicResource ResourceKey=ImageButtonMouseOverColor}"/>
             <Setter Property="Cursor" Value="Hand"/>
-            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="IsTabStop" Value="True"/>
+            <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"/>
         </Style.Setters>
         <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource ResourceKey=ImageButtonMouseOverColor}"/>
+            <Trigger Property="IsMouseOver" Value="False">
+                <Setter Property="Background" Value="Transparent"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="RenderTransform">
+                    <Setter.Value>
+                        <ScaleTransform ScaleX="0.9"
+                                        ScaleY="0.9"
+                                        />
+                    </Setter.Value>
+                </Setter>
             </Trigger>
         </Style.Triggers>
     </Style>

@@ -1,12 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary>
-            <BitmapImage x:Key="image_abort_normal_dark"
-                         UriSource="/EQX.UI;component/Resources/Images/abort_normal_dark.png"/>
-            <BitmapImage x:Key="image_abort_normal_light"
-                         UriSource="/EQX.UI;component/Resources/Images/abort_normal_light.png"/>
-        </ResourceDictionary>
+        <ResourceDictionary Source="/EQX.UI;component/UserControlResources.xaml"/>
+        <ResourceDictionary Source="/EQX.UI;component/BitmapImageResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ImageButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

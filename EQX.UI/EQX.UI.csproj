@@ -486,6 +486,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\Images\abort_normal_dark.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
