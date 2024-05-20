@@ -401,6 +401,8 @@
     <None Remove="Resources\Images\Sites\LG_EnergySolution_logo.png" />
     <None Remove="Resources\Images\Sites\LG_logo.png" />
     <None Remove="Resources\Images\Sites\powerlogics_blue.png" />
+    <None Remove="Resources\Images\Sites\powerlogics_logo.png" />
+    <None Remove="Resources\Images\Sites\powerlogics_logo_white.png" />
     <None Remove="Resources\Images\skip_normal_dark.png" />
     <None Remove="Resources\Images\skip_normal_light.png" />
     <None Remove="Resources\Images\skip_selected.png" />
@@ -845,6 +847,8 @@
     <Resource Include="Resources\Images\Sites\LG_EnergySolution_logo.png" />
     <Resource Include="Resources\Images\Sites\LG_logo.png" />
     <Resource Include="Resources\Images\Sites\powerlogics_blue.png" />
+    <Resource Include="Resources\Images\Sites\powerlogics_logo.png" />
+    <Resource Include="Resources\Images\Sites\powerlogics_logo_white.png" />
     <Resource Include="Resources\Images\Sites\Samsung_Orig_Wordmark_BLUE_RGB.png" />
     <Resource Include="Resources\Images\Sites\Samsung_Orig_Wordmark_WHITE_RGB.png" />
     <Resource Include="Resources\Images\save_all_normal_dark.png" />

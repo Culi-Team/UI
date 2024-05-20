@@ -3,6 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/EQX.UI;component/UserControlResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/BitmapImageResources.xaml"/>
-        <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ImageButtonStyle.xaml"/>
+        <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ContentOnlyButtonStyle.xaml"/>
+        <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ImageAndTextButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
