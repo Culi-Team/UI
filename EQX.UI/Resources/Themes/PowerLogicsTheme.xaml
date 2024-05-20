@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- COLOR RESOURCES -->
-    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF034EA2"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF24292E"/>
 
     <SolidColorBrush x:Key="ImageButtonMouseOverColor" Color="#FF135EB2"/>
     <SolidColorBrush x:Key="ImageButtonMouseOverHightLightColor" Color="#FFD80113"/>
@@ -16,10 +16,10 @@
 
     <BitmapImage x:Key="ImageCustomerLogo" UriSource="/EQX.UI;component/Resources/Images/Samsung_Orig_Wordmark_WHITE_RGB.png"/>
 
-    <BitmapImage x:Key="ImageTopLogo1" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_white1.png"/>
-    <BitmapImage x:Key="ImageTopLogo2" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_white2.png"/>
-    <BitmapImage x:Key="ImageTopLogo3" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_white3.png"/>
-    <BitmapImage x:Key="ImageTopLogo4" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_white4.png"/>
+    <BitmapImage x:Key="ImageTopLogo1" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_red1.png"/>
+    <BitmapImage x:Key="ImageTopLogo2" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_red2.png"/>
+    <BitmapImage x:Key="ImageTopLogo3" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_red3.png"/>
+    <BitmapImage x:Key="ImageTopLogo4" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_red4.png"/>
 
     <FontFamily x:Key="FontHighlight">HYGothic-Extra</FontFamily>
 </ResourceDictionary>

@@ -56,6 +56,7 @@ namespace EQX.UI.Controls
 
         private void CloseButtonClick(object sender, RoutedEventArgs e)
         {
+            Window.GetWindow(this).Close();
         }
     }
 }

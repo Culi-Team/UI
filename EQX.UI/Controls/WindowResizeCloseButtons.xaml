@@ -15,7 +15,7 @@
                BasedOn="{StaticResource ImageButtonStyle}">
             <Style.Setters>
                 <Setter Property="Padding" Value="6"/>
-                <Setter Property="Margin" Value="1"/>
+                <Setter Property="Margin" Value="1 0 0 1"/>
             </Style.Setters>
         </Style>
     </UserControl.Resources>
