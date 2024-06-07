@@ -20,7 +20,7 @@
         </Style>
     </UserControl.Resources>
     
-    <UniformGrid Columns="3">
+    <UniformGrid Rows="1">
         <Button Click="MinimizeButtonClick">
             <Image Source="{StaticResource ImageWindowMinimizeDefault}"/>
         </Button>

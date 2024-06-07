@@ -1,0 +1,44 @@
+﻿<Window x:Class="EQX.UI.Controls.MessageBoxEx"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EQX.UI.Controls"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        mc:Ignorable="d"
+        Title="MessageBoxEx" Height="380" Width="490">
+
+    <Window.DataContext>
+        <local:MessageBoxExViewModel/>
+    </Window.DataContext>
+    
+    <DockPanel>
+        <Border DockPanel.Dock="Top"
+                Height="5"
+                Background="{StaticResource PrimaryBackgroundColor}"/>
+
+        <TextBlock Text="Confirm"
+                   DockPanel.Dock="Top"
+                   FontSize="30"
+                   FontWeight="Bold"
+                   Margin="15"/>
+
+        <UniformGrid DockPanel.Dock="Bottom"
+                     Rows="1"
+                     Height="100">
+            <Button Style="{StaticResource ContentOnlyButtonStyle}"
+                    Width="100">
+                <Image Source="{StaticResource image_ok_selected1}"/>
+            </Button>
+            <Button Style="{StaticResource ContentOnlyButtonStyle}"
+                    Width="100">
+                <Image Source="{StaticResource image_cancel_selected}"/>
+            </Button>
+        </UniformGrid>
+
+        <TextBlock Text="Message detail"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"/>
+    </DockPanel>
+</Window>

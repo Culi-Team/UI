@@ -15,14 +15,50 @@
                                     <ColumnDefinition Width="Auto"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                
-                                <Image Source="{TemplateBinding Image}"
-                                       Margin="5 12 0 12"/>
+
+                                <Image x:Name="image"
+                                       Margin="5 12 0 12">
+                                    <Image.Style>
+                                        <Style TargetType="{x:Type Image}">
+                                            <Setter Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Image}"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsEnabled}"
+                                                             Value="False">
+                                                    <Setter Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=DisabledImage}"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
                                 <ContentPresenter Grid.Column="1"
                                                   VerticalAlignment="Center"
-                                                  HorizontalAlignment="Center"/>
+                                                  HorizontalAlignment="Center">
+                                    <ContentPresenter.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="TextWrapping" Value="Wrap"/>
+                                            <Setter Property="TextElement.Foreground" Value="Black"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsEnabled}"
+                                                             Value="False">
+                                                    <Setter Property="TextElement.Foreground" Value="Gray"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+
+                                        </Style>
+                                    </ContentPresenter.Resources>
+                                </ContentPresenter>
                             </Grid>
                         </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="RenderTransform">
+                                    <Setter.Value>
+                                        <ScaleTransform ScaleX="0.98"
+                                                        ScaleY="0.98"/>
+                                    </Setter.Value>
+                                </Setter>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
@@ -47,23 +83,12 @@
                     <LinearGradientBrush StartPoint="0 0" EndPoint="0 1"
                                          Opacity="0.8">
                         <LinearGradientBrush.GradientStops>
-                            <GradientStop Offset="0.85" Color="White" />
-                            <GradientStop Offset="1" Color="Gray" />
+                            <GradientStop Offset="0.8" Color="White" />
+                            <GradientStop Offset="1" Color="LightGray" />
                         </LinearGradientBrush.GradientStops>
                     </LinearGradientBrush>
                 </Setter.Value>
             </Setter>
         </Style.Setters>
-        <Style.Triggers>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="RenderTransform">
-                    <Setter.Value>
-                        <ScaleTransform ScaleX="0.98"
-                                ScaleY="0.98"
-                                />
-                    </Setter.Value>
-                </Setter>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 </ResourceDictionary>
