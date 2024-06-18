@@ -966,8 +966,18 @@
                          UriSource="/EQX.UI;component/Resources/Images/Sites/LG_logo.png"/>
     <BitmapImage x:Key="image_powerlogics_blue"
                          UriSource="/EQX.UI;component/Resources/Images/Sites/powerlogics_blue.png"/>
+    <BitmapImage x:Key="image_powerlogics_logo"
+                         UriSource="/EQX.UI;component/Resources/Images/Sites/powerlogics_logo.png"/>
+    <BitmapImage x:Key="image_powerlogics_logo_white"
+                         UriSource="/EQX.UI;component/Resources/Images/Sites/powerlogics_logo_white.png"/>
     <BitmapImage x:Key="image_Samsung_Orig_Wordmark_BLUE_RGB"
                          UriSource="/EQX.UI;component/Resources/Images/Sites/Samsung_Orig_Wordmark_BLUE_RGB.png"/>
     <BitmapImage x:Key="image_Samsung_Orig_Wordmark_WHITE_RGB"
                          UriSource="/EQX.UI;component/Resources/Images/Sites/Samsung_Orig_Wordmark_WHITE_RGB.png"/>
+    <BitmapImage x:Key="image_UTI_Blue"
+                         UriSource="/EQX.UI;component/Resources/Images/Sites/UTI_Blue.png"/>
+    <BitmapImage x:Key="image_UTI_Gray"
+                         UriSource="/EQX.UI;component/Resources/Images/Sites/UTI_Gray.png"/>
+    <BitmapImage x:Key="image_UTI_HR"
+                         UriSource="/EQX.UI;component/Resources/Images/Sites/UTI_HR.jpg"/>
 </ResourceDictionary>

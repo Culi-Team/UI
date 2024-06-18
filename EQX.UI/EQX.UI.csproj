@@ -40,6 +40,10 @@
     <None Remove="Resources\Images\auto_run_normal.png" />
     <None Remove="Resources\Images\auto_run_selected.png" />
     <None Remove="Resources\Images\auto_selected.png" />
+    <None Remove="Resources\Images\Background\auto_run_selected_background.png" />
+    <None Remove="Resources\Images\Background\bottom_background.png" />
+    <None Remove="Resources\Images\Background\dry_run_selected_background.png" />
+    <None Remove="Resources\Images\Background\top_background.png" />
     <None Remove="Resources\Images\blow_normal_dark.png" />
     <None Remove="Resources\Images\blow_normal_light.png" />
     <None Remove="Resources\Images\blow_selected.png" />
@@ -403,6 +407,9 @@
     <None Remove="Resources\Images\Sites\powerlogics_blue.png" />
     <None Remove="Resources\Images\Sites\powerlogics_logo.png" />
     <None Remove="Resources\Images\Sites\powerlogics_logo_white.png" />
+    <None Remove="Resources\Images\Sites\UTI_Blue.png" />
+    <None Remove="Resources\Images\Sites\UTI_Gray.png" />
+    <None Remove="Resources\Images\Sites\UTI_HR.jpg" />
     <None Remove="Resources\Images\skip_normal_dark.png" />
     <None Remove="Resources\Images\skip_normal_light.png" />
     <None Remove="Resources\Images\skip_selected.png" />
@@ -532,6 +539,10 @@
     <Resource Include="Resources\Images\auto_run_normal.png" />
     <Resource Include="Resources\Images\auto_run_selected.png" />
     <Resource Include="Resources\Images\auto_selected.png" />
+    <Resource Include="Resources\Images\Background\auto_run_selected_background.png" />
+    <Resource Include="Resources\Images\Background\bottom_background.png" />
+    <Resource Include="Resources\Images\Background\dry_run_selected_background.png" />
+    <Resource Include="Resources\Images\Background\top_background.png" />
     <Resource Include="Resources\Images\blow_normal_dark.png" />
     <Resource Include="Resources\Images\blow_normal_light.png" />
     <Resource Include="Resources\Images\blow_selected.png" />
@@ -895,6 +906,9 @@
     <Resource Include="Resources\Images\shiftC_normal_dark.png" />
     <Resource Include="Resources\Images\shiftC_normal_light.png" />
     <Resource Include="Resources\Images\shiftC_selected.png" />
+    <Resource Include="Resources\Images\Sites\UTI_Blue.png" />
+    <Resource Include="Resources\Images\Sites\UTI_Gray.png" />
+    <Resource Include="Resources\Images\Sites\UTI_HR.jpg" />
     <Resource Include="Resources\Images\skip_normal_dark.png" />
     <Resource Include="Resources\Images\skip_normal_light.png" />
     <Resource Include="Resources\Images\skip_selected.png" />
@@ -983,6 +997,11 @@
     <Resource Include="Resources\Images\zero_normal_dark.png" />
     <Resource Include="Resources\Images\zero_normal_light.png" />
     <Resource Include="Resources\Images\zero_selected.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\EQX.Core\EQX.Core\EQX.Core.csproj" />
+    <ProjectReference Include="..\..\EQX.InOut\EQX.InOut\EQX.InOut.csproj" />
   </ItemGroup>
 
 </Project>

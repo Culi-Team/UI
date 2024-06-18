@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="EQX.UI.Controls.DInputView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:EQX.UI.Controls"
+             xmlns:inout="clr-namespace:EQX.Core.InOut;assembly=EQX.Core"
+             xmlns:cvt="clr-namespace:EQX.UI.Converters"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance Type=inout:IDInput}"
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Ellipse Width="50"
+                 Height="50"
+                 Fill="{Binding Value, Converter={StaticResource BooleanToOnOffBrushConverter}}"/>
+
+        <Label Content="{Binding Id}"
+               Grid.Column="1"/>
+        
+        <Label Content="{Binding Name}"
+               Grid.Column="2"/>
+    </Grid>
+</UserControl>

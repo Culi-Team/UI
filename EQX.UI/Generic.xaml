@@ -1,9 +1,15 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:inout="clr-namespace:EQX.InOut;assembly=EQX.InOut"
+                    xmlns:views="clr-namespace:EQX.UI.Controls">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="/EQX.UI;component/UserControlResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/BitmapImageResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ContentOnlyButtonStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ImageAndTextButtonStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
+    <DataTemplate DataType="{x:Type inout:DInput}">
+        <views:DInputView/>
+    </DataTemplate>
 </ResourceDictionary>
