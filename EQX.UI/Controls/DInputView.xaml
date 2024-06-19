@@ -8,27 +8,40 @@
              xmlns:cvt="clr-namespace:EQX.UI.Converters"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=inout:IDInput}"
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignWidth="800"
+             Width="250"
+             Height="35">
 
     <UserControl.Resources>
         <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
     </UserControl.Resources>
-    
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
 
-        <Ellipse Width="50"
-                 Height="50"
-                 Fill="{Binding Value, Converter={StaticResource BooleanToOnOffBrushConverter}}"/>
+    <Border BorderThickness="1"
+            BorderBrush="Black"
+            Background="LightGray"
+            CornerRadius="3">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="50"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
 
-        <Label Content="{Binding Id}"
-               Grid.Column="1"/>
-        
-        <Label Content="{Binding Name}"
-               Grid.Column="2"/>
-    </Grid>
+            <Ellipse Width="25"
+                     Height="25"
+                     Margin="3 0 0 0"
+                     Fill="{Binding Value, Converter={StaticResource BooleanToOnOffBrushConverter}}"/>
+
+            <TextBlock Text="{Binding Id, StringFormat=[{0}]}"
+                       Margin="3 0"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Column="1"/>
+
+            <TextBlock Text="{Binding Name}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Grid.Column="2"/>
+        </Grid>
+    </Border>
 </UserControl>
