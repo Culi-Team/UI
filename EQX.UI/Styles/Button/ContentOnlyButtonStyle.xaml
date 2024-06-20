@@ -12,7 +12,6 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-            <Setter Property="Padding" Value="10"/>
             <Setter Property="Background" Value="{DynamicResource ResourceKey=ImageButtonMouseOverColor}"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Setter Property="IsTabStop" Value="True"/>

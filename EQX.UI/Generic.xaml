@@ -12,4 +12,8 @@
     <DataTemplate DataType="{x:Type inout:DInput}">
         <views:DInputView/>
     </DataTemplate>
+
+    <DataTemplate DataType="{x:Type inout:DOutput}">
+        <views:DOutputView/>
+    </DataTemplate>
 </ResourceDictionary>
