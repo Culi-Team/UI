@@ -57,22 +57,29 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <Button Width="30"
+                    <Button Width="50"
                             Height="30"
-                            Grid.Column="0">
+                            Grid.Column="0"
+                            MouseLeftButtonDown="MoveDec_ButtonDown"
+                            MouseLeftButtonUp="MoveDec_ButtonUp">
                         <Image Source="{StaticResource image_left_selected}"/>
                     </Button>
-                    <ComboBox Grid.Column="1"/>
-                    <Button Width="30"
+                    <ComboBox Grid.Column="1" Height="30"
+                              x:Name="cbBoxStepInc"/>
+                    <Button Width="50"
                             Height="30"
-                            Grid.Column="2">
+                            Grid.Column="2"
+                            MouseLeftButtonDown="MoveInc_ButtonDown"
+                            MouseLeftButtonUp="MoveInc_ButtonUp">
                         <Image Source="{StaticResource image_right_selected}"/>
                     </Button>
                 </Grid>
                 <StackPanel Orientation="Vertical"
-                            Grid.Column="1">
-                    <RadioButton Content="Jog" GroupName="ModeMove"/>
-                    <RadioButton Content="Inc" GroupName="ModeMove"/>
+                            Margin="0 4 0 0"
+                            Grid.Column="1"
+                            VerticalAlignment="Center">
+                    <RadioButton Content="Jog" GroupName="ModeMove" x:Name="JogMode"/>
+                    <RadioButton Content="Inc" GroupName="ModeMove" x:Name="IncMode"/>
                 </StackPanel>
             </Grid>
         </Border>

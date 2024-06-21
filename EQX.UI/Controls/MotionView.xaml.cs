@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EQX.Motion;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,48 @@ namespace EQX.UI.Controls
         public MotionView()
         {
             InitializeComponent();
+            cbBoxStepInc.ItemsSource = new List<int> { 1, 2, 5, 10 };
+            IncMode.IsChecked = true;
+        }
+
+        private void MoveDec_ButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(JogMode.IsChecked == true) 
+            {
+                (this.DataContext as MotionBase).MoveJog(2000, false);
+            }
+            else
+            {
+                (this.DataContext as MotionBase).MoveInc(-(double)cbBoxStepInc.SelectedItem, 2000);
+            }
+        }
+
+        private void MoveDec_ButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (JogMode.IsChecked == true)
+            {
+                (this.DataContext as MotionBase).Stop();
+            }
+        }
+
+        private void MoveInc_ButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (JogMode.IsChecked == true)
+            {
+                (this.DataContext as MotionBase).MoveJog(2000, true);
+            }
+            else
+            {
+                (this.DataContext as MotionBase).MoveInc((double)cbBoxStepInc.SelectedItem, 2000);
+            }
+        }
+
+        private void MoveInc_ButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (JogMode.IsChecked == true)
+            {
+                (this.DataContext as MotionBase).Stop();
+            }
         }
     }
 }
