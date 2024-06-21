@@ -13,9 +13,11 @@ namespace EQX.UI.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool onOff = (bool)value;
-
-            return onOff ? Brushes.Blue : Brushes.Red;
+            if(value is bool bValue)
+            {
+                return bValue ? Brushes.Green : Brushes.Red;
+            }
+            return Binding.DoNothing;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
