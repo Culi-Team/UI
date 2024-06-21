@@ -61,7 +61,7 @@
                             Height="30"
                             Grid.Column="0"
                             PreviewMouseLeftButtonDown="MoveDec_ButtonDown"
-                            MouseLeftButtonUp="MoveButton_ButtonUp">
+                            PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
                         <Image Source="{StaticResource image_left_selected}"/>
                     </Button>
                     <ComboBox Grid.Column="1"
@@ -73,7 +73,7 @@
                             Height="30"
                             Grid.Column="2"
                             PreviewMouseLeftButtonDown="MoveInc_ButtonDown"
-                            MouseLeftButtonUp="MoveButton_ButtonUp">
+                            PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
                         <Image Source="{StaticResource image_right_selected}"/>
                     </Button>
                 </Grid>
