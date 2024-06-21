@@ -149,12 +149,14 @@
                      StrokeThickness="4" />
             <Button Grid.Column="1"
                     Content="Servo ON"
+                    Click="ServoOnButton_Click"
                     FontWeight="Bold"
                     Margin="2" />
         </Grid>
         <Grid Grid.Row="6">
             <Button Grid.Column="1"
                     Content="Origin"
+                    Click="OriginButton_Click"
                     FontWeight="Bold"
                     Margin="2" />
         </Grid>

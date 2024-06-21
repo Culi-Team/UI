@@ -67,5 +67,15 @@ namespace EQX.UI.Controls
                 (this.DataContext as MotionBase).Stop();
             }
         }
+
+        private void ServoOnButton_Click(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as MotionBase).MotionOn();
+        }
+
+        private void OriginButton_Click(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as MotionBase).SearchOrigin();
+        }
     }
 }
