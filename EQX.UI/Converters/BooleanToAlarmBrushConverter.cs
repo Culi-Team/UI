@@ -9,20 +9,18 @@ using System.Windows.Media;
 
 namespace EQX.UI.Converters
 {
-    public class BooleanToAlarmBrushConverter : IValueConverter
+    internal class BooleanToAlarmBrushConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value is bool bValue)
-            {
-                return bValue ? Brushes.Red : Brushes.White;
-            }
-            return Binding.DoNothing;
+            bool onOff = (bool)value;
+
+            return onOff ? Brushes.Red : Brushes.Silver;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return Binding.DoNothing;
+            throw new NotImplementedException();
         }
     }
 }
