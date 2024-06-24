@@ -143,15 +143,5 @@ namespace EQX.UI.Controls
 
             ((IMotion)DataContext).SearchOrigin();
         }
-
-        private void ServoOnButton_Click(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as MotionBase).MotionOn();
-        }
-
-        private void OriginButton_Click(object sender, RoutedEventArgs e)
-        {
-            (this.DataContext as MotionBase).SearchOrigin();
-        }
     }
 }
