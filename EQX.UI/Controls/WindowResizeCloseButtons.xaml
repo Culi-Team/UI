@@ -27,7 +27,7 @@
         <Button Click="MaximizeButtonClick">
             <Image Source="{StaticResource ImageWindowMaximizeDefault}"/>
         </Button>
-        <Button Click="CloseButtonClick">
+        <Button Command="{Binding CloseButtonClickCommand}">
             <Button.Content>
                 <Image Source="{StaticResource ImageWindowCloseDefault}"/>
             </Button.Content>
