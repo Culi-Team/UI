@@ -1,7 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
     <!-- COLOR RESOURCES -->
-    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="Crimson"/>
+    <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF137F96"/>
+    <SolidColorBrush x:Key="SecondaryBackgroundColor" Color="#FF1C505E"/>
+    <SolidColorBrush x:Key="HighLightBackgroundColor" Color="#FF03C5EC"/>
 
     <SolidColorBrush x:Key="ImageButtonMouseOverColor" Color="#FFD0D0D0"/>
     <SolidColorBrush x:Key="ImageButtonMouseOverHightLightColor" Color="#FFE81123"/>
