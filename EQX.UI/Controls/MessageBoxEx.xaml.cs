@@ -25,18 +25,24 @@ namespace EQX.UI.Controls
             InitializeComponent();
         }
 
-        public void Show(string message, string caption = "Confirm")
+        public static void Show(string message, string caption = "Confirm")
         {
-            ((MessageBoxExViewModel)DataContext).Show(message, caption);
-            this.Show();
+            // TODO: Check if any MessageBoxEx alive
+
+            MessageBoxEx messageBoxEx = new MessageBoxEx();
+            ((MessageBoxExViewModel)messageBoxEx.DataContext).Show(message, caption);
+            messageBoxEx.Show();
         }
 
-        public bool? ShowDialog(string message, string caption = "Confirm")
+        public static bool? ShowDialog(string message, string caption = "Confirm")
         {
-            ((MessageBoxExViewModel)DataContext).ShowDialog(message, caption);
-            this.ShowDialog();
+            // TODO: Check if any MessageBoxEx alive
 
-            return DialogResult;
+            MessageBoxEx messageBoxEx = new MessageBoxEx();
+            ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
+            messageBoxEx.ShowDialog();
+
+            return messageBoxEx.DialogResult;
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
