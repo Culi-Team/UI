@@ -10,7 +10,7 @@ namespace EQX.UI.Controls
 {
     internal class MessageBoxExViewModel : ObservableObject
     {
-        public EventHandler MessageBoxExShownEvent { get; set; }
+        public EventHandler? ModalChangedEvent { get; set; }
 
         #region Properties
         public string MessageDetail
@@ -32,8 +32,6 @@ namespace EQX.UI.Controls
                 OnPropertyChanged();
             }
         }
-
-		public MessageBoxResult Result { get; set; }
         #endregion
 
         #region Public Methods
@@ -53,8 +51,6 @@ namespace EQX.UI.Controls
         {
             MessageDetail = message;
             Caption = caption;
-
-            Result = MessageBoxResult.None;
         }
         #endregion
 

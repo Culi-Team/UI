@@ -8,6 +8,10 @@
     <Configurations>Debug;Release;Simulation</Configurations>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Simulation|AnyCPU'">
+    <XamlDebuggingInformation>True</XamlDebuggingInformation>
+  </PropertyGroup>
+
   <ItemGroup>
     <None Remove="Resources\Images\abort_normal_dark.png" />
     <None Remove="Resources\Images\abort_normal_light.png" />

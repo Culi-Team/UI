@@ -27,12 +27,26 @@ namespace EQX.UI.Controls
 
         public void Show(string message, string caption = "Confirm")
         {
+            ((MessageBoxExViewModel)DataContext).Show(message, caption);
             this.Show();
         }
 
         public bool? ShowDialog(string message, string caption = "Confirm")
         {
-            return this.ShowDialog();
+            ((MessageBoxExViewModel)DataContext).ShowDialog(message, caption);
+            this.ShowDialog();
+
+            return DialogResult;
+        }
+
+        private void OKButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = true;
+        }
+
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            DialogResult = false;
         }
     }
 }

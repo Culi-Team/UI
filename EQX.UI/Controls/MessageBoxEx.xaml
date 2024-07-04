@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EQX.UI.Controls"
         WindowStyle="None"
-        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
-        Title="MessageBoxEx" Height="380" Width="490">
+        d:DataContext="{d:DesignInstance Type=local:MessageBoxExViewModel}"
+        Title="MessageBoxEx" Height="450" Width="600">
 
     <Window.DataContext>
         <local:MessageBoxExViewModel/>
@@ -18,7 +19,8 @@
                 Height="5"
                 Background="{StaticResource PrimaryBackgroundColor}"/>
 
-        <TextBlock Text="Confirm"
+        <TextBlock Text="{Binding Caption}"
+                   d:Text="Caption"
                    DockPanel.Dock="Top"
                    FontSize="30"
                    FontWeight="Bold"
@@ -26,19 +28,26 @@
 
         <UniformGrid DockPanel.Dock="Bottom"
                      Rows="1"
-                     Height="100">
-            <Button Style="{StaticResource ContentOnlyButtonStyle}"
-                    Width="100">
-                <Image Source="{StaticResource image_ok_selected1}"/>
-            </Button>
-            <Button Style="{StaticResource ContentOnlyButtonStyle}"
-                    Width="100">
-                <Image Source="{StaticResource image_cancel_selected}"/>
-            </Button>
+                     Height="80"
+                     Margin="0 0 0 10">
+            <local:ImageButton Content="OK"
+                               Width="120"
+                               Click="OKButton_Click"
+                               DisabledImage="{StaticResource image_ok_normal1}"
+                               Image="{StaticResource image_ok_selected1}"/>
+
+            <local:ImageButton Content="Cancel"
+                               Click="CancelButton_Click"
+                               Width="120"
+                               DisabledImage="{StaticResource image_cancel_normal_light}"
+                               Image="{StaticResource image_cancel_selected}"/>
         </UniformGrid>
 
-        <TextBlock Text="Message detail"
-                   HorizontalAlignment="Center"
+        <TextBlock Text="{Binding MessageDetail}"
+                   FontSize="25"
+                   TextWrapping="Wrap"
+                   d:Text="Are you sure?"
+                   TextAlignment="Center"
                    VerticalAlignment="Center"/>
     </DockPanel>
 </Window>
