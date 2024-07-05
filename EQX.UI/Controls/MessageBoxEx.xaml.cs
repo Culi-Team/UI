@@ -38,11 +38,25 @@ namespace EQX.UI.Controls
         {
             // TODO: Check if any MessageBoxEx alive
 
-            MessageBoxEx messageBoxEx = new MessageBoxEx();
-            ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
-            messageBoxEx.ShowDialog();
-
-            return messageBoxEx.DialogResult;
+            if (Application.Current.Dispatcher.CheckAccess())
+            {
+                // The current thread is the UI thread
+                MessageBoxEx messageBoxEx = new MessageBoxEx();
+                ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
+                messageBoxEx.ShowDialog();
+                return messageBoxEx.DialogResult;
+            }
+            else
+            {
+                // The current thread is not the UI thread =>  call to the UI thread
+                return Application.Current.Dispatcher.Invoke(() =>
+                {
+                    MessageBoxEx messageBoxEx = new MessageBoxEx();
+                    ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
+                    messageBoxEx.ShowDialog();
+                    return messageBoxEx.DialogResult;
+                });
+            }
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
