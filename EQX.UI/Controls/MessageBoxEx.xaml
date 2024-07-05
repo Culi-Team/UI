@@ -31,14 +31,14 @@
                      Height="80"
                      Margin="0 0 0 10">
             <local:ImageButton Content="OK"
-                               Width="120"
+                               Width="140"
                                Click="OKButton_Click"
                                DisabledImage="{StaticResource image_ok_normal1}"
                                Image="{StaticResource image_ok_selected1}"/>
 
             <local:ImageButton Content="Cancel"
                                Click="CancelButton_Click"
-                               Width="120"
+                               Width="140"
                                DisabledImage="{StaticResource image_cancel_normal_light}"
                                Image="{StaticResource image_cancel_selected}"/>
         </UniformGrid>
