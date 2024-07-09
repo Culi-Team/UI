@@ -31,4 +31,7 @@
     <DataTemplate DataType="{x:Type motion:MotionBase}">
         <views:MotionView/>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type views:AlarmNotifyViewModel}">
+        <views:AlarmNotifyView />
+    </DataTemplate>
 </ResourceDictionary>
