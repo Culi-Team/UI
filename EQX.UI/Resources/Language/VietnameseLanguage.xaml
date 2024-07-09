@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <system:String x:Key="str_Hello">Xin chào</system:String>
+            <system:String x:Key="str_Log">Nhật ký</system:String>
+            <system:String x:Key="str_GlassAlignVision">Thị giác căn chỉnh Glass</system:String>
+            <system:String x:Key="str_ProductInformation">Thông tin sản phẩm</system:String>
+            <system:String x:Key="str_Operation">Vận hành</system:String>
+            <system:String x:Key="str_Auto">Tự động</system:String>
+            <system:String x:Key="str_Manual">Thủ công</system:String>
+            <system:String x:Key="str_Data">Dữ liệu</system:String>
+            <system:String x:Key="str_Teach">Dạy</system:String>
+            <system:String x:Key="str_Vision">Thị giác</system:String>
+            <system:String x:Key="str_Origin">Gốc</system:String>
+            <system:String x:Key="str_Start">Bắt đầu</system:String>
+            <system:String x:Key="str_Ready">Sẵn sàng</system:String>
+            <system:String x:Key="str_Stop">Dừng</system:String>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
