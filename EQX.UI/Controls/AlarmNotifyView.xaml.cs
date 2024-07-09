@@ -23,5 +23,16 @@ namespace EQX.UI.Controls
         {
             InitializeComponent();
         }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

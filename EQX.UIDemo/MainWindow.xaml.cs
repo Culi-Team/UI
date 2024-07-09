@@ -37,5 +37,6 @@ namespace EQX.UIDemo
             alarmNotifyView.DataContext = new AlarmNotifyViewModel(alarmNotifyModel);
             alarmNotifyView.Show();
         }
+
     }
 }
