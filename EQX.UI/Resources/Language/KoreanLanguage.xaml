@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <system:String x:Key="str_Hello">안녕하세요</system:String>
+            <system:String x:Key="str_Log">로그</system:String>
+            <system:String x:Key="str_GlassAlignVision">유리 정렬 비전</system:String>
+            <system:String x:Key="str_ProductInformation">제품 정보</system:String>
+            <system:String x:Key="str_Operation">작업</system:String>
+            <system:String x:Key="str_Auto">자동</system:String>
+            <system:String x:Key="str_Manual">수동</system:String>
+            <system:String x:Key="str_Data">데이터</system:String>
+            <system:String x:Key="str_Teach">교육</system:String>
+            <system:String x:Key="str_Vision">비전</system:String>
+            <system:String x:Key="str_Origin">원본</system:String>
+            <system:String x:Key="str_Start">시작</system:String>
+            <system:String x:Key="str_Ready">준비</system:String>
+            <system:String x:Key="str_Stop">정지</system:String>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>

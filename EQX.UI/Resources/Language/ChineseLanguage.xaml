@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary>
+            <system:String x:Key="str_Hello">你好</system:String>
+            <system:String x:Key="str_Log">日志</system:String>
+            <system:String x:Key="str_GlassAlignVision">玻璃对齐视觉</system:String>
+            <system:String x:Key="str_ProductInformation">产品信息</system:String>
+            <system:String x:Key="str_Operation">操作</system:String>
+            <system:String x:Key="str_Auto">自动</system:String>
+            <system:String x:Key="str_Manual">手动</system:String>
+            <system:String x:Key="str_Data">数据</system:String>
+            <system:String x:Key="str_Teach">教学</system:String>
+            <system:String x:Key="str_Vision">视觉</system:String>
+            <system:String x:Key="str_Origin">原始</system:String>
+            <system:String x:Key="str_Start">开始</system:String>
+            <system:String x:Key="str_Ready">准备</system:String>
+            <system:String x:Key="str_Stop">停止</system:String>
+        </ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+</ResourceDictionary>
