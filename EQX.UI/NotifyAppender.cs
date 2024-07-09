@@ -1,16 +1,10 @@
 ﻿using log4net.Appender;
 using log4net.Core;
-using log4net.Layout;
 using log4net;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace EQX.UI
