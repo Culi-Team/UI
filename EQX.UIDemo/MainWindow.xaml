@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:EQX.UIDemo"
         xmlns:eqxui="clr-namespace:EQX.UI.Controls;assembly=EQX.UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow"
+        Height="650"
+        Width="800">
     <Grid Background="{StaticResource ResourceKey=PrimaryBackgroundColor}">
         <!--<Button Style="{StaticResource ResourceKey=ImageButtonStyle}"
                 Height="100"
@@ -14,8 +16,12 @@
             <Image Source="{StaticResource ResourceKey=image_abort_normal_light}"/>
         </Button>-->
 
-        <eqxui:WindowResizeCloseButtons
+        <!--<eqxui:WindowResizeCloseButtons
             Height="30"
-            Width="120"/>
+            Width="120"/>-->
+        <Button Content="Alarm"
+                Width="100"
+                Height="50"
+                Click="Button_Click" />
     </Grid>
 </Window>
