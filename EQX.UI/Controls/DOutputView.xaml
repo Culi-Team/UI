@@ -9,7 +9,7 @@
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance Type=inout:IDOutput}"
              Width="250"
-             Height="35">
+             Height="Auto">
 
     <UserControl.Resources>
         <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
@@ -22,7 +22,7 @@
                 BorderBrush="Black"
                 Background="LightGray"
                 CornerRadius="3">
-            <Grid>
+            <Grid Margin="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="50"/>

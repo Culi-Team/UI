@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EQX.UI.Controls"
              mc:Ignorable="d"
              xmlns:motion="clr-namespace:EQX.Motion;assembly=EQX.Motion"
-             Height="300"
+             Height="260"
              Width="250"
              xmlns:controls="clr-namespace:EQX.UI.Controls"
              d:DataContext="{d:DesignInstance Type={x:Type motion:MotionBase}}"
