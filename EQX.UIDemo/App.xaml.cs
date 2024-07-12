@@ -1,10 +1,7 @@
 ﻿using EQX.UI.Controls;
-using EQX.UI.Services;
 using EQX.UIDemo.StartupHelpers;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace EQX.UIDemo
@@ -22,7 +19,7 @@ namespace EQX.UIDemo
                 {
                     services.AddSingleton<MainWindow>();
                     services.AddFormFactory<AlarmNotifyView>();
-                    services.AddSingleton<IAlarmService, AlarmService>();
+                    //services.AddSingleton<IAlarmService, AlarmService>();
                 })
                 .Build();
         }
