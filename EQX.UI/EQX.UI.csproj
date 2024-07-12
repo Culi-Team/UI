@@ -1011,4 +1011,8 @@
     <ProjectReference Include="..\..\EQX.Motion\EQX.Motion\EQX.Motion.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Dtos\" />
+  </ItemGroup>
+
 </Project>

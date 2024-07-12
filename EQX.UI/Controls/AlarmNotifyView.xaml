@@ -8,8 +8,10 @@
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance Type=local:AlarmNotifyView}"
         d:DesignHeight="450"
         d:DesignWidth="800">
+    
     <Window.Resources>
         <Style TargetType="Border">
             <Setter Property="BorderBrush"
@@ -53,7 +55,7 @@
             </Grid.RowDefinitions>
             <Border Grid.Row="0"
                     Grid.Column="0">
-                <Label Content="{Binding Id}" />
+                <Label Content="{Binding AlarmModel.Id}" />
             </Border>
             <Border Grid.Row="0"
                     Grid.Column="1">
@@ -61,15 +63,15 @@
             </Border>
             <Border Grid.Row="1"
                     Grid.Column="0">
-                <Image Source="{Binding AlarmOverviewSource}" />
+                <Image Source="{Binding AlarmModel.AlarmOverviewSource}" />
             </Border>
             <Border Grid.Row="1"
                     Grid.Column="1">
-                <Image Source="{Binding AlarmDetailviewSource}" />
+                <Image Source="{Binding AlarmModel.AlarmDetailviewSource}" />
             </Border>
             <Border Grid.Row="2"
                     Grid.ColumnSpan="2">
-                <Label Content="{Binding TroubleshootingSteps}" />
+                <Label Content="{Binding AlarmModel.TroubleshootingSteps}" />
             </Border>
             <local:ImageButton Content="Cancel"
                                Grid.Row="4"
