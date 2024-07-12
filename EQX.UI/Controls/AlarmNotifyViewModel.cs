@@ -10,15 +10,15 @@ namespace EQX.UI.Controls
 {
     public class AlarmNotifyViewModel : ObservableObject
     {
-        private readonly AlarmNotifyModel alarmNotifyModel;
-        public AlarmNotifyViewModel(AlarmNotifyModel alarmNotifyModel)
+        private readonly AlarmModel alarmModel;
+        public AlarmNotifyViewModel(AlarmModel alarmModel)
         {
-            this.alarmNotifyModel = alarmNotifyModel;
+            this.alarmModel = alarmModel;
         }
-        public int AlarmId { get => alarmNotifyModel.AlarmId; }
-        private string AlarmCode { get => alarmNotifyModel.AlarmCode; } 
-        private string AlarmOverviewSource { get => alarmNotifyModel.AlarmOverviewSource; } 
-        private string AlarmDetailviewSource { get => alarmNotifyModel.AlarmDetailviewSource; } 
-        private List<string> AlarmStepCheck { get => alarmNotifyModel.AlarmStepCheck; } 
+        public int Id { get => alarmModel.Id; }
+        private string Code { get => alarmModel.Code; } 
+        private string AlarmOverviewSource { get => alarmModel.AlarmOverviewSource; } 
+        private string AlarmDetailviewSource { get => alarmModel.AlarmDetailviewSource; } 
+        private List<string> TroubleshootingSteps { get => alarmModel.TroubleshootingSteps; } 
     }
 }

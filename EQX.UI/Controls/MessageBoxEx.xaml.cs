@@ -14,46 +14,53 @@ namespace EQX.UI.Controls
 
         public static void Show(string message, string caption = "Confirm")
         {
-            // TODO: Check if any MessageBoxEx alive
+            Application.Current.Dispatcher.Invoke(() =>
+            {
+                bool isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
+                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
 
-            MessageBoxEx messageBoxEx = new MessageBoxEx();
-            ((MessageBoxExViewModel)messageBoxEx.DataContext).Show(message, caption);
-            messageBoxEx.Show();
+                MessageBoxEx messageBoxEx = new MessageBoxEx();
+                ((MessageBoxExViewModel)messageBoxEx.DataContext).Show(message, caption);
+                messageBoxEx.Show();
+            });
         }
 
         public static bool? ShowDialog(string message, string caption = "Confirm")
         {
-            // TODO: Check if any MessageBoxEx alive
-
-            if (Application.Current.Dispatcher.CheckAccess())
+            return Application.Current.Dispatcher.Invoke(() =>
             {
-                // The current thread is the UI thread
+                bool isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
+                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
+
                 MessageBoxEx messageBoxEx = new MessageBoxEx();
                 ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
                 messageBoxEx.ShowDialog();
                 return messageBoxEx.DialogResult;
-            }
-            else
-            {
-                // The current thread is not the UI thread =>  call to the UI thread
-                return Application.Current.Dispatcher.Invoke(() =>
-                {
-                    MessageBoxEx messageBoxEx = new MessageBoxEx();
-                    ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
-                    messageBoxEx.ShowDialog();
-                    return messageBoxEx.DialogResult;
-                });
-            }
+            });
         }
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = true;
+            if (System.Windows.Interop.ComponentDispatcher.IsThreadModal)
+            {
+                DialogResult = true;
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            DialogResult = false;
+            if (System.Windows.Interop.ComponentDispatcher.IsThreadModal)
+            {
+                DialogResult = false;
+            }
+            else
+            {
+                Close();
+            }
         }
     }
 }

@@ -9,6 +9,6 @@ namespace EQX.UI.Services
 {
     public interface IAlarmService
     {
-        AlarmNotifyModel GetById(int  alarmId);
+        AlarmModel GetById(int alarmId);
     }
 }

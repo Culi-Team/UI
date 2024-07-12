@@ -31,10 +31,10 @@ namespace EQX.UIDemo
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             AlarmNotifyView alarmNotifyView = new AlarmNotifyView();
-            AlarmNotifyModel alarmNotifyModel = new AlarmNotifyModel();
-            alarmNotifyModel = alarmService.GetById(1);
+            AlarmModel alarmModel = new AlarmModel();
+            alarmModel = alarmService.GetById(1);
 
-            alarmNotifyView.DataContext = new AlarmNotifyViewModel(alarmNotifyModel);
+            alarmNotifyView.DataContext = new AlarmNotifyViewModel(alarmModel);
             alarmNotifyView.Show();
         }
 
