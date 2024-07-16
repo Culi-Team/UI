@@ -13,7 +13,21 @@
 
     <UserControl.Resources>
         <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
+        <cvt:DisableSpareInOutConverter x:Key="DisableSpareInOutConverter"/>
     </UserControl.Resources>
+
+    <UserControl.Style>
+        <Style TargetType="{x:Type UserControl}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Name,
+                Converter={StaticResource DisableSpareInOutConverter}}"
+                         Value="true">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Setter Property="Opacity" Value="0.5"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
 
     <Button Style="{StaticResource ContentOnlyButtonStyle}"
             Padding="0"

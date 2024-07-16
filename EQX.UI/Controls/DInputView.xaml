@@ -13,7 +13,21 @@
 
     <UserControl.Resources>
         <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
+        <cvt:DisableSpareInOutConverter x:Key="DisableSpareInOutConverter"/>
     </UserControl.Resources>
+
+    <UserControl.Style>
+        <Style TargetType="{x:Type UserControl}">
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=Name,
+                    Converter={StaticResource DisableSpareInOutConverter}}"
+                             Value="true">
+                    <Setter Property="IsEnabled" Value="False"/>
+                    <Setter Property="Opacity" Value="0.5"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </UserControl.Style>
 
     <Border BorderThickness="1"
             BorderBrush="Black"
@@ -27,21 +41,27 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Ellipse Width="25"
-                     Height="25"
-                     Margin="3 0 0 0"
-                     Fill="{Binding Value, Converter={StaticResource BooleanToOnOffBrushConverter}}"/>
+            <Ellipse
+                Width="25"
+                Height="25"
+                Margin="3 0 0 0"
+                d:Fill="Red"
+                Fill="{Binding Value, Converter={StaticResource BooleanToOnOffBrushConverter}}"/>
 
-            <TextBlock Text="{Binding Id, StringFormat=[{0}]}"
-                       Margin="3 0"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Grid.Column="1"/>
+            <TextBlock
+                Text="{Binding Id, StringFormat=[{0}]}"
+                d:Text="[11]"
+                Margin="3 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="1"/>
 
-            <TextBlock Text="{Binding Name}"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       Grid.Column="2"/>
+            <TextBlock
+                Text="{Binding Name}"
+                d:Text="START_SW"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Grid.Column="2"/>
         </Grid>
     </Border>
 </UserControl>
