@@ -71,7 +71,7 @@
             </Border>
             <Border Grid.Row="2"
                     Grid.ColumnSpan="2">
-                <Label Content="{Binding AlarmModel.TroubleshootingSteps}" />
+                <Label Content="{Binding AlarmModel.TroubleshootingStepToString}" />
             </Border>
             <local:ImageButton Content="Cancel"
                                Grid.Row="4"
