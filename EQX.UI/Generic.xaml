@@ -3,6 +3,7 @@
                     xmlns:inout="clr-namespace:EQX.InOut;assembly=EQX.InOut"
                     xmlns:views="clr-namespace:EQX.UI.Controls"
                     xmlns:cvt="clr-namespace:EQX.UI.Converters"
+                    xmlns:units="clr-namespace:EQX.Core.Units;assembly=EQX.Core"
                     xmlns:motion="clr-namespace:EQX.Motion;assembly=EQX.Motion">
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
@@ -11,7 +12,7 @@
         <ResourceDictionary>
             <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
         </ResourceDictionary>
-        
+
         <ResourceDictionary Source="/EQX.UI;component/UserControlResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/BitmapImageResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ContentOnlyButtonStyle.xaml"/>
@@ -37,4 +38,5 @@
     <DataTemplate DataType="{x:Type motion:MotionBase}">
         <views:MotionView/>
     </DataTemplate>
+
 </ResourceDictionary>
