@@ -62,5 +62,10 @@ namespace EQX.UI.Controls
                 Close();
             }
         }
+
+        private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

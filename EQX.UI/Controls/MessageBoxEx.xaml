@@ -8,23 +8,31 @@
         WindowStartupLocation="CenterScreen"
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=local:MessageBoxExViewModel}"
-        Title="MessageBoxEx" Height="450" Width="600">
+        Title="MessageBoxEx"
+        Height="450" MinHeight="450" MaxHeight="450"
+        Width="600" MinWidth="600" MaxWidth="600">
 
     <Window.DataContext>
         <local:MessageBoxExViewModel/>
     </Window.DataContext>
     
     <DockPanel>
-        <Border DockPanel.Dock="Top"
+        <Grid DockPanel.Dock="Top"
+              Background="Transparent"
+              Height="30"
+              MouseDown="Grid_MouseDown">
+            <Border
+                VerticalAlignment="Top"
                 Height="5"
                 Background="{StaticResource PrimaryBackgroundColor}"/>
+        </Grid>
 
         <TextBlock Text="{Binding Caption}"
                    d:Text="Caption"
                    DockPanel.Dock="Top"
                    FontSize="30"
                    FontWeight="Bold"
-                   Margin="15"/>
+                   Margin="15 0"/>
 
         <UniformGrid DockPanel.Dock="Bottom"
                      Rows="1"

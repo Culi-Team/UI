@@ -11,7 +11,7 @@
 
     <Button
         Command="{Binding CellClickedCommand}"
-        Margin="3">
+        Margin="2">
         <Button.Style>
             <Style
                 BasedOn="{StaticResource {x:Type Button}}"
@@ -28,7 +28,15 @@
                                 <ContentPresenter
                                     HorizontalAlignment="Center"
                                     VerticalAlignment="Center"
-                                    Content="{Binding Id}"/>
+                                    Content="{Binding Id}">
+                                    <ContentPresenter.Resources>
+                                        <Style TargetType="{x:Type TextBlock}">
+                                            <Setter Property="TextWrapping" Value="Wrap"/>
+                                            <Setter Property="TextAlignment" Value="Center"/>
+                                            <Setter Property="FontWeight" Value="SemiBold"/>
+                                        </Style>
+                                    </ContentPresenter.Resources>
+                                </ContentPresenter>
                             </Border>
                         </ControlTemplate>
                     </Setter.Value>
