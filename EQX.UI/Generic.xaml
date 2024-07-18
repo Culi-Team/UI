@@ -17,6 +17,8 @@
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ContentOnlyButtonStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ImageAndTextButtonStyle.xaml"/>
 
+        <ResourceDictionary Source="/EQX.UI;component/Styles/TextBox/TextBoxWithNameLeftStyle.xaml" />
+
         <ResourceDictionary Source="/EQX.UI;component/Styles/TabItem/TabItemCornerStyle.xaml"/>
 
         <ResourceDictionary Source="/EQX.UI;component/Styles/HeaderTextBlockStyle.xaml"/>
