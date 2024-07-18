@@ -10,13 +10,25 @@
                                 Background="{TemplateBinding Background}">
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition Height="2"/>
+                                    <RowDefinition />
+                                    <RowDefinition Height="2" />
                                 </Grid.RowDefinitions>
 
                                 <Label VerticalAlignment="Center"
                                        HorizontalContentAlignment="Center"
-                                       Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Header}"/>
+                                       Content="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Header}">
+                                    <Label.Style>
+                                        <Style TargetType="Label">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected}"
+                                                             Value="True">
+                                                    <Setter Property="FontWeight"
+                                                            Value="Bold" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Label.Style>
+                                </Label>
 
                                 <Border Grid.Row="1"
                                         Background="{DynamicResource HighLightBackgroundColor}"
@@ -25,12 +37,15 @@
                                     <Border.Style>
                                         <Style TargetType="{x:Type Border}">
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected}" Value="True">
-                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsSelected}"
+                                                             Value="True">
+                                                    <Setter Property="Visibility"
+                                                            Value="Visible" />
                                                 </DataTrigger>
                                             </Style.Triggers>
 
-                                            <Setter Property="Visibility" Value="Hidden"/>
+                                            <Setter Property="Visibility"
+                                                    Value="Hidden" />
                                         </Style>
                                     </Border.Style>
                                 </Border>
@@ -41,32 +56,32 @@
             </Setter>
 
             <Setter Property="Height"
-                    Value="45"/>
+                    Value="45" />
 
             <Setter Property="Width"
-                    Value="100"/>
+                    Value="100" />
 
             <Setter Property="FontSize"
-                    Value="14"/>
+                    Value="14" />
 
             <Setter Property="Cursor"
-                    Value="Hand"/>
+                    Value="Hand" />
 
             <Setter Property="Background"
-                    Value="#E1E1E2"/>
+                    Value="#E1E1E2" />
         </Style.Setters>
 
         <Style.Triggers>
             <Trigger Property="IsMouseOver"
                      Value="True">
                 <Setter Property="Background"
-                        Value="#f6f8fa"/>
+                        Value="#f6f8fa" />
             </Trigger>
 
             <Trigger Property="IsSelected"
                      Value="True">
                 <Setter Property="Cursor"
-                        Value="Arrow"/>
+                        Value="Arrow" />
             </Trigger>
         </Style.Triggers>
     </Style>
