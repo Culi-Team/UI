@@ -26,13 +26,15 @@ namespace EQX.UI.Controls
         public SingleRecipeMinMaxAttribute SingleRecipeMinMax { get; set; }
         public DataEditor(double value, SingleRecipeMinMaxAttribute singleRecipeMinMax)
         {
-            NewValue = value;
+            CurrentValue = value;
             SingleRecipeMinMax = singleRecipeMinMax;
             InitializeComponent();
             this.DataContext = this;
             Calculator = new Calculation(Add);
         }
         private string inputString = "";
+        private double _currentValue;
+
         public string InputString
         {
             get { return inputString; }
@@ -42,9 +44,25 @@ namespace EQX.UI.Controls
                 OnPropertyChanged("InputString");
             }
         }
+        public double CurrentValue
+        {
+            get 
+            {
+                return _currentValue; 
+            }
+            set 
+            {
+                _currentValue = value;
+                OnPropertyChanged("CurrentValue");
+            }
+        }
 
         #region Caculation delegate
+        public delegate double Calculation(double num1, double num2);
+        private Calculation calculator;
         private double number1;
+        private double number2;
+        private double newValue;
         public double Number1
         {
             get { return number1; }
@@ -59,8 +77,6 @@ namespace EQX.UI.Controls
                 OnPropertyChanged("NewValue");
             }
         }
-
-        private double number2;
         public double Number2
         {
             get { return number2; }
@@ -75,7 +91,6 @@ namespace EQX.UI.Controls
                 OnPropertyChanged("NewValue");
             }
         }
-        private double newValue;
         public double NewValue
         {
             get { return newValue; }
@@ -91,18 +106,7 @@ namespace EQX.UI.Controls
                 OnPropertyChanged("NewValue");
             }
         }
-        public delegate double Calculation(double num1, double num2);
-
-        private Calculation calculator;
-
-        public event PropertyChangedEventHandler? PropertyChanged;
-        public void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
+        
         public Calculation Calculator
         {
             get { return calculator; }
@@ -181,13 +185,11 @@ namespace EQX.UI.Controls
                     break;
             }
         }
-
         private void HeaderLabel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
         private void OperandButton_Click(object sender, RoutedEventArgs e)
         {
             string operand = (sender as Button).Content.ToString();
@@ -234,12 +236,10 @@ namespace EQX.UI.Controls
                     break;
             }
         }
-
         private void NumberButton_Click(object sender, RoutedEventArgs e)
         {
             GetNumbersFromInputString((sender as Button).Content.ToString());
         }
-
         private void SignButton_Click(object sender, RoutedEventArgs e)
         {
             if (Calculator == Muliple || Calculator == Division)
@@ -269,7 +269,6 @@ namespace EQX.UI.Controls
 
             GetNumbersFromInputString();
         }
-
         private void GetNumbersFromInputString(string insertingText = null)
         {
             try
@@ -325,8 +324,13 @@ namespace EQX.UI.Controls
             }
         }
 
-        private void CurrentValue_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        public event PropertyChangedEventHandler? PropertyChanged;
+        public void OnPropertyChanged(string propertyName)
         {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 

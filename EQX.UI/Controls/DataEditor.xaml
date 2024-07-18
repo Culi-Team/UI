@@ -75,7 +75,7 @@
                          Height="40"
                          Background="Gray"
                          Margin="0 3"
-                         PreviewMouseDown="CurrentValue_PreviewMouseDown" />
+                         Text="{Binding CurrentValue,Mode=OneWay}"/>
             </StackPanel>
 
             <DockPanel Grid.Row="1"
