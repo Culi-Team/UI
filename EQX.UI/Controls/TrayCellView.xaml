@@ -10,6 +10,7 @@
              d:DesignHeight="450" d:DesignWidth="800">
 
     <Button
+        Command="{Binding CellClickedCommand}"
         Margin="3">
         <Button.Style>
             <Style
