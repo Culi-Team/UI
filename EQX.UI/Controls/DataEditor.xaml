@@ -7,9 +7,10 @@
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="NoResize"
+        FontWeight="SemiBold"
         WindowStartupLocation="CenterScreen"
-        Height="450" Width="800">
-    <DockPanel Background="DarkBlue">
+        Height="450" Width="600">
+    <DockPanel Background="{StaticResource PrimaryBackgroundColor}">
         <Label DockPanel.Dock="Top"
                Height="35"
                HorizontalContentAlignment="Center"
