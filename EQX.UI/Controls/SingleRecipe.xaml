@@ -308,7 +308,7 @@
 
             <Border
                 BorderThickness="1 0.5"
-                Background="White">
+                Background="LightGray">
             </Border>
 
             <TextBlock
