@@ -12,7 +12,7 @@ namespace EQX.UI.Converters
             if (values[0] is bool bValue && values[1] is string strName)
             {
                 if (strName.ToUpper().StartsWith("SPARE")) return Brushes.DarkGray;
-                return bValue ? Brushes.Green : Brushes.Tomato;
+                return bValue ? Brushes.Lime : Brushes.Tomato;
             }
             return Binding.DoNothing;
         }
@@ -29,7 +29,7 @@ namespace EQX.UI.Converters
         {
             if(value is bool bValue)
             {
-                return bValue ? Brushes.Green : Brushes.Tomato;
+                return bValue ? Brushes.Lime : Brushes.Tomato;
             }
             return Binding.DoNothing;
         }

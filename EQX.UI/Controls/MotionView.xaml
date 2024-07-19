@@ -82,12 +82,10 @@
                             Grid.Column="1"
                             VerticalAlignment="Center">
                     <RadioButton Content="Jog"
-                                 GroupName="ModeMove"
                                  x:Name="JogMode"
                                  IsChecked="True"
                                  Checked="JogAbsMode_Checked"/>
                     <RadioButton Content="Inc"
-                                 GroupName="ModeMove"
                                  x:Name="IncMode"
                                  Checked="JogAbsMode_Checked"/>
                 </StackPanel>
