@@ -12,6 +12,7 @@
              Height="Auto">
 
     <UserControl.Resources>
+        <cvt:InOutStatusToOnOffBrushConverter x:Key="InOutStatusToOnOffBrushConverter"/>
         <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
         <cvt:DisableSpareInOutConverter x:Key="DisableSpareInOutConverter"/>
     </UserControl.Resources>
@@ -20,19 +21,26 @@
         <Style TargetType="{x:Type UserControl}">
             <Style.Triggers>
                 <DataTrigger Binding="{Binding Path=Name,
-                    Converter={StaticResource DisableSpareInOutConverter}}"
-                             Value="true">
+            Converter={StaticResource DisableSpareInOutConverter}}"
+                     Value="true">
                     <Setter Property="IsEnabled" Value="False"/>
-                    <Setter Property="Opacity" Value="0.5"/>
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Setter Property="Opacity" Value="0.4"/>
                 </DataTrigger>
             </Style.Triggers>
+            <Setter Property="Background" Value="Snow"/>
         </Style>
     </UserControl.Style>
 
     <Border BorderThickness="1"
-            BorderBrush="Black"
-            Background="LightGray"
-            CornerRadius="3">
+        BorderBrush="Black"
+        Background="{Binding Background, RelativeSource={RelativeSource AncestorType=UserControl}}"
+        CornerRadius="3">
+        <Border.Effect>
+            <DropShadowEffect Color="Silver"
+              Opacity="0.5"
+              BlurRadius="3"/>
+        </Border.Effect>
         <Grid
             Margin="2">
             <Grid.ColumnDefinitions>
@@ -45,8 +53,15 @@
                 Width="25"
                 Height="25"
                 Margin="3 0 0 0"
-                d:Fill="Red"
-                Fill="{Binding Value, Converter={StaticResource BooleanToOnOffBrushConverter}}"/>
+                d:Fill="Tomato"
+                >
+                <Ellipse.Fill>
+                    <MultiBinding Converter="{StaticResource InOutStatusToOnOffBrushConverter}">
+                        <Binding Path="DataContext.Value" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}"/>
+                        <Binding Path="DataContext.Name" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=UserControl}"/>
+                    </MultiBinding>
+                </Ellipse.Fill>
+            </Ellipse>
 
             <TextBlock
                 Text="{Binding Id, StringFormat=[{0}]}"
