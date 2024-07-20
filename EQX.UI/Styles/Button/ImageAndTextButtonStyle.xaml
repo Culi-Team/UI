@@ -9,10 +9,10 @@
                         <Border BorderThickness="1"
                                 Background="{TemplateBinding Background}"
                                 BorderBrush="{TemplateBinding BorderBrush}"
-                                CornerRadius="5">
+                                CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="{Binding Height, RelativeSource={RelativeSource AncestorType=Grid}}"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
@@ -31,7 +31,7 @@
                                     </Image.Style>
                                 </Image>
                                 <ContentPresenter Grid.Column="1"
-                                                  Margin="3 0"
+                                                  Margin="0 0 3 0"
                                                   VerticalAlignment="Center"
                                                   HorizontalAlignment="Center">
                                     <ContentPresenter.Resources>
@@ -72,15 +72,17 @@
             <Setter Property="FontFamily"
                     Value="Consolas"/>
             <Setter Property="Margin"
-                    Value="3"/>
+                    Value="0"/>
             <Setter Property="Padding"
-                    Value="5 12 0 12"/>
+                    Value="10"/>
             <Setter Property="Cursor"
                     Value="Hand"/>
             <Setter Property="RenderTransformOrigin"
                     Value="0.5, 0.5"/>
             <Setter Property="Width"
-                    Value="120"/>
+                    Value="Auto"/>
+            <Setter Property="CornerRadius"
+                    Value="5"/>
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0 0" EndPoint="0 1"

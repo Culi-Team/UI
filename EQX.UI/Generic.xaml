@@ -42,4 +42,8 @@
         <views:MotionView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type inout:CylinderBase}">
+        <views:CylinderView/>
+    </DataTemplate>
+
 </ResourceDictionary>
