@@ -53,12 +53,8 @@
                 </Setter.Value>
             </Setter>
 
-            <Setter Property="Cursor"
-                    Value="Hand"/>
-
-            <Setter Property="FontWeight"
-                    Value="Bold"/>
-
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="FontWeight" Value="Bold"/>
         </Style.Setters>
     </Style>
 
