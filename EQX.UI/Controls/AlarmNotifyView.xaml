@@ -15,71 +15,129 @@
     <Window.Resources>
         <Style TargetType="Border">
             <Setter Property="BorderBrush"
-                    Value="Gray" />
+                    Value="Gray"/>
             <Setter Property="BorderThickness"
-                    Value="1" />
+                    Value="1"/>
             <Setter Property="Margin"
-                    Value="1" />
+                    Value="1"/>
         </Style>
-        <Style TargetType="Label">
-            <Setter Property="HorizontalAlignment"
-                    Value="Center" />
-            <Setter Property="HorizontalContentAlignment"
-                    Value="Center" />
+        <Style TargetType="TextBlock">
+            <Setter Property="TextAlignment"
+                    Value="Center"/>
             <Setter Property="VerticalAlignment"
-                    Value="Center" />
-            <Setter Property="VerticalContentAlignment"
-                    Value="Center" />
+                    Value="Center"/>
             <Setter Property="Foreground"
-                    Value="Red" />
+                    Value="Red"/>
             <Setter Property="FontWeight"
-                    Value="Bold" />
+                    Value="Bold"/>
             <Setter Property="FontSize"
-                    Value="20" />
+                    Value="20"/>
         </Style>
     </Window.Resources>
     <DockPanel>
         <Border DockPanel.Dock="Top"
                 Height="5"
-                Background="{StaticResource PrimaryBackgroundColor}" />
+                Background="{StaticResource PrimaryBackgroundColor}"/>
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*" />
-                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-                <RowDefinition Height="8*" />
-                <RowDefinition Height="2*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="8*"/>
+                <RowDefinition Height="2.5*"/>
+                <RowDefinition Height="1.5*"/>
             </Grid.RowDefinitions>
             <Border Grid.Row="0"
                     Grid.Column="0">
-                <Label Content="{Binding AlarmModel.Id}" />
+                <TextBlock>
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat="{}[{0}] {1}">
+                            <Binding Path="AlarmModel.Id"/>
+                            <Binding Path="AlarmModel.Message"/>
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
             </Border>
             <Border Grid.Row="0"
                     Grid.Column="1">
-                <Label Content="Detail" />
+                <TextBlock Text="Detail"/>
             </Border>
-            <Border Grid.Row="1"
-                    Grid.Column="0">
-                <Image Source="{Binding AlarmModel.AlarmOverviewSource}" />
+            <Border Grid.Row="1">
+                <Canvas Grid.Row="1">
+                    <Image
+                        Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Canvas}}"
+                        Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=Canvas}}"
+                        Source="{Binding AlarmModel.AlarmOverviewSource}"
+                        Stretch="Uniform"/>
+                    <Border
+                        BorderBrush="Red"
+                        BorderThickness="3"
+                        Canvas.Left="{Binding AlarmModel.AlarmOverviewHighlightRectangle.Left}"
+                        Canvas.Top="{Binding AlarmModel.AlarmOverviewHighlightRectangle.Top}"
+                        Width="{Binding AlarmModel.AlarmOverviewHighlightRectangle.Width}"
+                        Height="{Binding AlarmModel.AlarmOverviewHighlightRectangle.Height}"/>
+                </Canvas>
             </Border>
             <Border Grid.Row="1"
                     Grid.Column="1">
-                <Image Source="{Binding AlarmModel.AlarmDetailviewSource}" />
+                <Canvas Grid.Row="1">
+                    <Image
+                        Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Canvas}}"
+                        Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=Canvas}}"
+                        Source="{Binding AlarmModel.AlarmDetailviewSource}"
+                        Stretch="Uniform"/>
+                    <Border
+                        BorderBrush="Red"
+                        BorderThickness="3"
+                        Canvas.Left="{Binding AlarmModel.AlarmDetailviewHighlightRectangle.Left}"
+                        Canvas.Top="{Binding AlarmModel.AlarmDetailviewHighlightRectangle.Top}"
+                        Width="{Binding AlarmModel.AlarmDetailviewHighlightRectangle.Width}"
+                        Height="{Binding AlarmModel.AlarmDetailviewHighlightRectangle.Height}"/>
+                </Canvas>
             </Border>
             <Border Grid.Row="2"
                     Grid.ColumnSpan="2">
-                <Label Content="{Binding AlarmModel.TroubleshootingStepToString}" />
+                <ItemsControl AlternationCount="10" ItemsSource="{Binding AlarmModel.TroubleshootingSteps}">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock>
+                                <TextBlock.Style>
+                                    <Style BasedOn="{StaticResource {x:Type TextBlock}}"
+                                           TargetType="{x:Type TextBlock}">
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    </Style>
+                                </TextBlock.Style>
+                                <TextBlock.Text>
+                                    <MultiBinding StringFormat="{}{0}. {1}">
+                                        <Binding Path="(ItemsControl.AlternationIndex)"
+                                                 RelativeSource="{RelativeSource TemplatedParent}"/>
+                                        <Binding Path="."/>
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel VerticalAlignment="Center"
+                                        Margin="250 0"
+                                        HorizontalAlignment="Left"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                </ItemsControl>
             </Border>
-            <local:ImageButton Content="Cancel"
-                               Grid.Row="4"
-                               Grid.ColumnSpan="2"
-                               Click="CancelButton_Click"
-                               Width="140"
-                               DisabledImage="{StaticResource image_cancel_normal_light}"
-                               Image="{StaticResource image_cancel_selected}" />
+            <local:ImageButton
+                Content="CANCEL"
+                Grid.Row="4"
+                Margin="0 5"
+                Padding="5 10"
+                Grid.ColumnSpan="2"
+                Click="CancelButton_Click"
+                Width="140"
+                DisabledImage="{StaticResource image_cancel_normal_light}"
+                Image="{StaticResource image_cancel_selected}"/>
         </Grid>
     </DockPanel>
 </Window>
