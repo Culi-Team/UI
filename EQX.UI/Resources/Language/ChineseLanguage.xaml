@@ -17,6 +17,11 @@
             <system:String x:Key="str_Start">开始</system:String>
             <system:String x:Key="str_Ready">准备</system:String>
             <system:String x:Key="str_Stop">停止</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">运行前重置警报</system:String>
+            <system:String x:Key="str_Confirm">确认</system:String>
+            <system:String x:Key="str_TurnOnAllMotionsFirst">先开启所有动作</system:String>
+
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

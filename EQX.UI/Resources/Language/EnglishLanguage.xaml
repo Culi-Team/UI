@@ -17,6 +17,10 @@
             <system:String x:Key="str_Start">Start</system:String>
             <system:String x:Key="str_Ready">Ready</system:String>
             <system:String x:Key="str_Stop">Stop</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">Reset alarm before run</system:String>
+            <system:String x:Key="str_Confirm">Confirm</system:String>
+            <system:String x:Key="str_TurnOnAllMotionsFirst">Turn on all Motions first</system:String>
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

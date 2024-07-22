@@ -17,6 +17,11 @@
             <system:String x:Key="str_Start">Bắt đầu</system:String>
             <system:String x:Key="str_Ready">Sẵn sàng</system:String>
             <system:String x:Key="str_Stop">Dừng</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">Cài lại cảnh báo trước khi chạy</system:String>
+            <system:String x:Key="str_Confirm">Xác nhận</system:String>
+            <system:String x:Key="str_TurnOnAllMotionsFirst">Bật tất cả các motions trước</system:String>
+
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

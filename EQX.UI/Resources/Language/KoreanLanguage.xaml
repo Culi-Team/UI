@@ -17,6 +17,10 @@
             <system:String x:Key="str_Start">시작</system:String>
             <system:String x:Key="str_Ready">준비</system:String>
             <system:String x:Key="str_Stop">정지</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">실행 전에 알람을 재설정하세요</system:String>
+            <system:String x:Key="str_Confirm">확인하다</system:String>
+            <system:String x:Key="str_TurnOnAllMotionsFirst">모든 동작을 먼저 켜세요</system:String>
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
