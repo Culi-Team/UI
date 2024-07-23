@@ -20,7 +20,10 @@
             <system:String x:Key="str_ResetAlarmBeforeRun">运行前重置警报</system:String>
             <system:String x:Key="str_Confirm">确认</system:String>
             <system:String x:Key="str_TurnOnAllMotionsFirst">先开启所有动作</system:String>
-
+            <system:String x:Key="str_ListTool">Tool 列表</system:String>
+            <system:String x:Key="str_Run">运行</system:String>
+            <system:String x:Key="str_Save">保存 list</system:String>
+            <system:String x:Key="str_Load">加载数据</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

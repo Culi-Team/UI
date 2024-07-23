@@ -20,6 +20,10 @@
             <system:String x:Key="str_ResetAlarmBeforeRun">실행 전에 알람을 재설정하세요</system:String>
             <system:String x:Key="str_Confirm">확인하다</system:String>
             <system:String x:Key="str_TurnOnAllMotionsFirst">모든 동작을 먼저 켜세요</system:String>
+            <system:String x:Key="str_ListTool">목록 도구</system:String>
+            <system:String x:Key="str_Run">실행</system:String>
+            <system:String x:Key="str_Save">저장</system:String>
+            <system:String x:Key="str_Load">불러오기</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

@@ -20,7 +20,10 @@
             <system:String x:Key="str_ResetAlarmBeforeRun">Cài lại cảnh báo trước khi chạy</system:String>
             <system:String x:Key="str_Confirm">Xác nhận</system:String>
             <system:String x:Key="str_TurnOnAllMotionsFirst">Bật tất cả các motions trước</system:String>
-
+            <system:String x:Key="str_ListTool">Danh sách tool</system:String>
+            <system:String x:Key="str_Run">Chạy</system:String>
+            <system:String x:Key="str_Save">Lưu</system:String>
+            <system:String x:Key="str_Load">Tải dữ liệu</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
