@@ -24,6 +24,8 @@
             <system:String x:Key="str_Run">Run</system:String>
             <system:String x:Key="str_Save">Save</system:String>
             <system:String x:Key="str_Load">Load</system:String>
+            <system:String x:Key="str_Refresh">Refresh</system:String>
+            <system:String x:Key="str_Select">Select</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

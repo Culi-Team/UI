@@ -24,6 +24,8 @@
             <system:String x:Key="str_Run">Chạy</system:String>
             <system:String x:Key="str_Save">Lưu</system:String>
             <system:String x:Key="str_Load">Tải dữ liệu</system:String>
+            <system:String x:Key="str_Refresh">Làm mới</system:String>
+            <system:String x:Key="str_Select">Lựa chọn</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

@@ -24,6 +24,8 @@
             <system:String x:Key="str_Run">실행</system:String>
             <system:String x:Key="str_Save">저장</system:String>
             <system:String x:Key="str_Load">불러오기</system:String>
+            <system:String x:Key="str_Refresh">새로 고침</system:String>
+            <system:String x:Key="str_Select">선택</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

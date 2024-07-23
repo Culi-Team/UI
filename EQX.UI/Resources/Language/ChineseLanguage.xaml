@@ -24,6 +24,8 @@
             <system:String x:Key="str_Run">运行</system:String>
             <system:String x:Key="str_Save">保存 list</system:String>
             <system:String x:Key="str_Load">加载数据</system:String>
+            <system:String x:Key="str_Refresh">刷新</system:String>
+            <system:String x:Key="str_Select">选择</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
