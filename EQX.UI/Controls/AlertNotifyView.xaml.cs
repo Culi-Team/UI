@@ -5,13 +5,14 @@ using System.Windows.Input;
 namespace EQX.UI.Controls
 {
     /// <summary>
-    /// Interaction logic for AlarmNotifyView.xaml
+    /// Interaction logic for AlertNotifyView.xaml
     /// </summary>
-    public partial class AlarmNotifyView : Window
+    public partial class AlertNotifyView : Window
     {
-        public AlarmModel AlarmModel { get; set; }
+        public AlertModel AlertModel { get; set; }
+        public bool IsWarning { get; set; }
 
-        public AlarmNotifyView()
+        public AlertNotifyView()
         {
             InitializeComponent();
             this.DataContext = this;
@@ -24,16 +25,17 @@ namespace EQX.UI.Controls
             }
         }
         
-        public static bool? ShowDialog(AlarmModel alarmModel)
+        public static bool? ShowDialog(AlertModel alarmModel, bool isWarning = false)
         {
             return Application.Current.Dispatcher.Invoke(() =>
             {
-                bool isShown = Application.Current.Windows.OfType<AlarmNotifyView>().Any();
-                if (isShown) Application.Current.Windows.OfType<AlarmNotifyView>().First().Close();
+                bool isShown = Application.Current.Windows.OfType<AlertNotifyView>().Any();
+                if (isShown) Application.Current.Windows.OfType<AlertNotifyView>().First().Close();
 
-                AlarmNotifyView messageBoxEx = new AlarmNotifyView()
+                AlertNotifyView messageBoxEx = new AlertNotifyView()
                 {
-                    AlarmModel = alarmModel
+                    IsWarning = isWarning,
+                    AlertModel = alarmModel
                 };
 
                 messageBoxEx.ShowDialog();

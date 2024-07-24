@@ -14,15 +14,15 @@ namespace EQX.UI.Converters
 
                 SolidColorBrush color = new SolidColorBrush();
 
-                if (str.ToLower().Contains("error") || str.ToLower().Contains("fatal"))
+                if (str.Contains("ERROR") || str.Contains("FATAL"))
                 {
                     color = new SolidColorBrush(Colors.Red);
                 }
-                else if (str.ToLower().Contains("warn"))
+                else if (str.Contains("WARN"))
                 {
                     color = new SolidColorBrush(Colors.Orange);
                 }
-                else if (str.ToLower().Contains("info"))
+                else if (str.Contains("INFO"))
                 {
                     color = new SolidColorBrush(Colors.Blue);
                 }
