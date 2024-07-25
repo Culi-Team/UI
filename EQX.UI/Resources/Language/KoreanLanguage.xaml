@@ -26,6 +26,8 @@
             <system:String x:Key="str_Load">불러오기</system:String>
             <system:String x:Key="str_Refresh">새로 고침</system:String>
             <system:String x:Key="str_Select">선택</system:String>
+            <system:String x:Key="str_Language">언어</system:String>
+            <system:String x:Key="str_Copy">복사</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

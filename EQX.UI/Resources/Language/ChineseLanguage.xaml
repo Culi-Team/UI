@@ -26,6 +26,8 @@
             <system:String x:Key="str_Load">加载数据</system:String>
             <system:String x:Key="str_Refresh">刷新</system:String>
             <system:String x:Key="str_Select">选择</system:String>
+            <system:String x:Key="str_Language">语言文学</system:String>
+            <system:String x:Key="str_Copy">复制</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

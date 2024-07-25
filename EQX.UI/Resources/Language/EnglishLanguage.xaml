@@ -26,6 +26,8 @@
             <system:String x:Key="str_Load">Load</system:String>
             <system:String x:Key="str_Refresh">Refresh</system:String>
             <system:String x:Key="str_Select">Select</system:String>
+            <system:String x:Key="str_Copy">Copy</system:String>
+            <system:String x:Key="str_Language">Language</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
