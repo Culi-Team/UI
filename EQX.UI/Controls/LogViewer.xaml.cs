@@ -23,22 +23,30 @@ namespace EQX.UI.Controls
 {
     public partial class LogViewer : UserControl
     {
-        private string logDirectory = @"D:\UTGAutoLoadUnload\Log";
         private List<string> level = new List<string> { "ALL", "DEBUG", "INFO", "WARN", "ERROR" };
         private List<string> unit = new List<string> { "ALL", "InitVM", "RootProc", "RobotProc", "VisionProc", "LeftInProc", "RightInProc", "TraySupProc", "NGTrayProc", "LeftInTransProc", "NGTrayTransProc" };
+
+        public string LogDirectory
+        {
+            get { return (string)GetValue(LogDirectoryProperty); }
+            set { SetValue(LogDirectoryProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for LogDirectory.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LogDirectoryProperty =
+            DependencyProperty.Register("LogDirectory", typeof(string), typeof(LogViewer), new PropertyMetadata(""));
+
 
         public LogViewer()
         {
             InitializeComponent();
-            LoadLogFiles();
-            LoadUnit();
-            LoadLevel();
+            
         }
 
         private void LoadLogFiles()
         {
             LogFileListBox.Items.Clear();
-            var logFiles = Directory.GetFiles(logDirectory, "*.txt");
+            var logFiles = Directory.GetFiles(LogDirectory, "*.txt");
             for (int i = 0; i < logFiles.Length; ++i)
             {
                 LogFileListBox.Items.Add(Path.GetFileName(logFiles[logFiles.Length - 1 - i]));
@@ -120,7 +128,7 @@ namespace EQX.UI.Controls
         }
         private void LoadData()
         {
-            string selectedFile = Path.Combine(logDirectory, (string)LogFileListBox.SelectedItem);
+            string selectedFile = Path.Combine(LogDirectory, (string)LogFileListBox.SelectedItem);
             string logContent = File.ReadAllText(selectedFile);
             logList = new ObservableCollection<string>(logContent.Split("\n"));
             logList = Filter(cboLevel.SelectedItem.ToString(), cboUnit.SelectedItem.ToString());
@@ -128,5 +136,12 @@ namespace EQX.UI.Controls
         }
 
         private ObservableCollection<string> logList = new ObservableCollection<string>();
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoadLogFiles();
+            LoadUnit();
+            LoadLevel();
+        }
     }
 }
