@@ -11,7 +11,13 @@
              d:DesignHeight="450"
              d:DesignWidth="800">
     <UserControl.Resources>
-        <cvt:TextToTextForeground x:Key="TextToTextForeground" />
+        <ResourceDictionary>
+            <cvt:TextToTextForeground x:Key="TextToTextForeground" />
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/EQX.UI;component/Styles/ExpanderCommonStyle.xaml" />
+                <ResourceDictionary Source="/EQX.UI;component/Styles/ComboboxCommonStyle.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </UserControl.Resources>
 
     <Grid>
@@ -23,8 +29,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*" />
-            <RowDefinition Height="9.7*" />
+            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="9.5*" />
         </Grid.RowDefinitions>
 
         <GroupBox Header="Log Files>"

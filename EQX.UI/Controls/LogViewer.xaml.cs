@@ -23,7 +23,7 @@ namespace EQX.UI.Controls
 {
     public partial class LogViewer : UserControl
     {
-        private List<string> level = new List<string> { "ALL", "DEBUG", "INFO", "WARN", "ERROR" };
+        private List<string> level = new List<string> { "ALL", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "OFF" };
         private List<string> unit = new List<string> { "ALL", "InitVM", "RootProc", "RobotProc", "VisionProc", "LeftInProc", "RightInProc", "TraySupProc", "NGTrayProc", "LeftInTransProc", "NGTrayTransProc" };
 
         public string LogDirectory
