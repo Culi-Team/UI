@@ -26,5 +26,5 @@
     <BitmapImage x:Key="ImageTopLogo3" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_red3.png"/>
     <BitmapImage x:Key="ImageTopLogo4" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_red4.png"/>
 
-    <FontFamily x:Key="FontHighlight">HYGothic-Extra</FontFamily>
+    <FontFamily x:Key="FontHighlight">Consolas</FontFamily>
 </ResourceDictionary>
