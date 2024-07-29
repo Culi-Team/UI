@@ -25,7 +25,7 @@
         <ResourceDictionary Source="/EQX.UI;component/Styles/TabItem/TabItemCornerStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/TabItem/TabItemUnderMarkStyle.xaml"/>
 
-        <ResourceDictionary Source="/EQX.UI;component/Styles/HeaderTextBlockStyle.xaml"/>
+        <ResourceDictionary Source="/EQX.UI;component/Styles/HeaderLabelStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/GroupBoxCommonStyle.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>

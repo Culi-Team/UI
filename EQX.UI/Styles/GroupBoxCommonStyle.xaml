@@ -4,9 +4,9 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock
-                        Text="{Binding}"
-                        Style="{DynamicResource HeaderTextBlockStyle}"/>
+                    <Label
+                        Content="{Binding}" 
+                        Style="{DynamicResource HeaderLabelStyle}"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
