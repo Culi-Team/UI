@@ -24,15 +24,21 @@ namespace EQX.UI.Controls
     public partial class LogViewer : UserControl
     {
         private List<string> level = new List<string> { "ALL", "DEBUG", "INFO", "WARN", "ERROR", "FATAL", "OFF" };
-        private List<string> unit = new List<string> { "ALL", "InitVM", "RootProc", "RobotProc", "VisionProc", "LeftInProc", "RightInProc", "TraySupProc", "NGTrayProc", "LeftInTransProc", "NGTrayTransProc" };
 
         public string LogDirectory
         {
             get { return (string)GetValue(LogDirectoryProperty); }
             set { SetValue(LogDirectoryProperty, value); }
         }
+        public ObservableCollection<string> Unit
+        {
+            get { return (ObservableCollection<string>)GetValue(UnitProperty); }
+            set { SetValue(UnitProperty, value); }
+        }
 
-        // Using a DependencyProperty as the backing store for LogDirectory.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty UnitProperty =
+            DependencyProperty.Register("Unit", typeof(ObservableCollection<string>), typeof(LogViewer), new PropertyMetadata(new ObservableCollection<string> { }));
+
         public static readonly DependencyProperty LogDirectoryProperty =
             DependencyProperty.Register("LogDirectory", typeof(string), typeof(LogViewer), new PropertyMetadata(""));
 
@@ -40,27 +46,17 @@ namespace EQX.UI.Controls
         public LogViewer()
         {
             InitializeComponent();
-            
+            this.DataContext = this;
         }
 
         private void LoadLogFiles()
         {
             LogFileListBox.Items.Clear();
-            var logFiles = Directory.GetFiles(LogDirectory, "*.txt");
+            var logFiles = Directory.GetFiles(LogDirectory, "");
             for (int i = 0; i < logFiles.Length; ++i)
             {
                 LogFileListBox.Items.Add(Path.GetFileName(logFiles[logFiles.Length - 1 - i]));
             }
-        }
-
-        private void LoadUnit()
-        {
-            cboUnit.Items.Clear();
-            foreach (var unit in unit)
-            {
-                cboUnit.Items.Add(unit);
-            }
-            cboUnit.SelectedIndex = 0;
         }
 
         private void LoadLevel()
@@ -128,6 +124,8 @@ namespace EQX.UI.Controls
         }
         private void LoadData()
         {
+            if (string.IsNullOrEmpty(LogDirectory)) return;
+
             string selectedFile = Path.Combine(LogDirectory, (string)LogFileListBox.SelectedItem);
             string logContent = File.ReadAllText(selectedFile);
             logList = new ObservableCollection<string>(logContent.Split("\n"));
@@ -140,8 +138,15 @@ namespace EQX.UI.Controls
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
             LoadLogFiles();
-            LoadUnit();
             LoadLevel();
+        }
+
+        private void Refresh_Click(object sender, RoutedEventArgs e)
+        {
+            logListBox.ItemsSource = null;
+            LoadLogFiles();
+            LoadLevel();
+            cboUnit.SelectedIndex = 0;
         }
     }
 }

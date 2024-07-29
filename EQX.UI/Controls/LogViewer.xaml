@@ -29,33 +29,60 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="0.6*" />
+            <RowDefinition Height="8.9*" />
             <RowDefinition Height="0.5*" />
-            <RowDefinition Height="9.5*" />
         </Grid.RowDefinitions>
 
-        <GroupBox Header="Log Files>"
+        <GroupBox Header="Log Files"
+                  Margin="0 15 0 0"
                   Grid.Column="0"
-                  BorderBrush="White"
-                  BorderThickness="1"
                   Grid.RowSpan="2">
             <ListBox x:Name="LogFileListBox"
+                     FontSize="15"
+                     BorderBrush="White"
                      SelectionChanged="LogFileListBox_SelectionChanged" />
         </GroupBox>
+        <UniformGrid Grid.Row="2"
+                     Grid.Column="0"
+                     HorizontalAlignment="Left">
+            <local:ImageButton Content="{DynamicResource str_Refresh}"
+                               Image="{StaticResource image_refresh_selected}"
+                               Click="Refresh_Click"
+                               Margin="2"
+                               Height="40"
+                               Width="120" />
+        </UniformGrid>
 
-        <ComboBox x:Name="cboUnit"
+        <GroupBox Header="Unit"
                   Grid.Row="0"
                   Grid.Column="1"
-                  SelectionChanged="cboUnit_SelectionChanged" />
+                  FontSize="12"
+                  FontWeight="Bold"
+                  Style="{x:Null}">
+            <ComboBox ItemsSource="{Binding Unit}"
+                      x:Name="cboUnit"
+                      SelectedIndex="0"
+                      MaxDropDownHeight="500"
+                      SelectionChanged="cboUnit_SelectionChanged" />
+        </GroupBox>
 
-        <ComboBox x:Name="cboLevel"
+        <GroupBox Header="Level"
                   Grid.Row="0"
                   Grid.Column="2"
-                  SelectionChanged="cboLevel_SelectionChanged" />
+                  FontSize="12"
+                  FontWeight="Bold"
+                  Style="{x:Null}">
+            <ComboBox x:Name="cboLevel"
+                      SelectionChanged="cboLevel_SelectionChanged" />
+        </GroupBox>
 
         <ListBox x:Name="logListBox"
                  Grid.Column="1"
                  Grid.Row="1"
-                 Grid.ColumnSpan="4">
+                 Grid.RowSpan="2"
+                 Grid.ColumnSpan="4"
+                 Margin="0">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <Border BorderBrush="{x:Null}"
