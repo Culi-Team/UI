@@ -9,6 +9,7 @@
             <system:String x:Key="str_ProductInformation">Product Information</system:String>
             <system:String x:Key="str_Operation">Operation</system:String>
             <system:String x:Key="str_Auto">Auto</system:String>
+            <system:String x:Key="str_Login">Login</system:String>
             <system:String x:Key="str_Manual">Manual</system:String>
             <system:String x:Key="str_Data">Data</system:String>
             <system:String x:Key="str_Teach">Teach</system:String>

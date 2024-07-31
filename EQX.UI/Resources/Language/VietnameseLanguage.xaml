@@ -9,6 +9,7 @@
             <system:String x:Key="str_ProductInformation">Thông tin sản phẩm</system:String>
             <system:String x:Key="str_Operation">Vận hành</system:String>
             <system:String x:Key="str_Auto">Tự động</system:String>
+            <system:String x:Key="str_Login">Đăng nhập</system:String>
             <system:String x:Key="str_Manual">Thủ công</system:String>
             <system:String x:Key="str_Data">Dữ liệu</system:String>
             <system:String x:Key="str_Teach">Dạy</system:String>

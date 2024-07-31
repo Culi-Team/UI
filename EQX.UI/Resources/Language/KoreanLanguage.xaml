@@ -9,6 +9,7 @@
             <system:String x:Key="str_ProductInformation">제품 정보</system:String>
             <system:String x:Key="str_Operation">작업</system:String>
             <system:String x:Key="str_Auto">자동</system:String>
+            <system:String x:Key="str_Login">로그인</system:String>
             <system:String x:Key="str_Manual">수동</system:String>
             <system:String x:Key="str_Data">데이터</system:String>
             <system:String x:Key="str_Teach">교육</system:String>

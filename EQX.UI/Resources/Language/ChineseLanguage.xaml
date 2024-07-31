@@ -9,6 +9,7 @@
             <system:String x:Key="str_ProductInformation">产品信息</system:String>
             <system:String x:Key="str_Operation">操作</system:String>
             <system:String x:Key="str_Auto">自动</system:String>
+            <system:String x:Key="str_Login">登录</system:String>
             <system:String x:Key="str_Manual">手动</system:String>
             <system:String x:Key="str_Data">数据</system:String>
             <system:String x:Key="str_Teach">教学</system:String>
