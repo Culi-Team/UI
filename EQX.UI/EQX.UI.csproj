@@ -243,6 +243,7 @@
     <None Remove="Resources\Images\login_normal_dark.png" />
     <None Remove="Resources\Images\login_normal_light.png" />
     <None Remove="Resources\Images\login_selected.png" />
+    <None Remove="Resources\Images\logout.png" />
     <None Remove="Resources\Images\log_disable.png" />
     <None Remove="Resources\Images\log_normal.png" />
     <None Remove="Resources\Images\log_normal_dark.png" />
@@ -743,6 +744,7 @@
     <Resource Include="Resources\Images\login_normal_dark.png" />
     <Resource Include="Resources\Images\login_normal_light.png" />
     <Resource Include="Resources\Images\login_selected.png" />
+    <Resource Include="Resources\Images\logout.png" />
     <Resource Include="Resources\Images\log_disable.png" />
     <Resource Include="Resources\Images\log_normal.png" />
     <Resource Include="Resources\Images\log_normal_dark.png" />
