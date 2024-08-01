@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="EQX.UI.Controls.JogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:EQX.UI.Controls"
+             mc:Ignorable="d"
+             xmlns:motion="clr-namespace:EQX.Motion;assembly=EQX.Motion"
+             Height="400"
+             Width="440"
+             xmlns:controls="clr-namespace:EQX.UI.Controls"
+             d:DataContext="{d:DesignInstance Type={x:Type motion:MotionBase}}"
+             Background="White">
+    <UserControl.Resources>
+        <Style x:Key="LargeRadioButton"
+               TargetType="RadioButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <StackPanel Orientation="Horizontal">
+                            <BulletDecorator>
+                                <BulletDecorator.Bullet>
+                                    <Grid>
+                                        <Ellipse Width="25"
+                                                 Height="25"
+                                                 Margin="0 5"
+                                                 Fill="{TemplateBinding Background}"
+                                                 Stroke="{TemplateBinding BorderBrush}"
+                                                 StrokeThickness="2" />
+                                        <Ellipse Width="20"
+                                                 Height="20"
+                                                 Fill="Black"
+                                                 Visibility="Collapsed"
+                                                 x:Name="CheckedMark" />
+                                    </Grid>
+                                </BulletDecorator.Bullet>
+                                <ContentPresenter Margin="5"
+                                                  VerticalAlignment="Center" />
+                            </BulletDecorator>
+                        </StackPanel>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked"
+                                     Value="True">
+                                <Setter TargetName="CheckedMark"
+                                        Property="Visibility"
+                                        Value="Visible" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Background"
+                    Value="White" />
+            <Setter Property="BorderBrush"
+                    Value="Black" />
+            <Setter Property="BorderThickness"
+                    Value="1" />
+            <Setter Property="VerticalContentAlignment"
+                    Value="Center" />
+            <Setter Property="HorizontalContentAlignment"
+                    Value="Left" />
+            <Setter Property="Padding"
+                    Value="5" />
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="60" />
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Border Margin="2"
+                BorderThickness="2"
+                BorderBrush="Gray">
+            <TextBlock Text="{Binding Name}"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontFamily="Malgun Gothic"
+                       FontWeight="Bold" />
+        </Border>
+        <Border Grid.Row="1"
+                Margin="1"
+                BorderThickness="2"
+                BorderBrush="White">
+            <TextBox Grid.Row="1"
+                     Background="WhiteSmoke"
+                     VerticalContentAlignment="Center"
+                     HorizontalContentAlignment="Center"
+                     Text="{Binding Status.ActualPosition, Mode=OneWay, StringFormat='{}{0:0.###} mm'}"
+                     IsReadOnly="True" />
+        </Border>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="8*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <ComboBox Grid.Column="0"
+                      Height="60"
+                      VerticalContentAlignment="Center"
+                      HorizontalContentAlignment="Center"
+                      x:Name="cbBoxStepInc"
+                      SelectedIndex="0"
+                      SelectionChanged="cbBoxStepInc_SelectionChanged" />
+            <StackPanel Orientation="Vertical"
+                        Margin="10 4 0 0"
+                        Grid.Column="1"
+                        Height="70"
+                        VerticalAlignment="Center">
+                <RadioButton Content="Jog"
+                             FontSize="18"
+                             x:Name="JogMode"
+                             Checked="JogAbsMode_Checked"
+                             Style="{StaticResource LargeRadioButton}" />
+                <RadioButton Content="Inc"
+                             FontSize="18"
+                             x:Name="IncMode"
+                             IsChecked="True"
+                             Checked="JogAbsMode_Checked"
+                             Style="{StaticResource LargeRadioButton}" />
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="3"
+                    HorizontalAlignment="Right">
+            <Button Width="80"
+                    Height="80"
+                    Margin="0 10"
+                    Grid.Column="2"
+                    PreviewMouseLeftButtonDown="MoveInc_ButtonDown"
+                    PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
+                <Image Source="{StaticResource image_up_selected}" />
+            </Button>
+            <Button Width="80"
+                    Height="80"
+                    Margin="0 10"
+                    Grid.Column="0"
+                    PreviewMouseLeftButtonDown="MoveDec_ButtonDown"
+                    PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
+                <Image Source="{StaticResource image_down_selected}" />
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>
