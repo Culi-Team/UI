@@ -166,6 +166,7 @@
     <None Remove="Resources\Images\focus_normal_dark.png" />
     <None Remove="Resources\Images\focus_normal_light.png" />
     <None Remove="Resources\Images\focus_selected.png" />
+    <None Remove="Resources\Images\folder.png" />
     <None Remove="Resources\Images\fw down_normal_dark.png" />
     <None Remove="Resources\Images\fw down_normal_light.png" />
     <None Remove="Resources\Images\fw down_selected.png" />
@@ -667,6 +668,7 @@
     <Resource Include="Resources\Images\focus_normal_dark.png" />
     <Resource Include="Resources\Images\focus_normal_light.png" />
     <Resource Include="Resources\Images\focus_selected.png" />
+    <Resource Include="Resources\Images\folder.png" />
     <Resource Include="Resources\Images\fw down_normal_dark.png" />
     <Resource Include="Resources\Images\fw down_normal_light.png" />
     <Resource Include="Resources\Images\fw down_selected.png" />

@@ -1,23 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.IO;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using Path = System.IO.Path;
-using System.Runtime.CompilerServices;
-using System.Collections.ObjectModel;
-using EQX.Core.Units;
-using log4net.Core;
 
 namespace EQX.UI.Controls
 {
@@ -30,6 +17,7 @@ namespace EQX.UI.Controls
             get { return (string)GetValue(LogDirectoryProperty); }
             set { SetValue(LogDirectoryProperty, value); }
         }
+
         public ObservableCollection<string> Unit
         {
             get { return (ObservableCollection<string>)GetValue(UnitProperty); }
@@ -42,54 +30,88 @@ namespace EQX.UI.Controls
         public static readonly DependencyProperty LogDirectoryProperty =
             DependencyProperty.Register("LogDirectory", typeof(string), typeof(LogViewer), new PropertyMetadata(""));
 
-
         public LogViewer()
         {
             InitializeComponent();
             this.DataContext = this;
         }
 
-        private void LoadLogFiles()
+        private void LoadDirectoriesAndFiles()
         {
-            LogFileListBox.Items.Clear();
-            var logFiles = Directory.GetFiles(LogDirectory, "");
-            for (int i = 0; i < logFiles.Length; ++i)
+            LogTreeView.Items.Clear();
+            LoadDirectoryNodes(LogDirectory, null);
+        }
+
+        private void LoadDirectoryNodes(string directoryPath, TreeViewItem parentItem)
+        {
+            // Lấy các thư mục và sắp xếp giảm dần
+            var directories = Directory.GetDirectories(directoryPath)
+                                       .Select(d => new { Path = d, Name = Path.GetFileName(d) })
+                                       .OrderByDescending(d => d.Name)
+                                       .ToList();
+
+            foreach (var directory in directories)
             {
-                LogFileListBox.Items.Add(Path.GetFileName(logFiles[logFiles.Length - 1 - i]));
+                var directoryItem = new TreeViewItem { Header = directory.Name, Tag = directory.Path };
+                LoadDirectoryNodes(directory.Path, directoryItem);
+                LoadLogFiles(directory.Path, directoryItem);
+                if (parentItem == null)
+                {
+                    LogTreeView.Items.Add(directoryItem);
+                }
+                else
+                {
+                    parentItem.Items.Add(directoryItem);
+                }
+            }
+        }
+
+        private void LoadLogFiles(string directoryPath, TreeViewItem parentItem)
+        {
+            // Lấy các tệp log và sắp xếp giảm dần
+            var logFiles = Directory.GetFiles(directoryPath, "*.*")
+                                    .Select(f => new { Path = f, Name = Path.GetFileName(f) })
+                                    .OrderByDescending(f => f.Name)
+                                    .ToList();
+
+            foreach (var logFile in logFiles)
+            {
+                var fileItem = new TreeViewItem { Header = logFile.Name, Tag = logFile.Path };
+                parentItem.Items.Add(fileItem);
             }
         }
 
         private void LoadLevel()
         {
             cboLevel.Items.Clear();
-            foreach (var level in level)
+            foreach (var lvl in level)
             {
-                cboLevel.Items.Add(level);
+                cboLevel.Items.Add(lvl);
             }
             cboLevel.SelectedIndex = 0;
         }
 
-        private void LogFileListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void LogTreeView_SelectedItemChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
         {
-            if (LogFileListBox.SelectedItem != null)
+            if (LogTreeView.SelectedItem is TreeViewItem selectedItem && File.Exists(selectedItem.Tag.ToString()))
             {
-                LoadData();
+                LoadData(selectedItem.Tag.ToString());
             }
         }
 
         private void cboUnit_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LogFileListBox.SelectedItem != null)
+            if (LogTreeView.SelectedItem is TreeViewItem selectedItem && File.Exists(selectedItem.Tag.ToString()))
             {
-                LoadData();
+                LoadData(selectedItem.Tag.ToString());
             }
         }
 
         private void cboLevel_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (LogFileListBox.SelectedItem != null)
+            if (LogTreeView.SelectedItem is TreeViewItem selectedItem && File.Exists(selectedItem.Tag.ToString()))
             {
-                LoadData();
+                LoadData(selectedItem.Tag.ToString());
             }
         }
 
@@ -122,13 +144,13 @@ namespace EQX.UI.Controls
             }
             return result;
         }
-        private void LoadData()
+
+        private void LoadData(string selectedFile)
         {
             if (string.IsNullOrEmpty(LogDirectory)) return;
 
-            string selectedFile = Path.Combine(LogDirectory, (string)LogFileListBox.SelectedItem);
             string logContent = File.ReadAllText(selectedFile);
-            logList = new ObservableCollection<string>(logContent.Split("\n"));
+            logList = new ObservableCollection<string>(logContent.Split(new[] { "\r\n", "\n" }, StringSplitOptions.None));
             logList = Filter(cboLevel.SelectedItem.ToString(), cboUnit.SelectedItem.ToString());
             logListBox.ItemsSource = logList;
         }
@@ -137,14 +159,14 @@ namespace EQX.UI.Controls
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-            LoadLogFiles();
+            LoadDirectoriesAndFiles();
             LoadLevel();
         }
 
         private void Refresh_Click(object sender, RoutedEventArgs e)
         {
             logListBox.ItemsSource = null;
-            LoadLogFiles();
+            LoadDirectoriesAndFiles();
             LoadLevel();
             cboUnit.SelectedIndex = 0;
         }
