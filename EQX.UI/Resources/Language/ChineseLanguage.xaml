@@ -29,6 +29,10 @@
             <system:String x:Key="str_Select">选择</system:String>
             <system:String x:Key="str_Language">语言文学</system:String>
             <system:String x:Key="str_Copy">复制</system:String>
+            <system:String x:Key="str_Options">选项</system:String>
+            <system:String x:Key="str_Logout">注销</system:String>
+            <system:String x:Key="str_Cancel">取消</system:String>
+            <system:String x:Key="str_SaveImage">保存图片</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

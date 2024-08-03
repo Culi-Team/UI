@@ -29,6 +29,10 @@
             <system:String x:Key="str_Select">Lựa chọn</system:String>
             <system:String x:Key="str_Language">Ngôn ngữ</system:String>
             <system:String x:Key="str_Copy">Sao chép</system:String>
+            <system:String x:Key="str_Options">Lựa chọn</system:String>
+            <system:String x:Key="str_Logout">Đăng xuất</system:String>
+            <system:String x:Key="str_Cancel">Hủy bỏ</system:String>
+            <system:String x:Key="str_SaveImage">Lưu ảnh</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

@@ -5,7 +5,6 @@
         <ResourceDictionary>
             <system:String x:Key="str_Hello">Hello</system:String>
             <system:String x:Key="str_Log">Log</system:String>
-            <system:String x:Key="str_GlassAlignVision">Glass Align Vision</system:String>
             <system:String x:Key="str_ProductInformation">Product Information</system:String>
             <system:String x:Key="str_Operation">Operation</system:String>
             <system:String x:Key="str_Auto">Auto</system:String>
@@ -29,6 +28,10 @@
             <system:String x:Key="str_Select">Select</system:String>
             <system:String x:Key="str_Copy">Copy</system:String>
             <system:String x:Key="str_Language">Language</system:String>
+            <system:String x:Key="str_Options">Options</system:String>
+            <system:String x:Key="str_Logout">Logout</system:String>
+            <system:String x:Key="str_Cancel">Cancel</system:String>
+            <system:String x:Key="str_SaveImage">Save Image</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

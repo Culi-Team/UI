@@ -29,6 +29,10 @@
             <system:String x:Key="str_Select">선택</system:String>
             <system:String x:Key="str_Language">언어</system:String>
             <system:String x:Key="str_Copy">복사</system:String>
+            <system:String x:Key="str_Options">옵션</system:String>
+            <system:String x:Key="str_Logout">로그아웃</system:String>
+            <system:String x:Key="str_Cancel">취소</system:String>
+            <system:String x:Key="str_SaveImage">이미지 저장</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
