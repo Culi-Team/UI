@@ -30,6 +30,7 @@
             <system:String x:Key="str_Language">Language</system:String>
             <system:String x:Key="str_Options">Options</system:String>
             <system:String x:Key="str_Logout">Logout</system:String>
+            <system:String x:Key="str_Dev">Development</system:String>
             <system:String x:Key="str_Cancel">Cancel</system:String>
             <system:String x:Key="str_SaveImage">Save Image</system:String>
 
