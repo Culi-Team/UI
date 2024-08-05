@@ -4,37 +4,38 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EQX.UI.Controls"
-             mc:Ignorable="d"
              xmlns:motion="clr-namespace:EQX.Motion;assembly=EQX.Motion"
+             xmlns:uiControls="clr-namespace:EQX.UI.Controls"
              Height="260"
              Width="250"
+             mc:Ignorable="d"
              xmlns:controls="clr-namespace:EQX.UI.Controls"
              d:DataContext="{d:DesignInstance Type={x:Type motion:MotionBase}}"
              Background="White">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Border Margin="2"
-                BorderThickness="2"
-                BorderBrush="Gray">
+                Height="35"
+                BorderThickness="1"
+                BorderBrush="{StaticResource HighLightBorderBrush}">
             <TextBlock Text="{Binding Name}"
                        VerticalAlignment="Center"
                        HorizontalAlignment="Center"
-                       FontFamily="Malgun Gothic"
                        FontSize="12"
                        FontWeight="Bold" />
         </Border>
         <Border Grid.Row="1"
+                Height="30"
                 Margin="1"
-                BorderThickness="2"
-                BorderBrush="White">
+                BorderBrush="{StaticResource PrimaryBorderBrush}">
             <TextBox Grid.Row="1"
                      Background="WhiteSmoke"
                      VerticalContentAlignment="Center"
@@ -42,56 +43,67 @@
                      Text="{Binding Status.ActualPosition, Mode=OneWay, StringFormat='{}{0:0.###} mm'}"
                      IsReadOnly="True" />
         </Border>
-        <Border Grid.Row="2"
-                BorderThickness="1"
-                BorderBrush="Gray"
-                Margin="2">
+        
+        <Grid
+            Grid.Row="2"
+            Height="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="8*"/>
-                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="Auto"/>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="Auto"/>
-                    </Grid.ColumnDefinitions>
-                    <Button Width="50"
-                            Height="30"
-                            Grid.Column="0"
-                            PreviewMouseLeftButtonDown="MoveDec_ButtonDown"
-                            PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
-                        <Image Source="{StaticResource image_left_selected}"/>
-                    </Button>
-                    <ComboBox Grid.Column="1"
-                              Height="30"
-                              x:Name="cbBoxStepInc"
-                              SelectedIndex="0"
-                              SelectionChanged="cbBoxStepInc_SelectionChanged"/>
-                    <Button Width="50"
-                            Height="30"
-                            Grid.Column="2"
-                            PreviewMouseLeftButtonDown="MoveInc_ButtonDown"
-                            PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
-                        <Image Source="{StaticResource image_right_selected}"/>
-                    </Button>
-                </Grid>
-                <StackPanel Orientation="Vertical"
-                            Margin="0 4 0 0"
-                            Grid.Column="1"
-                            VerticalAlignment="Center">
-                    <RadioButton Content="Jog"
-                                 x:Name="JogMode"
-                                 IsChecked="True"
-                                 Checked="JogAbsMode_Checked"/>
-                    <RadioButton Content="Inc"
-                                 x:Name="IncMode"
-                                 Checked="JogAbsMode_Checked"/>
-                </StackPanel>
+                <uiControls:ImageButton
+                    Width="40"
+                    Margin="2"
+                    Padding="0"
+                    Grid.Column="0"
+                    PreviewMouseLeftButtonDown="MoveDec_ButtonDown"
+                    PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
+                    <Image Source="{StaticResource image_left_selected}"/>
+                </uiControls:ImageButton>
+                <ComboBox
+                    Grid.Column="1"
+                    x:Name="cbBoxStepInc"
+                    SelectedIndex="0"
+                    SelectionChanged="cbBoxStepInc_SelectionChanged"/>
+                <uiControls:ImageButton
+                    Width="40"
+                    Margin="2"
+                    Padding="0"
+                    Grid.Column="2"
+                    PreviewMouseLeftButtonDown="MoveInc_ButtonDown"
+                    PreviewMouseLeftButtonUp="MoveButton_ButtonUp">
+                    <Image Source="{StaticResource image_right_selected}"/>
+                </uiControls:ImageButton>
             </Grid>
-        </Border>
-        <Grid Grid.Row="3">
+            <Grid
+                VerticalAlignment="Center"
+                Width="50"
+                Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <RadioButton
+                    Grid.Row="0"
+                    Content="Jog"
+                    x:Name="JogMode"
+                    IsChecked="True"
+                    Checked="JogAbsMode_Checked"/>
+                <RadioButton
+                    Grid.Row="1"
+                    Content="Inc"
+                    x:Name="IncMode"
+                    Checked="JogAbsMode_Checked"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="3"
+              Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
@@ -103,70 +115,77 @@
                 <TextBlock Text="N-Limit"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontFamily="Malgun Gothic"
                            FontSize="14" />
             </Border>
-            <Border Margin="2"
-                    Background="{Binding Status.HwPosLimitDetect,Converter={StaticResource BooleanToAlarmBrushConverter}}"
-                    BorderThickness="1"
-                    BorderBrush="Gray"
-                    Grid.Column="1">
-                <TextBlock Text="P-Limit"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Malgun Gothic"
-                           FontSize="14" />
+            <Border
+                Margin="2"
+                Background="{Binding Status.HwPosLimitDetect,Converter={StaticResource BooleanToAlarmBrushConverter}}"
+                BorderThickness="1"
+                BorderBrush="Gray"
+                Grid.Column="1">
+                <TextBlock
+                    Text="P-Limit"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="14" />
             </Border>
         </Grid>
-        <Grid Grid.Row="4">
+        <Grid Grid.Row="4"
+              Height="30">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Border Margin="2"
-                    Background="{Binding Status.IsHomeDone,Converter={StaticResource BooleanToOnOffBrushConverter}}"
-                    BorderThickness="1"
-                    BorderBrush="Gray">
-                <TextBlock Text="Home"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Malgun Gothic"
-                           FontSize="14" />
+            <Border
+                Margin="2"
+                Background="{Binding Status.IsHomeDone,Converter={StaticResource BooleanToOnOffBrushConverter}}"
+                BorderThickness="1"
+                BorderBrush="Gray">
+                <TextBlock
+                    Text="Home"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="14" />
             </Border>
-            <Border Margin="2"
-                    Background="{Binding Status.IsAlarm,Converter={StaticResource BooleanToAlarmBrushConverter}}"
-                    BorderThickness="1"
-                    BorderBrush="Gray"
-                    Grid.Column="1">
-                <TextBlock Text="Alarm"
-                           VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           FontFamily="Malgun Gothic"
-                           FontSize="14" />
+            <Border
+                Margin="2"
+                Background="{Binding Status.IsAlarm,Converter={StaticResource BooleanToAlarmBrushConverter}}"
+                BorderThickness="1"
+                BorderBrush="Gray"
+                Grid.Column="1">
+                <TextBlock
+                    Text="Alarm"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    FontSize="14" />
             </Border>
         </Grid>
         <Grid Grid.Row="5">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*" />
-                <ColumnDefinition Width="7*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Ellipse Width="26"
-                     Height="26"
-                     Fill="{Binding Status.IsMotionOn,Converter={StaticResource BooleanToOnOffBrushConverter}}"
-                     Stroke="Gray"
-                     StrokeThickness="4" />
-            <Button Grid.Column="1"
-                    Content="Servo ON"
-                    FontWeight="Bold"
-                    Click="ButtonServoOn_Click"
-                    Margin="2" />
+            <Ellipse
+                Margin="10 0"
+                Width="26"
+                Height="26"
+                Fill="{Binding Status.IsMotionOn,Converter={StaticResource BooleanToOnOffBrushConverter}}"
+                Stroke="{StaticResource PrimaryBorderBrush}"
+                StrokeThickness="1" />
+            <uiControls:ImageButton
+                Grid.Column="1"
+                Content="Servo ON"
+                FontWeight="Bold"
+                Click="ButtonServoOn_Click"
+                Margin="2" />
         </Grid>
         <Grid Grid.Row="6">
-            <Button Grid.Column="1"
-                    Content="Origin"
-                    FontWeight="Bold"
-                    Margin="2"
-                    Click="ButtonOrigin_Click"/>
+            <uiControls:ImageButton
+                Grid.Column="1"
+                Content="Origin"
+                FontWeight="Bold"
+                Margin="2"
+                Click="ButtonOrigin_Click"/>
         </Grid>
     </Grid>
 </UserControl>

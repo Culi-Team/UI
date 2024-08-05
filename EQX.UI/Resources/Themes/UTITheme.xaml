@@ -11,6 +11,11 @@
     <SolidColorBrush x:Key="ImageButtonMouseOverColor" Color="#FFD0D0D0"/>
     <SolidColorBrush x:Key="ImageButtonMouseOverHightLightColor" Color="#FFE81123"/>
 
+    <SolidColorBrush x:Key="HighLightBorderBrush" Color="#FF137F96"/>
+    <SolidColorBrush x:Key="PrimaryBorderBrush" Color="#C3C9Cf"/>
+    <SolidColorBrush x:Key="DisabledBorderBrush" Color="#888" />
+    <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
+
     <BitmapImage x:Key="ImageWindowMinimizeDefault" UriSource="/EQX.UI;component/Resources/Images/minimize_dark.png"/>
     <BitmapImage x:Key="ImageWindowMaximizeDefault" UriSource="/EQX.UI;component/Resources/Images/maximize_dark.png"/>
     <BitmapImage x:Key="ImageWindowNormalDefault" UriSource="/EQX.UI;component/Resources/Images/window_normal_dark.png"/>

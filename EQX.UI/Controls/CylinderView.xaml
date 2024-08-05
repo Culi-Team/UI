@@ -5,15 +5,20 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EQX.UI.Controls"
              xmlns:inout="clr-namespace:EQX.InOut;assembly=EQX.InOut"
+             xmlns:cvt="clr-namespace:EQX.UI.Converters"
              d:DataContext="{d:DesignInstance Type={x:Type inout:CylinderBase}}"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
 
+    <UserControl.Resources>
+        <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
+    </UserControl.Resources>
+    
     <StackPanel Width="140">
         <Border
-            Height="20"
+            Height="10"
             BorderThickness="1"
-            BorderBrush="Black"
+            BorderBrush="{StaticResource PrimaryBorderBrush}"
             CornerRadius="5 5 0 0"
             Background="{Binding IsForward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
         </Border>
@@ -22,7 +27,7 @@
             Click="ForwardButton_Click"
             CornerRadius="0 0 5 5"
             Image="{StaticResource image_up_selected}"
-            Height="40"
+            Height="50"
             Padding="3"
             Content="Forward"/>
 
@@ -30,7 +35,7 @@
             Margin="0 5"
             Height="60"
             BorderThickness="1"
-            BorderBrush="Black"
+            BorderBrush="{StaticResource PrimaryBorderBrush}"
             CornerRadius="3"
             Background="Snow">
             <TextBlock
@@ -52,14 +57,14 @@
             Click="BackwardButton_Click"
             CornerRadius="5 5 0 0"
             Image="{StaticResource image_down_selected}"
-            Height="40"
+            Height="50"
             Padding="3"
             Content="Backward"/>
 
         <Border
-            Height="20"
+            Height="10"
             BorderThickness="1"
-            BorderBrush="Black"
+            BorderBrush="{StaticResource PrimaryBorderBrush}"
             CornerRadius="0 0 5 5"
             Background="{Binding IsBackward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
         </Border>

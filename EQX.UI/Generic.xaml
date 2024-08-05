@@ -27,6 +27,8 @@
 
         <ResourceDictionary Source="/EQX.UI;component/Styles/HeaderLabelStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/GroupBoxCommonStyle.xaml"/>
+        
+        <ResourceDictionary Source="/EQX.UI;component/Styles/ComboBoxCommonStyle.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
 

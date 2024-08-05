@@ -21,7 +21,7 @@
                 <ControlTemplate TargetType="{x:Type CheckBox}">
                     <Border CornerRadius="5"
                             Background="White"
-                            BorderBrush="{StaticResource PrimaryBackgroundColor}"
+                            BorderBrush="{StaticResource PrimaryBorderBrush}"
                             BorderThickness="1"
                             Padding="6"
                             Height="Auto">

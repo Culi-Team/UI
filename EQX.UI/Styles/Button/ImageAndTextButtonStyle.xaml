@@ -8,7 +8,7 @@
                     <ControlTemplate TargetType="{x:Type ui:ImageButton}">
                         <Border BorderThickness="1"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderBrush="{StaticResource PrimaryBorderBrush}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
