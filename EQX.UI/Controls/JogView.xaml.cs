@@ -26,6 +26,8 @@ namespace EQX.UI.Controls
             InitializeComponent();
         }
 
+        private bool JogMode = false;
+
         private List<string> jogSpeedList = new List<string>
         {
             "SuperSlow",
@@ -57,7 +59,7 @@ namespace EQX.UI.Controls
         {
             if (IsDataContextValid() == false) return;
 
-            if (JogMode.IsChecked == true)
+            if (JogMode == true)
             {
                 ((IMotion)DataContext).MoveJog(
                     ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRate,
@@ -75,7 +77,7 @@ namespace EQX.UI.Controls
         {
             if (IsDataContextValid() == false) return;
 
-            if (JogMode.IsChecked == true)
+            if (JogMode == true)
             {
                 ((IMotion)DataContext).Stop();
             }
@@ -85,7 +87,7 @@ namespace EQX.UI.Controls
         {
             if (IsDataContextValid() == false) return;
 
-            if (JogMode.IsChecked == true)
+            if (JogMode == true)
             {
                 ((IMotion)DataContext).MoveJog(
                     ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRate,
@@ -107,18 +109,51 @@ namespace EQX.UI.Controls
             return true;
         }
 
-        private void JogAbsMode_Checked(object sender, RoutedEventArgs e)
-        {
-            cbBoxStepInc.ItemsSource = JogMode.IsChecked == true ? jogSpeedList : absDistanceList;
-            cbBoxStepInc.SelectedIndex = 0;
-        }
-
         private void cbBoxStepInc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (JogMode.IsChecked == false) return;
+            if (JogMode == false) return;
             if (cbBoxStepInc.SelectedIndex < 0) cbBoxStepInc.SelectedIndex = 0;
 
             jogSpeedRate = jogSpeedRates[cbBoxStepInc.SelectedIndex];
+        }
+
+        private void btnJog_Click(object sender, RoutedEventArgs e)
+        {
+            JogMode = true;
+            cbBoxStepInc.ItemsSource = jogSpeedList;
+            cbBoxStepInc.SelectedIndex = 0;
+
+            jogSpeedRate = jogSpeedRates[cbBoxStepInc.SelectedIndex];
+
+            btnJog.Background = new SolidColorBrush(Colors.Lime);
+            btnInc.Background = new SolidColorBrush(Colors.Tomato);
+            btnJog.Opacity = 1;
+            btnInc.Opacity = 0.7;
+        }
+
+        private void btnInc_Click(object sender, RoutedEventArgs e)
+        {
+            JogMode = false;
+            cbBoxStepInc.ItemsSource = absDistanceList;
+            cbBoxStepInc.SelectedIndex = 0;
+
+            jogSpeedRate = absDistanceList[cbBoxStepInc.SelectedIndex];
+
+            btnInc.Background = new SolidColorBrush(Colors.Lime);
+            btnJog.Background = new SolidColorBrush(Colors.Tomato);
+            btnJog.Opacity = 0.7;
+            btnInc.Opacity = 1;
+        }
+
+        private void UserControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            cbBoxStepInc.ItemsSource = JogMode == true ? jogSpeedList : absDistanceList;
+            cbBoxStepInc.SelectedIndex = 0;
+
+            btnInc.Background = new SolidColorBrush(Colors.Lime);
+            btnJog.Background = new SolidColorBrush(Colors.Tomato);
+            btnJog.Opacity = 0.7;
+            btnInc.Opacity = 1;
         }
     }
 }
