@@ -14,7 +14,7 @@
         <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
     </UserControl.Resources>
     
-    <StackPanel Width="140">
+    <StackPanel Width="Auto">
         <Border
             Height="10"
             BorderThickness="1"
@@ -27,7 +27,7 @@
             Click="ForwardButton_Click"
             CornerRadius="0 0 5 5"
             Image="{StaticResource image_up_selected}"
-            Height="50"
+            Height="40"
             Padding="3"
             Content="Forward"/>
 
@@ -57,7 +57,7 @@
             Click="BackwardButton_Click"
             CornerRadius="5 5 0 0"
             Image="{StaticResource image_down_selected}"
-            Height="50"
+            Height="40"
             Padding="3"
             Content="Backward"/>
 
