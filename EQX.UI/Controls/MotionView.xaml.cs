@@ -22,10 +22,10 @@ namespace EQX.UI.Controls
 
         private List<double> jogSpeedRates = new List<double>
         {
-            .03,
+            .005,
+            .02,
             .10,
             .20,
-            .40,
         };
 
         private List<double> absDistanceList = new List<double>
@@ -50,7 +50,7 @@ namespace EQX.UI.Controls
             if(JogMode.IsChecked == true) 
             {
                 ((IMotion)DataContext).MoveJog(
-                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRate,
+                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
                     false);
             }
             else
@@ -78,7 +78,7 @@ namespace EQX.UI.Controls
             if (JogMode.IsChecked == true)
             {
                 ((IMotion)DataContext).MoveJog(
-                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRate,
+                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
                     true);
             }
             else
