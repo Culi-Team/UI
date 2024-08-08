@@ -163,7 +163,7 @@
             <Ellipse Margin="10 0"
                      Width="26"
                      Height="26"
-                     Fill="{Binding Status.IsHomeDone,Converter={StaticResource BooleanToOnOffBrushConverter}}"
+                     Fill="{Binding Status.IsAlarm,Converter={StaticResource BooleanToOnOffBrushConverter}}"
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <local:ImageButton Grid.Column="1"
