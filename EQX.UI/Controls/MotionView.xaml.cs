@@ -47,7 +47,7 @@ namespace EQX.UI.Controls
         {
             if (IsDataContextValid() == false) return;
 
-            if(JogMode.IsChecked == true) 
+            if (JogMode.IsChecked == true)
             {
                 ((IMotion)DataContext).MoveJog(
                     ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
@@ -136,6 +136,19 @@ namespace EQX.UI.Controls
             if (IsDataContextValid() == false) return;
 
             ((IMotion)DataContext).AlarmReset();
+        }
+
+        private void ButtonConnect_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsDataContextValid() == false) return;
+            if (((IMotion)DataContext).IsConnected)
+            {
+                ((IMotion)DataContext).Disconnect();
+            }
+            else
+            {
+                ((IMotion)DataContext).Connect();
+            }
         }
     }
 }
