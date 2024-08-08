@@ -17,6 +17,7 @@
         <ResourceDictionary Source="/EQX.UI;component/BitmapImageResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ContentOnlyButtonStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ImageAndTextButtonStyle.xaml"/>
+        <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ButtonCommonStyle.xaml"/>
 
         <ResourceDictionary Source="/EQX.UI;component/Styles/Checkbox/CheckboxCommonStyle.xaml" />
 
