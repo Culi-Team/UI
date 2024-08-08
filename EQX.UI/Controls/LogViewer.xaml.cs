@@ -44,7 +44,6 @@ namespace EQX.UI.Controls
 
         private void LoadDirectoryNodes(string directoryPath, TreeViewItem parentItem)
         {
-            // Lấy các thư mục và sắp xếp giảm dần
             var directories = Directory.GetDirectories(directoryPath)
                                        .Select(d => new { Path = d, Name = Path.GetFileName(d) })
                                        .OrderByDescending(d => d.Name)
@@ -68,7 +67,6 @@ namespace EQX.UI.Controls
 
         private void LoadLogFiles(string directoryPath, TreeViewItem parentItem)
         {
-            // Lấy các tệp log và sắp xếp giảm dần
             var logFiles = Directory.GetFiles(directoryPath, "*.*")
                                     .Select(f => new { Path = f, Name = Path.GetFileName(f) })
                                     .OrderByDescending(f => f.Name)

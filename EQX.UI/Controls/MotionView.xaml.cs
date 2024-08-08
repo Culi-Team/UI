@@ -131,5 +131,11 @@ namespace EQX.UI.Controls
 
             ((IMotion)DataContext).SearchOrigin();
         }
+        private void ButtonResetAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsDataContextValid() == false) return;
+
+            ((IMotion)DataContext).AlarmReset();
+        }
     }
 }

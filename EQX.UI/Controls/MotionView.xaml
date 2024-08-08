@@ -180,12 +180,21 @@
                 Margin="2" />
         </Grid>
         <Grid Grid.Row="6">
-            <uiControls:ImageButton
-                Grid.Column="1"
-                Content="Origin"
-                FontWeight="Bold"
-                Margin="2"
-                Click="ButtonOrigin_Click"/>
+            <UniformGrid Columns="2"
+                         Margin="2">
+                <local:ImageButton Grid.Column="1"
+                                   Content="Origin"
+                                   FontWeight="Bold"
+                                   Margin="2"
+                                   HorizontalAlignment="Stretch"
+                                   Click="ButtonOrigin_Click" />
+                <local:ImageButton Grid.Column="1"
+                                   Content="Alarm Reset"
+                                   FontWeight="Bold"
+                                   Margin="2"
+                                   HorizontalAlignment="Stretch"
+                                   Click="ButtonResetAlarm_Click" />
+            </UniformGrid>
         </Grid>
     </Grid>
 </UserControl>

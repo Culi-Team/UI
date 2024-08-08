@@ -40,10 +40,10 @@ namespace EQX.UI.Controls
 
         private List<double> jogSpeedRates = new List<double>
         {
-            .03,
+            .005,
+            .02,
             .10,
             .20,
-            .40,
         };
 
         private List<double> absDistanceList = new List<double>
@@ -154,6 +154,34 @@ namespace EQX.UI.Controls
             btnJog.Background = new SolidColorBrush(Colors.Tomato);
             btnJog.Opacity = 0.7;
             btnInc.Opacity = 1;
+        }
+
+        private void ButtonServoOn_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsDataContextValid() == false) return;
+
+            if (((IMotion)DataContext).Status.IsMotionOn)
+            {
+                ((IMotion)DataContext).MotionOff();
+            }
+            else
+            {
+                ((IMotion)DataContext).MotionOn();
+            }
+        }
+
+        private void ButtonOrigin_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsDataContextValid() == false) return;
+
+            ((IMotion)DataContext).SearchOrigin();
+        }
+
+        private void ButtonResetAlarm_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsDataContextValid() == false) return;
+
+            ((IMotion)DataContext).AlarmReset();
         }
     }
 }
