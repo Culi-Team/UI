@@ -12,6 +12,7 @@
 
     <UserControl.Resources>
         <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
+        <cvt:CylinderTypeToButtonNameConverter x:Key="CylinderTypeToButtonNameConverter"/>
     </UserControl.Resources>
     
     <StackPanel Width="Auto">
@@ -29,7 +30,8 @@
             Image="{StaticResource image_up_selected}"
             Height="40"
             Padding="3"
-            Content="Forward"/>
+            d:Content="Forward"
+            Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=true}"/>
 
         <Border
             Margin="0 5"
@@ -59,7 +61,8 @@
             Image="{StaticResource image_down_selected}"
             Height="40"
             Padding="3"
-            Content="Backward"/>
+            d:Content="Backward"
+            Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
 
         <Border
             Height="10"

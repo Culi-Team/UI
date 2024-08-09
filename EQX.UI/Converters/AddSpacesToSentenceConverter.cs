@@ -1,9 +1,49 @@
-﻿using System.Globalization;
+﻿using EQX.Core.InOut;
+using System.Globalization;
 using System.Text;
 using System.Windows.Data;
 
 namespace EQX.UI.Converters
 {
+    public class CylinderTypeToButtonNameConverter : IValueConverter
+    {
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            if (value is ECylinderType cylinderType && parameter is string strStatus)
+            {
+                bool status1 = strStatus == "true";
+
+                switch (cylinderType)
+                {
+                    case ECylinderType.ForwardBackward:
+                        return status1 ? "Forward" : "Backward";
+                    case ECylinderType.ForwardBackwardReverse:
+                        return status1 ? "Backward" : "Forward";
+                    case ECylinderType.UpDown:
+                        return status1 ? "Up" : "Down";
+                    case ECylinderType.UpDownReverse:
+                        return status1 ? "Down" : "Up";
+                    case ECylinderType.LeftRight:
+                        return status1 ? "Left" : "Right";
+                    case ECylinderType.LeftRightReverse:
+                        return status1 ? "Right" : "Left";
+                    case ECylinderType.GripUngrip:
+                        return status1 ? "Grip" : "Ungrip";
+                    case ECylinderType.GripUngripReverse:
+                        return status1 ? "Ungrip" : "Grip";
+                    default:
+                        return Binding.DoNothing;
+                }
+            }
+            return Binding.DoNothing;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return Binding.DoNothing;
+        }
+    }
+
     public class AddSpacesToSentenceConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
