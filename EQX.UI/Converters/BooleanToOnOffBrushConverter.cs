@@ -27,8 +27,11 @@ namespace EQX.UI.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if(value is bool bValue)
+            if (value is bool bValue)
             {
+                if (parameter != null && bool.Parse(parameter.ToString())) {
+                    return bValue ? Brushes.Tomato : Brushes.Lime;
+                }
                 return bValue ? Brushes.Lime : Brushes.Tomato;
             }
             return Binding.DoNothing;
