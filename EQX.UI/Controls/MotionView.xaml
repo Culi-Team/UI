@@ -163,24 +163,6 @@
             <Ellipse Margin="10 0"
                      Width="26"
                      Height="26"
-                     Fill="{Binding IsConnected,Converter={StaticResource BooleanToOnOffBrushConverter}}"
-                     Stroke="{StaticResource PrimaryBorderBrush}"
-                     StrokeThickness="1" />
-            <local:ImageButton Grid.Column="1"
-                               Content="Connect"
-                               FontWeight="Bold"
-                               Margin="2"
-                               HorizontalAlignment="Stretch"
-                               Click="ButtonConnect_Click" />
-        </Grid>
-        <Grid Grid.Row="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-            <Ellipse Margin="10 0"
-                     Width="26"
-                     Height="26"
                      Fill="{Binding Status.IsAlarm,Converter={StaticResource BooleanToOnOffBrushConverter}, ConverterParameter=true}"
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
