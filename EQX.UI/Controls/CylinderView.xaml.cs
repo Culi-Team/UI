@@ -30,13 +30,13 @@ namespace EQX.UI.Controls
         {
             if (this.DataContext is CylinderBase cylinder)
             {
-                //if (cylinder.CylinderType == Core.InOut.ECylinderType.ForwardBackwardReverse ||
-                //    cylinder.CylinderType == Core.InOut.ECylinderType.UpDownReverse ||
-                //    cylinder.CylinderType == Core.InOut.ECylinderType.RightLeftReverse)
-                //{
-                //    cylinder.Backward();
-                //    return;
-                //}
+                if (cylinder.CylinderType == Core.InOut.ECylinderType.ForwardBackwardReverse ||
+                    cylinder.CylinderType == Core.InOut.ECylinderType.UpDownReverse ||
+                    cylinder.CylinderType == Core.InOut.ECylinderType.RightLeftReverse)
+                {
+                    cylinder.Backward();
+                    return;
+                }
 
                 cylinder.Forward();
             }
@@ -46,13 +46,13 @@ namespace EQX.UI.Controls
         {
             if (this.DataContext is CylinderBase cylinder)
             {
-                //if (cylinder.CylinderType == Core.InOut.ECylinderType.ForwardBackwardReverse ||
-                //    cylinder.CylinderType == Core.InOut.ECylinderType.UpDownReverse ||
-                //    cylinder.CylinderType == Core.InOut.ECylinderType.RightLeftReverse)
-                //{
-                //    cylinder.Forward();
-                //    return;
-                //}
+                if (cylinder.CylinderType == Core.InOut.ECylinderType.ForwardBackwardReverse ||
+                    cylinder.CylinderType == Core.InOut.ECylinderType.UpDownReverse ||
+                    cylinder.CylinderType == Core.InOut.ECylinderType.RightLeftReverse)
+                {
+                    cylinder.Forward();
+                    return;
+                }
 
                 cylinder.Backward();
             }
