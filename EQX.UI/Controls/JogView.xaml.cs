@@ -26,7 +26,7 @@ namespace EQX.UI.Controls
             InitializeComponent();
         }
 
-        private bool JogMode = false;
+        private bool JogMode = true;
 
         private List<string> jogSpeedList = new List<string>
         {
@@ -150,10 +150,10 @@ namespace EQX.UI.Controls
             cbBoxStepInc.ItemsSource = JogMode == true ? jogSpeedList : absDistanceList;
             cbBoxStepInc.SelectedIndex = 0;
 
-            btnInc.Background = new SolidColorBrush(Colors.Lime);
-            btnJog.Background = new SolidColorBrush(Colors.Tomato);
-            btnJog.Opacity = 0.7;
-            btnInc.Opacity = 1;
+            btnJog.Background = new SolidColorBrush(Colors.Lime);
+            btnInc.Background = new SolidColorBrush(Colors.Tomato);
+            btnInc.Opacity = 0.7;
+            btnJog.Opacity = 1.0;
         }
 
         private void ButtonServoOn_Click(object sender, RoutedEventArgs e)
