@@ -23,7 +23,7 @@ namespace EQX.UI.Converters
         }
     }
 
-    internal class BooleanToOnOffBrushConverter : IValueConverter
+    public class BooleanToOnOffBrushConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
