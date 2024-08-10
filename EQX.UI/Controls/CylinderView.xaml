@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:EQX.UI.Controls"
              xmlns:inout="clr-namespace:EQX.InOut;assembly=EQX.InOut"
+             xmlns:inoutCore="clr-namespace:EQX.Core.InOut;assembly=EQX.Core"
              xmlns:cvt="clr-namespace:EQX.UI.Converters"
              d:DataContext="{d:DesignInstance Type={x:Type inout:CylinderBase}}"
              mc:Ignorable="d" 
@@ -14,34 +15,15 @@
         <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
         <cvt:CylinderTypeToButtonNameConverter x:Key="CylinderTypeToButtonNameConverter"/>
     </UserControl.Resources>
-    
-    <StackPanel Width="Auto">
-        <Border
-            Height="10"
-            BorderThickness="1"
-            BorderBrush="{StaticResource PrimaryBorderBrush}"
-            CornerRadius="5 5 0 0"
-            Background="{Binding IsForward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
-        </Border>
-        
-        <local:ImageButton
-            Click="ForwardButton_Click"
-            CornerRadius="0 0 5 5"
-            Image="{StaticResource image_up_selected}"
-            Height="40"
-            Padding="3"
-            d:Content="Forward"
-            Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=true}"/>
 
+    <StackPanel>
         <Border
-            Margin="0 5"
-            Height="60"
+            Height="40"
             BorderThickness="1"
             BorderBrush="{StaticResource PrimaryBorderBrush}"
-            CornerRadius="3"
             Background="Snow">
             <TextBlock
-                Margin="5 0"
+                Margin="3 0"
                 FontWeight="Bold"
                 VerticalAlignment="Center"
                 TextAlignment="Center"
@@ -55,21 +37,117 @@
             </TextBlock>
         </Border>
 
-        <local:ImageButton
-            Click="BackwardButton_Click"
-            CornerRadius="5 5 0 0"
-            Image="{StaticResource image_down_selected}"
-            Height="40"
-            Padding="3"
-            d:Content="Backward"
-            Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
+        <Grid
+            Width="Auto"
+            Height="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=StackPanel}}"
+            RenderTransformOrigin="0.5, 0.5">
 
-        <Border
-            Height="10"
-            BorderThickness="1"
-            BorderBrush="{StaticResource PrimaryBorderBrush}"
-            CornerRadius="0 0 5 5"
-            Background="{Binding IsBackward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
-        </Border>
+            <Grid.Style>
+                <Style TargetType="{x:Type Grid}">
+                    <Setter Property="RenderTransform">
+                        <Setter.Value>
+                            <RotateTransform Angle="0"/>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.GripUngrip}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.GripUngripReverse}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.RightLeft}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.RightLeftReverse}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.AlignUnalign}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.AlignUnalignReverse}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Grid.Style>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Border
+                Grid.Row="0"
+                Height="10"
+                BorderThickness="1"
+                BorderBrush="{StaticResource PrimaryBorderBrush}"
+                Background="{Binding IsForward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
+            </Border>
+
+            <local:ImageButton
+                Grid.Row="1"
+                Click="ForwardButton_Click"
+                Image="{StaticResource image_up_selected}"
+                CornerRadius="0"
+                Padding="5"
+                d:Content="Forward"
+                Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=true}"/>
+
+            <local:ImageButton
+                Grid.Row="2"
+                Click="BackwardButton_Click"
+                Image="{StaticResource image_down_selected}"
+                CornerRadius="0"
+                Padding="5"
+                d:Content="Backward"
+                Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
+
+            <Border
+                Grid.Row="3"
+                Height="10"
+                BorderThickness="1"
+                BorderBrush="{StaticResource PrimaryBorderBrush}"
+                Background="{Binding IsBackward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
+            </Border>
+        </Grid>
     </StackPanel>
 </UserControl>

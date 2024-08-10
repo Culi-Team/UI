@@ -16,21 +16,23 @@ namespace EQX.UI.Converters
                 switch (cylinderType)
                 {
                     case ECylinderType.ForwardBackward:
-                        return status1 ? "Forward" : "Backward";
                     case ECylinderType.ForwardBackwardReverse:
-                        return status1 ? "Backward" : "Forward";
+                        return status1 ? "Forward" : "Backward";
                     case ECylinderType.UpDown:
-                        return status1 ? "Up" : "Down";
                     case ECylinderType.UpDownReverse:
-                        return status1 ? "Down" : "Up";
-                    case ECylinderType.LeftRight:
-                        return status1 ? "Left" : "Right";
-                    case ECylinderType.LeftRightReverse:
+                        return status1 ? "Up" : "Down";
+                    case ECylinderType.RightLeft:
+                    case ECylinderType.RightLeftReverse:
                         return status1 ? "Right" : "Left";
                     case ECylinderType.GripUngrip:
-                        return status1 ? "Grip" : "Ungrip";
                     case ECylinderType.GripUngripReverse:
-                        return status1 ? "Ungrip" : "Grip";
+                        return status1 ? "Grip" : "Ungrip";
+                    case ECylinderType.AlignUnalign:
+                    case ECylinderType.AlignUnalignReverse:
+                        return status1 ? "Align" : "Unalign";
+                    case ECylinderType.LockUnlock:
+                    case ECylinderType.LockUnlockReverse:
+                        return status1 ? "Lock" : "Unlock";
                     default:
                         return Binding.DoNothing;
                 }
