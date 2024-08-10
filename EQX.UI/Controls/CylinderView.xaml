@@ -116,11 +116,47 @@
             </Grid.RowDefinitions>
 
             <Border
-                Grid.Row="0"
                 Height="10"
                 BorderThickness="1"
                 BorderBrush="{StaticResource PrimaryBorderBrush}"
                 Background="{Binding IsForward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Grid.Row" Value="0"/>
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.AlignUnalignReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.ForwardBackwardReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.GripUngripReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.LockUnlockReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.RightLeftReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.UpDownReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
             </Border>
 
             <local:ImageButton
@@ -142,11 +178,47 @@
                 Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
 
             <Border
-                Grid.Row="3"
                 Height="10"
                 BorderThickness="1"
                 BorderBrush="{StaticResource PrimaryBorderBrush}"
                 Background="{Binding IsBackward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
+                <Border.Style>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="Grid.Row" Value="3"/>
+                        <Style.Triggers>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.AlignUnalignReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.ForwardBackwardReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.GripUngripReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.LockUnlockReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.RightLeftReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.UpDownReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
             </Border>
         </Grid>
     </StackPanel>
