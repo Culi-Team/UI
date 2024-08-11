@@ -30,7 +30,7 @@
         <TextBlock Text="{Binding Caption}"
                    d:Text="Caption"
                    DockPanel.Dock="Top"
-                   FontSize="30"
+                   FontSize="35"
                    FontWeight="Bold"
                    Margin="15 0"/>
 
