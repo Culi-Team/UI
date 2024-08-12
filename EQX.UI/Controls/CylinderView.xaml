@@ -18,10 +18,10 @@
 
     <StackPanel>
         <Border
-            Height="40"
+            Height="35"
             BorderThickness="1"
             BorderBrush="{StaticResource PrimaryBorderBrush}"
-            Background="Snow">
+            Background="{StaticResource HighLightBackgroundColor}">
             <TextBlock
                 Margin="3 0"
                 FontWeight="Bold"
