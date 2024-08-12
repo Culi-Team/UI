@@ -6,8 +6,6 @@ namespace EQX.UI.Controls
 {
     public class ImageButton : Button
     {
-
-
         public CornerRadius CornerRadius
         {
             get { return (CornerRadius)GetValue(CornerRadiusProperty); }
@@ -17,9 +15,6 @@ namespace EQX.UI.Controls
         // Using a DependencyProperty as the backing store for CornerRadius.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CornerRadiusProperty =
             DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ImageButton), new PropertyMetadata(new CornerRadius(0)));
-
-
-
 
         public ImageSource Image
         {

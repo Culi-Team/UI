@@ -5,6 +5,7 @@
             <Setter.Value>
                 <DataTemplate>
                     <Label
+                        Foreground="White"
                         Content="{Binding}" 
                         Style="{DynamicResource HeaderLabelStyle}"/>
                 </DataTemplate>
