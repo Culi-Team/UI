@@ -8,14 +8,17 @@ namespace EQX.UI.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            bool onOff = (bool)value;
+            if (value is bool onOff)
+            {
+                return onOff ? Brushes.Red : Brushes.WhiteSmoke;
+            }
 
-            return onOff ? Brushes.Red : Brushes.WhiteSmoke;
+            return Binding.DoNothing;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            return Binding.DoNothing;
         }
     }
 }
