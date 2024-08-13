@@ -10,7 +10,7 @@ namespace EQX.UI.Converters
         {
             bool onOff = (bool)value;
 
-            return onOff ? Brushes.Red : Brushes.Silver;
+            return onOff ? Brushes.Red : Brushes.WhiteSmoke;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
