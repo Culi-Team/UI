@@ -34,23 +34,38 @@
                    FontWeight="Bold"
                    Margin="15 0"/>
 
-        <UniformGrid DockPanel.Dock="Bottom"
-                     Rows="1"
-                     Height="70"
-                     Margin="0 0 0 10">
-            <local:ImageButton Content="OK"
-                               Padding="6"
-                               Width="140"
-                               Click="OKButton_Click"
-                               DisabledImage="{StaticResource image_ok_normal1}"
-                               Image="{StaticResource image_ok_selected1}"/>
+        <UniformGrid
+            DockPanel.Dock="Bottom"
+            Rows="1"
+            Height="70"
+            Margin="0 0 0 10"
+            >
+            <local:ImageButton
+                Content="OK"
+                Padding="6"
+                Width="140"
+                Click="OKButton_Click"
+                Visibility="{Binding ConfirmRequest, Converter={StaticResource BooleanToVisibilityConverter}}"
+                DisabledImage="{StaticResource image_ok_normal1}"
+                Image="{StaticResource image_ok_selected1}"/>
 
-            <local:ImageButton Content="Cancel"
-                               Padding="6"
-                               Click="CancelButton_Click"
-                               Width="140"
-                               DisabledImage="{StaticResource image_cancel_normal_light}"
-                               Image="{StaticResource image_cancel_selected}"/>
+            <local:ImageButton
+                Content="CLOSE"
+                Padding="6"
+                Click="CloseButton_Click"
+                Width="140"
+                Visibility="{Binding ConfirmRequest, Converter={StaticResource BooleanToVisibilityInvertConverter}}"
+                DisabledImage="{StaticResource image_cancel_normal_light}"
+                Image="{StaticResource image_cancel_selected}"/>
+            
+            <local:ImageButton
+                Content="CANCEL"
+                Padding="6"
+                Click="CancelButton_Click"
+                Width="140"
+                Visibility="{Binding ConfirmRequest, Converter={StaticResource BooleanToVisibilityConverter}}"
+                DisabledImage="{StaticResource image_cancel_normal_light}"
+                Image="{StaticResource image_cancel_selected}"/>
         </UniformGrid>
 
         <TextBlock Text="{Binding MessageDetail}"

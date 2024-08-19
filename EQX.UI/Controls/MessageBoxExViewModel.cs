@@ -7,6 +7,16 @@ namespace EQX.UI.Controls
         public EventHandler? ModalChangedEvent { get; set; }
 
         #region Properties
+        public bool ConfirmRequest
+        {
+            get { return _confirmRequest; }
+            set
+            {
+                _confirmRequest = value;
+                OnPropertyChanged();
+            }
+        }
+
         public string MessageDetail
 		{
 			get { return _messageDetail; }
@@ -49,6 +59,7 @@ namespace EQX.UI.Controls
         #endregion
 
         #region Privates
+        private bool _confirmRequest;
         private string _messageDetail;
         private string _caption;
         #endregion

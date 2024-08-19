@@ -12,7 +12,7 @@ namespace EQX.UI.Controls
             InitializeComponent();
         }
 
-        public static void Show(string message, string caption = "Confirm")
+        public static void Show(string message, bool confirmRequest = true, string caption = "Confirm")
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
@@ -20,6 +20,7 @@ namespace EQX.UI.Controls
                 if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
 
                 MessageBoxEx messageBoxEx = new MessageBoxEx();
+                ((MessageBoxExViewModel)messageBoxEx.DataContext).ConfirmRequest = confirmRequest;
                 ((MessageBoxExViewModel)messageBoxEx.DataContext).Show(message, caption);
                 messageBoxEx.Show();
             });
@@ -27,12 +28,18 @@ namespace EQX.UI.Controls
 
         public static bool? ShowDialog(string message, string caption = "Confirm")
         {
+            return ShowDialog(message, true, caption);
+        }
+
+        public static bool? ShowDialog(string message, bool confirmRequest, string caption = "Confirm")
+        {
             return Application.Current.Dispatcher.Invoke(() =>
             {
                 bool isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
                 if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
 
                 MessageBoxEx messageBoxEx = new MessageBoxEx();
+                ((MessageBoxExViewModel)messageBoxEx.DataContext).ConfirmRequest = confirmRequest;
                 ((MessageBoxExViewModel)messageBoxEx.DataContext).ShowDialog(message, caption);
                 messageBoxEx.ShowDialog();
                 return messageBoxEx.DialogResult;
@@ -66,6 +73,11 @@ namespace EQX.UI.Controls
         private void Grid_MouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             this.DragMove();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
     }
 }

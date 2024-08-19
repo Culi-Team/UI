@@ -11,6 +11,7 @@
         </ResourceDictionary>
         <ResourceDictionary>
             <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
+            <cvt:BooleanToVisibilityInvertConverter x:Key="BooleanToVisibilityInvertConverter"/>
         </ResourceDictionary>
 
         <ResourceDictionary Source="/EQX.UI;component/UserControlResources.xaml"/>
