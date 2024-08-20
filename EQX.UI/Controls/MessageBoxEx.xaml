@@ -9,6 +9,7 @@
         mc:Ignorable="d"
         d:DataContext="{d:DesignInstance Type=local:MessageBoxExViewModel}"
         Title="MessageBoxEx"
+        Topmost="True"
         Height="450" MinHeight="450" MaxHeight="450"
         Width="600" MinWidth="600" MaxWidth="600">
 
