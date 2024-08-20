@@ -98,6 +98,7 @@
 
                         <Grid Grid.Column="1">
                             <ToggleButton
+                                FontSize="{TemplateBinding FontSize}"
                                 Name="ToggleButton"
                                 ClickMode="Press"
                                 Content="{Binding Path=SelectedItem, RelativeSource={RelativeSource TemplatedParent}, Mode=OneWay}"
@@ -106,6 +107,7 @@
                                 Style="{StaticResource ComboBoxToggleButtonStyle}" />
 
                             <TextBox
+                                FontSize="{TemplateBinding FontSize}"
                                 Name="PART_EditableTextBox"
                                 Margin="3, 3, 23, 3"
                                 IsReadOnly="{TemplateBinding IsReadOnly}"
@@ -123,28 +125,31 @@
                                 </TextBox.Template>
                             </TextBox>
                             <!-- Popup showing items -->
-                            <Popup Name="Popup"
-                                   Placement="Bottom"
-                                   Focusable="False"
-                                   AllowsTransparency="True"
-                                   IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}"
-                                   PopupAnimation="Slide">
-                                <Border Name="DropDownBorder"
-                                        Background="#ffffff"
-                                        SnapsToDevicePixels="True"
-                                        Padding="0 2"
-                                        CornerRadius="5"
-                                        BorderThickness="1"
-                                        BorderBrush="{StaticResource PrimaryBorderBrush}"
-                                        MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
-                                        MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
+                            <Popup
+                                Name="Popup"
+                                Placement="Bottom"
+                                Focusable="False"
+                                AllowsTransparency="True"
+                                IsOpen="{TemplateBinding ComboBox.IsDropDownOpen}"
+                                PopupAnimation="Slide">
+                                <Border
+                                    Name="DropDownBorder"
+                                    Background="#ffffff"
+                                    SnapsToDevicePixels="True"
+                                    Padding="0 2"
+                                    CornerRadius="5"
+                                    BorderThickness="1"
+                                    BorderBrush="{StaticResource PrimaryBorderBrush}"
+                                    MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
+                                    MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
                                     <StackPanel>
-                                        <TextBlock Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Tag, StringFormat='Select {0}'}"
-                                                   Padding="16 7"
-                                                   FontSize="12"
-                                                   FontWeight="Bold"
-                                                   Foreground="#24292e"
-                                                   HorizontalAlignment="Left" />
+                                        <TextBlock
+                                            Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Tag, StringFormat='Select {0}'}"
+                                            Padding="16 7"
+                                            FontSize="{TemplateBinding FontSize}"
+                                            FontWeight="Bold"
+                                            Foreground="#24292e"
+                                            HorizontalAlignment="Left" />
 
                                         <Grid>
                                             <ScrollViewer SnapsToDevicePixels="True"
