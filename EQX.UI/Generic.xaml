@@ -10,6 +10,8 @@
             <cvt:BooleanToAlarmBrushConverter x:Key="BooleanToAlarmBrushConverter"/>
         </ResourceDictionary>
         <ResourceDictionary>
+            <cvt:AddOneToValueConverter x:Key="AddOneToValueConverter"/>
+            <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
             <cvt:BooleanToOnOffBrushConverter x:Key="BooleanToOnOffBrushConverter"/>
             <cvt:BooleanToVisibilityInvertConverter x:Key="BooleanToVisibilityInvertConverter"/>
         </ResourceDictionary>
