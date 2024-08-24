@@ -33,7 +33,7 @@
         <ResourceDictionary Source="/EQX.UI;component/Styles/GroupBoxCommonStyle.xaml"/>
         
         <ResourceDictionary Source="/EQX.UI;component/Styles/ComboBoxCommonStyle.xaml"/>
-
+        <ResourceDictionary Source="/EQX.UI;component/Styles/ExpanderCommonStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <DataTemplate DataType="{x:Type inout:DInput}">
