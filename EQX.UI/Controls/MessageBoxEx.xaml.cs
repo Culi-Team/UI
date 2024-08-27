@@ -16,8 +16,11 @@ namespace EQX.UI.Controls
         {
             Application.Current.Dispatcher.Invoke(() =>
             {
-                bool isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
-                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().ToList().ForEach(w => w.Close());
+                bool isShown = Application.Current.Windows.OfType<AlertNotifyView>().Any();
+                if (isShown) Application.Current.Windows.OfType<AlertNotifyView>().First().Close();
+
+                isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
+                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
 
                 MessageBoxEx messageBoxEx = new MessageBoxEx();
                 ((MessageBoxExViewModel)messageBoxEx.DataContext).ConfirmRequest = confirmRequest;
@@ -35,8 +38,11 @@ namespace EQX.UI.Controls
         {
             return Application.Current.Dispatcher.Invoke(() =>
             {
-                bool isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
-                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().ToList().ForEach(w => w.Close());
+                bool isShown = Application.Current.Windows.OfType<AlertNotifyView>().Any();
+                if (isShown) Application.Current.Windows.OfType<AlertNotifyView>().First().Close();
+
+                isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
+                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
 
                 MessageBoxEx messageBoxEx = new MessageBoxEx();
                 ((MessageBoxExViewModel)messageBoxEx.DataContext).ConfirmRequest = confirmRequest;

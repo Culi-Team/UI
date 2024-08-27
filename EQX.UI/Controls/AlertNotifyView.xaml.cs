@@ -32,6 +32,9 @@ namespace EQX.UI.Controls
                 bool isShown = Application.Current.Windows.OfType<AlertNotifyView>().Any();
                 if (isShown) Application.Current.Windows.OfType<AlertNotifyView>().First().Close();
 
+                isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
+                if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
+
                 AlertNotifyView messageBoxEx = new AlertNotifyView()
                 {
                     IsWarning = isWarning,
