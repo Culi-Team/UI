@@ -28,13 +28,13 @@
                 <ColumnDefinition Width="0.5*"
                       SharedSizeGroup="Recipe_Index" />
 
-                <ColumnDefinition Width="3*"
+                <ColumnDefinition Width="2*"
                       SharedSizeGroup="Recipe_Description" />
 
-                <ColumnDefinition Width="1*"
+                <ColumnDefinition Width="3*"
                       SharedSizeGroup="Recipe_Axis" />
 
-                <ColumnDefinition Width="1.1*"
+                <ColumnDefinition Width="0.75*"
                       SharedSizeGroup="Recipe_Value" />
             </Grid.ColumnDefinitions>
 
