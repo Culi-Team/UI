@@ -12,10 +12,10 @@ namespace EQX.UI.Controls
     {
         private List<string> jogSpeedList = new List<string>
         {
-            "SuperSlow",
-            "Slow",
-            "Medium",
-            "High",
+            (string)Application.Current.Resources["str_SuperSlow"],
+            (string)Application.Current.Resources["str_Slow"],
+            (string)Application.Current.Resources["str_Medium"],
+            (string)Application.Current.Resources["str_High"],
         };
 
         private double jogSpeedRate = 5;

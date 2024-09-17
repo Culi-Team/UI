@@ -51,6 +51,64 @@
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Machine need to be READY before RUN</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">Recipe Changed. Do you want to save?</system:String>
 
+            <system:String x:Key="str_Motion">Motion</system:String>
+            <system:String x:Key="str_Cylinder">Cylinder</system:String>
+            <system:String x:Key="str_RobotVacuum">Robot Vacuum</system:String>
+            <system:String x:Key="str_InnerLight">Inner Light</system:String>
+            <system:String x:Key="str_CameraConnect">Camera Connect</system:String>
+            <system:String x:Key="str_RobotConnect">Robot Connect</system:String>
+            <system:String x:Key="str_MotionConnect">Motion Connect</system:String>
+            <system:String x:Key="str_IOConnect">IO Connect</system:String>
+            <system:String x:Key="str_Connect">Connect</system:String>
+            <system:String x:Key="str_Disconnect">Disconnect</system:String>
+            
+            <system:String x:Key="str_Forward">Forward</system:String>
+            <system:String x:Key="str_Backward">Backward</system:String>
+            <system:String x:Key="str_Up">Up</system:String>
+            <system:String x:Key="str_Down">Down</system:String>
+            <system:String x:Key="str_Right">Right</system:String>
+            <system:String x:Key="str_Left">Left</system:String>
+            <system:String x:Key="str_Grip">Grip</system:String>
+            <system:String x:Key="str_Ungrip">Ungrip</system:String>
+            <system:String x:Key="str_Align">Align</system:String>
+            <system:String x:Key="str_Unalign">Unalign</system:String>
+            <system:String x:Key="str_Lock">Lock</system:String>
+            <system:String x:Key="str_Unlock">Unlock</system:String>
+
+            <system:String x:Key="str_Reset">Reset</system:String>
+            <system:String x:Key="str_DoorDetected">Door Detected</system:String>
+            <system:String x:Key="str_DoorNotDetected">Door Not Detected</system:String>
+            <system:String x:Key="str_DoorLock">Door Lock</system:String>
+            <system:String x:Key="str_DoorUnlock">Door Unlock</system:String>
+            <system:String x:Key="str_SliderDetected">Slider Detected</system:String>
+            <system:String x:Key="str_SliderNotDetected">Slider Not Detected</system:String>
+            <system:String x:Key="str_SliderLock">Slider Lock</system:String>
+            <system:String x:Key="str_SliderUnlock">Slider Unlock</system:String>
+            <system:String x:Key="str_VacuumOn">Vacuum ON</system:String>
+            <system:String x:Key="str_VacuumOff">Vacuum OFF</system:String>
+            <system:String x:Key="str_LightOn">Light ON</system:String>
+            <system:String x:Key="str_LightOff">Light OFF</system:String>
+            <system:String x:Key="str_ServoOn">Servo ON</system:String>
+            <system:String x:Key="str_ServoOff">Servo OFF</system:String>
+            <system:String x:Key="str_AlarmReset">Alarm Reset</system:String>
+            
+            <system:String x:Key="str_SuperSlow">SuperSlow</system:String>
+            <system:String x:Key="str_Slow">Slow</system:String>
+            <system:String x:Key="str_Medium">Medium</system:String>
+            <system:String x:Key="str_High">High</system:String>
+
+            <system:String x:Key="str_Total">Total</system:String>
+            <system:String x:Key="str_CycleCurrent">Cycle Current</system:String>
+            <system:String x:Key="str_EMPTY">EMPTY</system:String>
+            <system:String x:Key="str_EXIST">EXIST</system:String>
+            <system:String x:Key="str_UserGroup">User Group</system:String>
+            <system:String x:Key="str_Password">Password</system:String>
+
+            <system:String x:Key="str_ModelList">Model List</system:String>
+            <system:String x:Key="str_Index">Index</system:String>
+            <system:String x:Key="str_Description">Description</system:String>
+            <system:String x:Key="str_Detail">Detail</system:String>
+            <system:String x:Key="str_Value">Value</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

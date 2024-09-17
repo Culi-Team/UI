@@ -81,7 +81,7 @@
                             <DataTrigger
                                 Binding="{Binding IsHeader, ElementName=root}"
                                 Value="True">
-                                <Setter Property="Content" Value="Index"/>
+                                <Setter Property="Content" Value="{DynamicResource str_Index}"/>
                                 <Setter Property="FontWeight" Value="Bold"/>
                             </DataTrigger>
                         </Style.Triggers>
@@ -132,7 +132,7 @@
                             <DataTrigger Binding="{Binding IsHeader, ElementName=root}"
                              Value="True">
                                 <Setter Property="Content"
-                            Value="Description" />
+                            Value="{DynamicResource str_Description}" />
                                 <Setter Property="FontWeight"
                             Value="Bold" />
                             </DataTrigger>
@@ -183,7 +183,7 @@
                             <DataTrigger
                                 Binding="{Binding IsHeader, ElementName=root}"
                                 Value="True">
-                                <Setter Property="Content" Value="Detail" />
+                                <Setter Property="Content" Value="{DynamicResource str_Detail}" />
                                 <Setter Property="FontWeight" Value="Bold" />
                             </DataTrigger>
                         </Style.Triggers>
@@ -216,7 +216,7 @@
                                 <DataTrigger
                                     Binding="{Binding IsHeader, ElementName=root}"
                                     Value="True">
-                                    <Setter Property="Content" Value="Value" />
+                                    <Setter Property="Content" Value="{DynamicResource str_Value}" />
 
                                     <Setter Property="FontWeight" Value="Bold" />
                                 </DataTrigger>

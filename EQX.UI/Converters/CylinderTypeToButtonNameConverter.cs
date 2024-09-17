@@ -1,5 +1,6 @@
 ﻿using EQX.Core.InOut;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 
 namespace EQX.UI.Converters
@@ -16,25 +17,25 @@ namespace EQX.UI.Converters
                 {
                     case ECylinderType.ForwardBackward:
                     case ECylinderType.ForwardBackwardReverse:
-                        return status1 ? "Forward" : "Backward";
+                        return status1 ? (string)Application.Current.Resources["str_Forward"] : (string)Application.Current.Resources["str_Backward"];
                     case ECylinderType.UpDown:
                     case ECylinderType.UpDownReverse:
-                        return status1 ? "Up" : "Down";
+                        return status1 ? (string)Application.Current.Resources["str_Up"] : (string)Application.Current.Resources["str_Down"];
                     case ECylinderType.RightLeft:
                     case ECylinderType.RightLeftReverse:
-                        return status1 ? "Right" : "Left";
+                        return status1 ? (string)Application.Current.Resources["str_Right"] : (string)Application.Current.Resources["str_Left"];
                     case ECylinderType.GripUngrip:
-                        return status1 ? "Grip" : "Ungrip";
+                        return status1 ? (string)Application.Current.Resources["str_Grip"] : (string)Application.Current.Resources["str_Ungrip"];
                     case ECylinderType.GripUngripReverse:
-                        return status1 ? "Ungrip" : "Grip";
+                        return status1 ? (string)Application.Current.Resources["str_Ungrip"] : (string)Application.Current.Resources["str_Grip"];
                     case ECylinderType.AlignUnalign:
-                        return status1 ? "Align" : "Unalign";
+                        return status1 ? (string)Application.Current.Resources["str_Align"] : (string)Application.Current.Resources["str_Unalign"];
                     case ECylinderType.AlignUnalignReverse:
-                        return status1 ? "Unalign" : "Align";
+                        return status1 ? (string)Application.Current.Resources["str_Unalign"] : (string)Application.Current.Resources["str_Align"]; ;
                     case ECylinderType.LockUnlock:
-                        return status1 ? "Lock" : "Unlock";
+                        return status1 ? (string)Application.Current.Resources["str_Lock"] : (string)Application.Current.Resources["str_Unlock"]; ;
                     case ECylinderType.LockUnlockReverse:
-                        return status1 ? "Unlock" : "Lock";
+                        return status1 ? (string)Application.Current.Resources["str_Unlock"] : (string)Application.Current.Resources["str_Lock"]; ;
                     default:
                         return Binding.DoNothing;
                 }

@@ -145,7 +145,7 @@
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <local:ImageButton Grid.Column="1"
-                               Content="Origin"
+                               Content="{DynamicResource str_Origin}"
                                FontWeight="Bold"
                                Margin="2"
                                HorizontalAlignment="Stretch"
@@ -165,7 +165,7 @@
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <uiControls:ImageButton Grid.Column="1"
-                                    Content="Servo ON"
+                                    Content="{DynamicResource str_ServoOn}"
                                     FontWeight="Bold"
                                     Click="ButtonServoOn_Click"
                                     Margin="2" />
@@ -184,7 +184,7 @@
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <local:ImageButton Grid.Column="1"
-                               Content="Alarm Reset"
+                               Content="{DynamicResource str_AlarmReset}"
                                FontWeight="Bold"
                                Margin="2"
                                HorizontalAlignment="Stretch"

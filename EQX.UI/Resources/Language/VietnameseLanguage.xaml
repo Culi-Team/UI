@@ -5,13 +5,13 @@
         <ResourceDictionary>
             <system:String x:Key="str_Hello">Xin chào</system:String>
             <system:String x:Key="str_Log">Nhật ký</system:String>
-            <system:String x:Key="str_ProductInformation">Thông tin sản phẩm</system:String>
+            <system:String x:Key="str_ProductInformation">Thông tin sản xuất</system:String>
             <system:String x:Key="str_Operation">Vận hành</system:String>
             <system:String x:Key="str_Auto">Tự động</system:String>
             <system:String x:Key="str_Login">Đăng nhập</system:String>
             <system:String x:Key="str_Manual">Thủ công</system:String>
             <system:String x:Key="str_Data">Dữ liệu</system:String>
-            <system:String x:Key="str_Teach">Dạy</system:String>
+            <system:String x:Key="str_Teach">Lập trình</system:String>
             <system:String x:Key="str_Vision">Thị giác</system:String>
             <system:String x:Key="str_Origin">Gốc</system:String>
             <system:String x:Key="str_Start">Bắt đầu</system:String>
@@ -25,11 +25,12 @@
             <system:String x:Key="str_Save">Lưu</system:String>
             <system:String x:Key="str_Load">Tải dữ liệu</system:String>
             <system:String x:Key="str_Refresh">Làm mới</system:String>
-            <system:String x:Key="str_Select">Lựa chọn</system:String>
+            <system:String x:Key="str_Select">Chọn</system:String>
             <system:String x:Key="str_Language">Ngôn ngữ</system:String>
             <system:String x:Key="str_Copy">Sao chép</system:String>
             <system:String x:Key="str_Options">Lựa chọn</system:String>
             <system:String x:Key="str_Logout">Đăng xuất</system:String>
+            <system:String x:Key="str_Dev">Phát triển</system:String>
             <system:String x:Key="str_Cancel">Hủy bỏ</system:String>
             <system:String x:Key="str_SaveImage">Lưu ảnh</system:String>
             <system:String x:Key="str_AreYouSureYouWantToCloseApplication">Bạn có chắc chắn muốn ĐÓNG ỨNG DỤNG không</system:String>
@@ -49,6 +50,65 @@
             <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">Máy cần phải về home trước khi chạy</system:String>
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Máy cần phải sẵn sàng trước khi chạy</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">Model thay đổi? Bạn có muốn lưu không?</system:String>
+
+            <system:String x:Key="str_Motion">Chuyển động</system:String>
+            <system:String x:Key="str_Cylinder">Xy lanh</system:String>
+            <system:String x:Key="str_RobotVacuum">Robot Vacuum</system:String>
+            <system:String x:Key="str_InnerLight">Đèn trần</system:String>
+            <system:String x:Key="str_CameraConnect">Kết nối Cam</system:String>
+            <system:String x:Key="str_RobotConnect">Kết nối Robot</system:String>
+            <system:String x:Key="str_MotionConnect">Kết nối Motion</system:String>
+            <system:String x:Key="str_IOConnect">Kết nối IO</system:String>
+            <system:String x:Key="str_Connect">Kết nối</system:String>
+            <system:String x:Key="str_Disconnect">Ngắt kết nối</system:String>
+            
+            <system:String x:Key="str_Forward">Tiến</system:String>
+            <system:String x:Key="str_Backward">Lùi</system:String>
+            <system:String x:Key="str_Up">Lên</system:String>
+            <system:String x:Key="str_Down">Xuống</system:String>
+            <system:String x:Key="str_Right">Phải</system:String>
+            <system:String x:Key="str_Left">Trái</system:String>
+            <system:String x:Key="str_Grip">Kẹp</system:String>
+            <system:String x:Key="str_Ungrip">Nhả kẹp</system:String>
+            <system:String x:Key="str_Align">Căn chỉnh</system:String>
+            <system:String x:Key="str_Unalign">Bỏ căn chỉnh</system:String>
+            <system:String x:Key="str_Lock">Khóa</system:String>
+            <system:String x:Key="str_Unlock">Mở khóa</system:String>
+            
+            <system:String x:Key="str_Reset">Đặt lại</system:String>
+            <system:String x:Key="str_DoorDetected">Phát hiện Door</system:String>
+            <system:String x:Key="str_DoorNotDetected">Không Phát hiện Door</system:String>
+            <system:String x:Key="str_DoorLock">Khóa cửa</system:String>
+            <system:String x:Key="str_DoorUnlock">Mở khóa cửa</system:String>
+            <system:String x:Key="str_SliderDetected">Phát hiện Slider</system:String>
+            <system:String x:Key="str_SliderNotDetected">Không Phát hiện Slider</system:String>
+            <system:String x:Key="str_SliderLock">Khóa Slider</system:String>
+            <system:String x:Key="str_SliderUnlock">Mở khóa Slider</system:String>
+            <system:String x:Key="str_VacuumOn">MỞ Vac</system:String>
+            <system:String x:Key="str_VacuumOff">ĐÓNG Vac</system:String>
+            <system:String x:Key="str_LightOn">BẬT Đèn</system:String>
+            <system:String x:Key="str_LightOff">TẮT Đèn</system:String>
+            <system:String x:Key="str_ServoOn">BẬT Servo</system:String>
+            <system:String x:Key="str_ServoOff">TẮT Servo</system:String>
+            <system:String x:Key="str_AlarmReset">Đặt lại cảnh báo</system:String>
+
+            <system:String x:Key="str_SuperSlow">Rất chậm</system:String>
+            <system:String x:Key="str_Slow">Chậm</system:String>
+            <system:String x:Key="str_Medium">Trung bình</system:String>
+            <system:String x:Key="str_High">Nhanh</system:String>
+            
+            <system:String x:Key="str_Total">Tổng</system:String>
+            <system:String x:Key="str_CycleCurrent">Chu kì h.tại</system:String>
+            <system:String x:Key="str_EMPTY">TRỐNG</system:String>
+            <system:String x:Key="str_EXIST">HIỆN CÓ</system:String>
+            <system:String x:Key="str_UserGroup">Người dùng</system:String>
+            <system:String x:Key="str_Password">Mật khẩu</system:String>
+
+            <system:String x:Key="str_ModelList">Danh sách Model</system:String>
+            <system:String x:Key="str_Index">Chỉ mục</system:String>
+            <system:String x:Key="str_Description">Mô tả</system:String>
+            <system:String x:Key="str_Detail">Chi tiết</system:String>
+            <system:String x:Key="str_Value">Giá trị</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
