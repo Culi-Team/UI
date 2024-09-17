@@ -5,7 +5,6 @@
         <ResourceDictionary>
             <system:String x:Key="str_Hello">Xin chào</system:String>
             <system:String x:Key="str_Log">Nhật ký</system:String>
-            <system:String x:Key="str_GlassAlignVision">Thị giác căn chỉnh Glass</system:String>
             <system:String x:Key="str_ProductInformation">Thông tin sản phẩm</system:String>
             <system:String x:Key="str_Operation">Vận hành</system:String>
             <system:String x:Key="str_Auto">Tự động</system:String>
@@ -33,6 +32,23 @@
             <system:String x:Key="str_Logout">Đăng xuất</system:String>
             <system:String x:Key="str_Cancel">Hủy bỏ</system:String>
             <system:String x:Key="str_SaveImage">Lưu ảnh</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToCloseApplication">Bạn có chắc chắn muốn ĐÓNG ỨNG DỤNG không</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineOrigin">Bạn có chắc chắn muốn CÀI ĐẶT HOME MÁY không?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineReady">Bạn có chắc chắn muốn CÀI ĐẶT MÁY SẴN SÀNG không?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachine">Bạn chắc chắn muốn CHẠY MÁY?</system:String>
+            <system:String x:Key="str_VisionRecipeSaveSuccessed">Công thức Vision lưu thành công!</system:String>
+            <system:String x:Key="str_SaveAllData">Lưu tất cả dữ liệu!</system:String>
+            <system:String x:Key="str_MachineInitializeFinishWithError">Khởi tạo máy kết thúc với lỗi. Vui lòng kiểm tra Nhật ký để biết thêm thông tin!</system:String>
+            <system:String x:Key="str_WrongPassword">Mật khẩu sai</system:String>
+            <system:String x:Key="str_MoveTo">Di chuyển đến</system:String>
+            <system:String x:Key="str_CopyRecipe">Sao chép Model</system:String>
+            <system:String x:Key="str_ReloadAllData">Tải lại tất cả dữ liệu</system:String>
+            <system:String x:Key="str_ChangeModel">Đổi Model</system:String>
+            <system:String x:Key="str_ResetWorkData">Cài lại dữ liệu làm việc</system:String>
+            <system:String x:Key="str_MachineNeedToBeInitializationBeforeRun">Cần khởi tạo máy (ORIGIN) trước khi chạy</system:String>
+            <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">Máy cần phải về home trước khi chạy</system:String>
+            <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Máy cần phải sẵn sàng trước khi chạy</system:String>
+            <system:String x:Key="str_RecipeChangeDoYoWantToSave">Model thay đổi? Bạn có muốn lưu không?</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

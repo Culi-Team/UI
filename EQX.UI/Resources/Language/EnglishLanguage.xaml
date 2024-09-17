@@ -33,6 +33,23 @@
             <system:String x:Key="str_Dev">Dev.</system:String>
             <system:String x:Key="str_Cancel">Cancel</system:String>
             <system:String x:Key="str_SaveImage">Save Image</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToCloseApplication">Are you sure you want to CLOSE APPLICATION?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineOrigin">Are you sure you want to SET MACHINE ORIGIN?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineReady">Are you sure you want to SET MACHINE READY?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachine">Are you sure you want to START MACHINE?</system:String>
+            <system:String x:Key="str_VisionRecipeSaveSuccessed">Vision Recipe Save Successed!</system:String>
+            <system:String x:Key="str_SaveAllData">Save All Data!</system:String>
+            <system:String x:Key="str_MachineInitializeFinishWithError">Machine initialize finish with error. Please check Log for more information!</system:String>
+            <system:String x:Key="str_WrongPassword">Wrong Password</system:String>
+            <system:String x:Key="str_MoveTo">Move To</system:String>
+            <system:String x:Key="str_CopyRecipe">Copy Recipe</system:String>
+            <system:String x:Key="str_ReloadAllData">Reload All Data</system:String>
+            <system:String x:Key="str_ChangeModel">Change Model</system:String>
+            <system:String x:Key="str_ResetWorkData">Reset work data ?</system:String>
+            <system:String x:Key="str_MachineNeedToBeInitializationBeforeRun">Machine need to be initialization (ORIGIN) before RUN</system:String>
+            <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">Machine need to be ORIGIN before RUN</system:String>
+            <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Machine need to be READY before RUN</system:String>
+            <system:String x:Key="str_RecipeChangeDoYoWantToSave">Recipe Changed. Do you want to save?</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

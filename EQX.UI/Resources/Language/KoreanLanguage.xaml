@@ -33,6 +33,23 @@
             <system:String x:Key="str_Logout">로그아웃</system:String>
             <system:String x:Key="str_Cancel">취소</system:String>
             <system:String x:Key="str_SaveImage">이미지 저장</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToCloseApplication">응용 프로그램을 종료하시겠습니까?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineOrigin">기계를 원점으로 설정하시겠습니까?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineReady">기계를 준비 상태로 설정하시겠습니까?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachine">기계를 시작하시겠습니까?</system:String>
+            <system:String x:Key="str_VisionRecipeSaveSuccessed">비전 레시피 저장에 성공했습니다!</system:String>
+            <system:String x:Key="str_SaveAllData">모든 데이터를 저장하십시오!</system:String>
+            <system:String x:Key="str_MachineInitializeFinishWithError">기계 초기화가 오류로 완료되었습니다. 자세한 정보는 로그를 확인하십시오!</system:String>
+            <system:String x:Key="str_WrongPassword">잘못된 비밀번호</system:String>
+            <system:String x:Key="str_MoveTo">이동</system:String>
+            <system:String x:Key="str_CopyRecipe">레시피 복사</system:String>
+            <system:String x:Key="str_ReloadAllData">모든 데이터를 다시 불러오십시오</system:String>
+            <system:String x:Key="str_ChangeModel">모델 변경</system:String>
+            <system:String x:Key="str_ResetWorkData">작업 데이터를 재설정하시겠습니까?</system:String>
+            <system:String x:Key="str_MachineNeedToBeInitializationBeforeRun">기계를 실행하기 전에 초기화(원점)가 필요합니다</system:String>
+            <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">기계를 실행하기 전에 원점이 필요합니다</system:String>
+            <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">기계를 실행하기 전에 준비 상태가 필요합니다</system:String>
+            <system:String x:Key="str_RecipeChangeDoYoWantToSave">레시피가 변경되었습니다. 저장하시겠습니까?</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

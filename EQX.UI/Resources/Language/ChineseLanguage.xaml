@@ -33,6 +33,23 @@
             <system:String x:Key="str_Logout">注销</system:String>
             <system:String x:Key="str_Cancel">取消</system:String>
             <system:String x:Key="str_SaveImage">保存图片</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToCloseApplication">您确定要关闭应用程序吗?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineOrigin">您确定要设置机器原点吗?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToSetMachineReady">您确定要将机器设为准备状态吗?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachine">您确定要启动机器吗?</system:String>
+            <system:String x:Key="str_VisionRecipeSaveSuccessed">视觉配方保存成功!</system:String>
+            <system:String x:Key="str_SaveAllData">保存所有数据!</system:String>
+            <system:String x:Key="str_MachineInitializeFinishWithError">机器初始化完成时出错。请检查日志了解更多信息!</system:String>
+            <system:String x:Key="str_WrongPassword">密码错误</system:String>
+            <system:String x:Key="str_MoveTo">移动到</system:String>
+            <system:String x:Key="str_CopyRecipe">复制配方</system:String>
+            <system:String x:Key="str_ReloadAllData">重新加载所有数据</system:String>
+            <system:String x:Key="str_ChangeModel">更换型号</system:String>
+            <system:String x:Key="str_ResetWorkData">重置工作数据？</system:String>
+            <system:String x:Key="str_MachineNeedToBeInitializationBeforeRun">机器在运行前需要初始化（原点）</system:String>
+            <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">机器在运行前需要回到原点</system:String>
+            <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">机器在运行前需要准备好</system:String>
+            <system:String x:Key="str_RecipeChangeDoYoWantToSave">配方已更改。您想保存吗?</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
