@@ -65,7 +65,7 @@
             </Border>
             <Border Grid.Row="0"
                     Grid.Column="1">
-                <TextBlock Text="Detail"/>
+                <TextBlock Text="{DynamicResource str_Detail}"/>
             </Border>
             <Border Grid.Row="1">
                 <Canvas Grid.Row="1">
