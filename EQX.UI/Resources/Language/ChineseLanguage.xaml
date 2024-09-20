@@ -110,6 +110,21 @@
             <system:String x:Key="str_Description">描述</system:String>
             <system:String x:Key="str_Detail">详细信息</system:String>
             <system:String x:Key="str_Value">值</system:String>
+
+            <system:String x:Key="str_Old">旧</system:String>
+            <system:String x:Key="str_Minimum">最小</system:String>
+            <system:String x:Key="str_Maximum">最大</system:String>
+            <system:String x:Key="str_NewValue">新值</system:String>
+            <system:String x:Key="str_Current">当前</system:String>
+            <system:String x:Key="str_Clear">清除</system:String>
+            <system:String x:Key="str_Apply">应用</system:String>
+            <system:String x:Key="str_Close">关闭</system:String>
+
+            <system:String x:Key="str_Parameters">参数</system:String>
+            <system:String x:Key="str_Results">结果</system:String>
+            <system:String x:Key="str_Input">输入</system:String>
+            <system:String x:Key="str_Output">输出</system:String>
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

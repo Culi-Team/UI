@@ -109,6 +109,20 @@
             <system:String x:Key="str_Description">Mô tả</system:String>
             <system:String x:Key="str_Detail">Chi tiết</system:String>
             <system:String x:Key="str_Value">Giá trị</system:String>
+            
+            <system:String x:Key="str_Old">CŨ</system:String>
+            <system:String x:Key="str_Minimum">TỐI THIỂU</system:String>
+            <system:String x:Key="str_Maximum">TỐI ĐA</system:String>
+            <system:String x:Key="str_NewValue">GÍA TRỊ MỚI</system:String>
+            <system:String x:Key="str_Current">HIỆN TẠI</system:String>
+            <system:String x:Key="str_Clear">XÓA</system:String>
+            <system:String x:Key="str_Apply">ÁP DỤNG</system:String>
+            <system:String x:Key="str_Close">ĐÓNG</system:String>
+
+            <system:String x:Key="str_Parameters">Tham số</system:String>
+            <system:String x:Key="str_Results">Kết quả</system:String>
+            <system:String x:Key="str_Input">Đầu vào</system:String>
+            <system:String x:Key="str_Output">Đầu ra</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

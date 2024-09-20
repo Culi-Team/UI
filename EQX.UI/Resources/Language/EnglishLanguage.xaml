@@ -109,6 +109,21 @@
             <system:String x:Key="str_Description">Description</system:String>
             <system:String x:Key="str_Detail">Detail</system:String>
             <system:String x:Key="str_Value">Value</system:String>
+
+            <system:String x:Key="str_Old">OLD</system:String>
+            <system:String x:Key="str_Minimum">MINIMUM</system:String>
+            <system:String x:Key="str_Maximum">MAXIMUM</system:String>
+            <system:String x:Key="str_NewValue">NEW VALUE</system:String>
+            <system:String x:Key="str_Current">CURRENT</system:String>
+            <system:String x:Key="str_Clear">CLEAR</system:String>
+            <system:String x:Key="str_Apply">APPLY</system:String>
+            <system:String x:Key="str_Close">CLOSE</system:String>
+
+            <system:String x:Key="str_Parameters">Parameters</system:String>
+            <system:String x:Key="str_Results">Results</system:String>
+            <system:String x:Key="str_Input">Input</system:String>
+            <system:String x:Key="str_Output">Output</system:String>
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

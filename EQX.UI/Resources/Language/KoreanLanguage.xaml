@@ -110,6 +110,20 @@
             <system:String x:Key="str_Description">설명</system:String>
             <system:String x:Key="str_Detail">세부 사항</system:String>
             <system:String x:Key="str_Value">값</system:String>
+
+            <system:String x:Key="str_Old">이전</system:String>
+            <system:String x:Key="str_Minimum">최소</system:String>
+            <system:String x:Key="str_Maximum">최대</system:String>
+            <system:String x:Key="str_NewValue">새 값</system:String>
+            <system:String x:Key="str_Current">현재</system:String>
+            <system:String x:Key="str_Clear">지우기</system:String>
+            <system:String x:Key="str_Apply">적용</system:String>
+            <system:String x:Key="str_Close">닫기</system:String>
+
+            <system:String x:Key="str_Parameters">매개변수</system:String>
+            <system:String x:Key="str_Results">결과</system:String>
+            <system:String x:Key="str_Input">입력</system:String>
+            <system:String x:Key="str_Output">출력</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
