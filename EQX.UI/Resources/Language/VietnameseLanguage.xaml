@@ -4,14 +4,14 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
             <system:String x:Key="str_Hello">Xin chào</system:String>
-            <system:String x:Key="str_Log">Nhật ký</system:String>
+            <system:String x:Key="str_Log">Lịch sử</system:String>
             <system:String x:Key="str_ProductInformation">Thông tin sản xuất</system:String>
             <system:String x:Key="str_Operation">Vận hành</system:String>
             <system:String x:Key="str_Auto">Tự động</system:String>
             <system:String x:Key="str_Login">Đăng nhập</system:String>
             <system:String x:Key="str_Manual">Thủ công</system:String>
             <system:String x:Key="str_Data">Dữ liệu</system:String>
-            <system:String x:Key="str_Teach">Lập trình</system:String>
+            <system:String x:Key="str_Teach">Dạy</system:String>
             <system:String x:Key="str_Vision">Thị giác</system:String>
             <system:String x:Key="str_Origin">Gốc</system:String>
             <system:String x:Key="str_Start">Bắt đầu</system:String>
@@ -50,6 +50,10 @@
             <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">Máy cần phải về home trước khi chạy</system:String>
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Máy cần phải sẵn sàng trước khi chạy</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">Model thay đổi? Bạn có muốn lưu không?</system:String>
+            <system:String x:Key="str_OriginSuccess">VỀ GỐC THÀNH CÔNG!</system:String>
+            <system:String x:Key="str_RobotMayNotInOriginPosition">Robot có thể không ở vị trí gốc</system:String>
+            <system:String x:Key="str_RobotMoveToOriginPositionDone">Robot đã di chuyển đến vị trí gốc</system:String>
+            <system:String x:Key="str_ReadyToChange">Tray sẵn sàng để thay</system:String>
 
             <system:String x:Key="str_Motion">Chuyển động</system:String>
             <system:String x:Key="str_Cylinder">Xy lanh</system:String>
@@ -101,7 +105,7 @@
             <system:String x:Key="str_CycleCurrent">Chu kì h.tại</system:String>
             <system:String x:Key="str_EMPTY">TRỐNG</system:String>
             <system:String x:Key="str_EXIST">HIỆN CÓ</system:String>
-            <system:String x:Key="str_UserGroup">Người dùng</system:String>
+            <system:String x:Key="str_UserGroup">Đăng nhập</system:String>
             <system:String x:Key="str_Password">Mật khẩu</system:String>
 
             <system:String x:Key="str_ModelList">Danh sách Model</system:String>
@@ -123,7 +127,6 @@
             <system:String x:Key="str_Results">Kết quả</system:String>
             <system:String x:Key="str_Input">Đầu vào</system:String>
             <system:String x:Key="str_Output">Đầu ra</system:String>
-
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
