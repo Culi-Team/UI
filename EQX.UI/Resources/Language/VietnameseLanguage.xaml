@@ -11,8 +11,8 @@
             <system:String x:Key="str_Login">Đăng nhập</system:String>
             <system:String x:Key="str_Manual">Thủ công</system:String>
             <system:String x:Key="str_Data">Dữ liệu</system:String>
-            <system:String x:Key="str_Teach">Dạy</system:String>
-            <system:String x:Key="str_Vision">Thị giác</system:String>
+            <system:String x:Key="str_Teach">Cài đặt</system:String>
+            <system:String x:Key="str_Vision">Vision</system:String>
             <system:String x:Key="str_Origin">Gốc</system:String>
             <system:String x:Key="str_Start">Bắt đầu</system:String>
             <system:String x:Key="str_Ready">Sẵn sàng</system:String>
