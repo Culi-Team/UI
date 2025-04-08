@@ -11,7 +11,8 @@ namespace EQX.UI.Controls
         {
             InitializeComponent();
 
-            NotifyAppender.Appender.Notification.CollectionChanged += Notification_CollectionChanged;
+            // TODO : Uncomment log
+            //NotifyAppender.Appender.Notification.CollectionChanged += Notification_CollectionChanged;
         }
 
         private void Notification_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
