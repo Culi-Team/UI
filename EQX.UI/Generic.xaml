@@ -17,6 +17,11 @@
             <cvt:ProcessModeToColorConverter x:Key="ProcessModeToColorConverter"/>
         </ResourceDictionary>
 
+        <ResourceDictionary Source="/EQX.UI;component/Resources/Language/KoreanLanguage.xaml" />
+        <ResourceDictionary Source="/EQX.UI;component/Resources/Language/VietnameseLanguage.xaml" />
+        <ResourceDictionary Source="/EQX.UI;component/Resources/Language/ChineseLanguage.xaml" />
+        <ResourceDictionary Source="/EQX.UI;component/Resources/Language/EnglishLanguage.xaml" />
+        
         <ResourceDictionary Source="/EQX.UI;component/UserControlResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/BitmapImageResources.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ContentOnlyButtonStyle.xaml"/>
