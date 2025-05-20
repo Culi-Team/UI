@@ -50,6 +50,10 @@
             <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">Machine need to be ORIGIN before RUN</system:String>
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Machine need to be READY before RUN</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">Recipe Changed. Do you want to save?</system:String>
+            <system:String x:Key="str_OriginSuccess">ORIGIN SUCCESS!</system:String>
+            <system:String x:Key="str_RobotMayNotInOriginPosition">Robot may not in ORIGIN position</system:String>
+            <system:String x:Key="str_RobotMoveToOriginPositionDone">Robot move to ORIGIN Position DONE</system:String>
+            <system:String x:Key="str_ReadyToChange">Ready to change</system:String>
 
             <system:String x:Key="str_Motion">Motion</system:String>
             <system:String x:Key="str_Cylinder">Cylinder</system:String>
@@ -123,7 +127,6 @@
             <system:String x:Key="str_Results">Results</system:String>
             <system:String x:Key="str_Input">Input</system:String>
             <system:String x:Key="str_Output">Output</system:String>
-
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

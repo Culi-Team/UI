@@ -51,7 +51,12 @@
             <system:String x:Key="str_MachineNeedToBeOriginBeforeRun">机器在运行前需要回到原点</system:String>
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">机器在运行前需要准备好</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">配方已更改。您想保存吗?</system:String>
-
+            <system:String x:Key="str_OriginSuccess">起源成功!</system:String>
+            <system:String x:Key="str_RobotMayNotInOriginPosition">机器人可能不在原始位置</system:String>
+            <system:String x:Key="str_RobotMoveToOriginPositionDone">机器人已移动到原始位置</system:String>
+            <system:String x:Key="str_ReadyToChange">准备好更改</system:String>
+            
+            
             <system:String x:Key="str_Motion">运动</system:String>
             <system:String x:Key="str_Cylinder">气缸</system:String>
             <system:String x:Key="str_RobotVacuum">机器人真空</system:String>
