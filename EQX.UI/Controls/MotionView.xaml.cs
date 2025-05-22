@@ -43,56 +43,85 @@ namespace EQX.UI.Controls
             cbBoxStepInc.ItemsSource = jogSpeedList;
         }
 
+        public IMotion Motion
+        {
+            get { return (IMotion)GetValue(MotionProperty); }
+            set { SetValue(MotionProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Motion.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty MotionProperty =
+            DependencyProperty.Register("Motion", typeof(IMotion), typeof(MotionView), new PropertyMetadata(null));
+
+        public bool Interlock
+        {
+            get { return (bool)GetValue(InterlockProperty); }
+            set { SetValue(InterlockProperty, value); }
+        }
+        // Using a DependencyProperty as the backing store for Interlock.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty InterlockProperty =
+            DependencyProperty.Register("Interlock", typeof(bool), typeof(MotionView), new PropertyMetadata(true));
+
+
         private void MoveDec_ButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
+            if (IsValid() == false) return;
+            if (Interlock == false)
+            {
+                MessageBoxEx.ShowDialog("Interlock Check Error");
+                return;
+            }
 
             if (JogMode.IsChecked == true)
             {
-                ((IMotion)DataContext).MoveJog(
-                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
+                Motion.MoveJog(
+                    Motion.Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
                     false);
             }
             else
             {
                 // Move INC by 10% max speed
-                ((IMotion)DataContext).MoveInc((double)cbBoxStepInc.SelectedItem * -1,
-                   ((IMotion)DataContext).Parameter.MaxVelocity * .10);
+                Motion.MoveInc((double)cbBoxStepInc.SelectedItem * -1,
+                   Motion.Parameter.MaxVelocity * .10);
             }
         }
 
         private void MoveButton_ButtonUp(object sender, MouseButtonEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
+            if (IsValid() == false) return;
 
             if (JogMode.IsChecked == true)
             {
-                ((IMotion)DataContext).Stop();
+                Motion.Stop();
             }
         }
 
         private void MoveInc_ButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
+            if (IsValid() == false) return;
+
+            if (Interlock == false)
+            {
+                MessageBoxEx.ShowDialog("Interlock Check Error");
+                return;
+            }
 
             if (JogMode.IsChecked == true)
             {
-                ((IMotion)DataContext).MoveJog(
-                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
+                Motion.MoveJog(
+                    Motion.Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
                     true);
             }
             else
             {
                 // Move INC by 10% max speed
-                ((IMotion)DataContext).MoveInc((double)cbBoxStepInc.SelectedItem,
-                    ((IMotion)DataContext).Parameter.MaxVelocity * .10);
+                Motion.MoveInc((double)cbBoxStepInc.SelectedItem,
+                    Motion.Parameter.MaxVelocity * .10);
             }
         }
 
-        private bool IsDataContextValid()
+        private bool IsValid()
         {
-            if (DataContext == null) return false;
-            if (DataContext.GetType().GetInterfaces().Contains(typeof(IMotion)) == false) return false;
+            if (Motion == null) return false;
 
             return true;
         }
@@ -113,41 +142,41 @@ namespace EQX.UI.Controls
 
         private void ButtonServoOn_Click(object sender, RoutedEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
+            if (IsValid() == false) return;
 
-            if (((IMotion)DataContext).Status.IsMotionOn)
+            if (Motion.Status.IsMotionOn)
             {
-                ((IMotion)DataContext).MotionOff();
+                Motion.MotionOff();
             }
             else
             {
-                ((IMotion)DataContext).MotionOn();
+                Motion.MotionOn();
             }
         }
 
         private void ButtonOrigin_Click(object sender, RoutedEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
+            if (IsValid() == false) return;
 
-            ((IMotion)DataContext).SearchOrigin();
+            Motion.SearchOrigin();
         }
         private void ButtonResetAlarm_Click(object sender, RoutedEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
+            if (IsValid() == false) return;
 
-            ((IMotion)DataContext).AlarmReset();
+            Motion.AlarmReset();
         }
 
         private void ButtonConnect_Click(object sender, RoutedEventArgs e)
         {
-            if (IsDataContextValid() == false) return;
-            if (((IMotion)DataContext).IsConnected)
+            if (IsValid() == false) return;
+            if (Motion.IsConnected)
             {
-                ((IMotion)DataContext).Disconnect();
+                Motion.Disconnect();
             }
             else
             {
-                ((IMotion)DataContext).Connect();
+                Motion.Connect();
             }
         }
     }
