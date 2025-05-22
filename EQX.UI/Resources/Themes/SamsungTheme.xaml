@@ -24,7 +24,7 @@
     <BitmapImage x:Key="ImageTopIcon" UriSource="/EQX.UI;component/Resources/Images/TopIcon.ico"/>
     <BitmapImage x:Key="ImageTopPng" UriSource="/EQX.UI;component/Resources/Images/TopPng.png"/>
 
-    <BitmapImage x:Key="ImageCustomerLogo" UriSource="/EQX.UI;component/Resources/Images/Sites/Samsung_Orig_Wordmark_BLUE_RGB.png"/>
+    <BitmapImage x:Key="ImageCustomerLogo" UriSource="/EQX.UI;component/Resources/Images/Sites/Samsung_Blue_Small.png"/>
 
     <BitmapImage x:Key="ImageTopLogo1" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_gray1.png"/>
     <BitmapImage x:Key="ImageTopLogo2" UriSource="/EQX.UI;component/Resources/Images/TOP_logo_gray2.png"/>
