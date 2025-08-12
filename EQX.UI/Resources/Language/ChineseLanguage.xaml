@@ -130,6 +130,9 @@
             <system:String x:Key="str_Input">输入</system:String>
             <system:String x:Key="str_Output">输出</system:String>
 
+            <system:String x:Key="str_Flip">翻转</system:String>
+            <system:String x:Key="str_Unflip">复原</system:String>
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

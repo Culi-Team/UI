@@ -36,6 +36,10 @@ namespace EQX.UI.Converters
                         return status1 ? (string)Application.Current.Resources["str_Lock"] : (string)Application.Current.Resources["str_Unlock"]; ;
                     case ECylinderType.LockUnlockReverse:
                         return status1 ? (string)Application.Current.Resources["str_Unlock"] : (string)Application.Current.Resources["str_Lock"]; ;
+                    case ECylinderType.FlipUnflip:
+                        return status1 ? (string)Application.Current.Resources["str_Flip"] : (string)Application.Current.Resources["str_Unflip"];
+                    case ECylinderType.FlipUnflipReverse:
+                        return status1 ? (string)Application.Current.Resources["str_Unflip"] : (string)Application.Current.Resources["str_Flip"];
                     default:
                         return Binding.DoNothing;
                 }
