@@ -16,10 +16,10 @@
     <SolidColorBrush x:Key="DisabledBorderBrush" Color="#888" />
     <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
 
-    <BitmapImage x:Key="ImageWindowMinimizeDefault" UriSource="/EQX.UI;component/Resources/Images/minimize_dark.png"/>
-    <BitmapImage x:Key="ImageWindowMaximizeDefault" UriSource="/EQX.UI;component/Resources/Images/maximize_dark.png"/>
-    <BitmapImage x:Key="ImageWindowNormalDefault" UriSource="/EQX.UI;component/Resources/Images/window_normal_dark.png"/>
-    <BitmapImage x:Key="ImageWindowCloseDefault" UriSource="/EQX.UI;component/Resources/Images/close_dark.png"/>
+    <BitmapImage x:Key="ImageWindowMinimizeDefault" UriSource="/EQX.UI;component/Resources/Images/Components/Common/minimize_dark.png"/>
+    <BitmapImage x:Key="ImageWindowMaximizeDefault" UriSource="/EQX.UI;component/Resources/Images/Components/Common/maximize_dark.png"/>
+    <BitmapImage x:Key="ImageWindowNormalDefault" UriSource="/EQX.UI;component/Resources/Images/Components/Common/window_normal_dark.png"/>
+    <BitmapImage x:Key="ImageWindowCloseDefault" UriSource="/EQX.UI;component/Resources/Images/Components/Common/close_dark.png"/>
 
     <BitmapImage x:Key="ImageTopIcon" UriSource="/EQX.UI;component/Resources/Images/TopIcon.ico"/>
     <BitmapImage x:Key="ImageTopPng" UriSource="/EQX.UI;component/Resources/Images/TopPng.png"/>
