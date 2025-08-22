@@ -298,6 +298,18 @@
     <None Remove="Resources\Images\nozzle_normal_dark.png" />
     <None Remove="Resources\Images\nozzle_normal_light.png" />
     <None Remove="Resources\Images\nozzle_selected.png" />
+    <None Remove="Resources\Images\NV_MainUI_Auto_Click_Hover.png" />
+    <None Remove="Resources\Images\NV_MainUI_Auto_Default.png" />
+    <None Remove="Resources\Images\NV_MainUI_Data_Click_Hover.png" />
+    <None Remove="Resources\Images\NV_MainUI_Data_Default.png" />
+    <None Remove="Resources\Images\NV_MainUI_Exit_Default.png" />
+    <None Remove="Resources\Images\NV_MainUI_Exit_Hover.png" />
+    <None Remove="Resources\Images\NV_MainUI_Log_Click_Hover.png" />
+    <None Remove="Resources\Images\NV_MainUI_Log_Default.png" />
+    <None Remove="Resources\Images\NV_MainUI_Manual_Click_Hover.png" />
+    <None Remove="Resources\Images\NV_MainUI_Manual_Default.png" />
+    <None Remove="Resources\Images\NV_MainUI_Teach_Default.png" />
+    <None Remove="Resources\Images\NV_MainUI_Teach_Hover.png" />
     <None Remove="Resources\Images\ok_mouseover.png" />
     <None Remove="Resources\Images\ok_normal.png" />
     <None Remove="Resources\Images\ok_normal1.png" />
@@ -802,6 +814,24 @@
     <Resource Include="Resources\Images\nozzle_normal_dark.png" />
     <Resource Include="Resources\Images\nozzle_normal_light.png" />
     <Resource Include="Resources\Images\nozzle_selected.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Auto_Click_Hover.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\NV_MainUI_Auto_Default.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\NV_MainUI_Data_Click_Hover.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Data_Default.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Exit_Default.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Exit_Hover.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Log_Click_Hover.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Images\NV_MainUI_Log_Default.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Manual_Click_Hover.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Manual_Default.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Teach_Default.png" />
+    <Resource Include="Resources\Images\NV_MainUI_Teach_Hover.png" />
     <Resource Include="Resources\Images\ok_mouseover.png" />
     <Resource Include="Resources\Images\ok_normal.png" />
     <Resource Include="Resources\Images\ok_normal1.png" />
