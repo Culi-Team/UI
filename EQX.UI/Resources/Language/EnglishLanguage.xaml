@@ -127,6 +127,9 @@
             <system:String x:Key="str_Results">Results</system:String>
             <system:String x:Key="str_Input">Input</system:String>
             <system:String x:Key="str_Output">Output</system:String>
+
+            <system:String x:Key="str_Flip">Flip</system:String>
+            <system:String x:Key="str_Unflip">Unflip</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

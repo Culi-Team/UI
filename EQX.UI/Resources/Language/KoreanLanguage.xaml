@@ -129,6 +129,9 @@
             <system:String x:Key="str_Results">결과</system:String>
             <system:String x:Key="str_Input">입력</system:String>
             <system:String x:Key="str_Output">출력</system:String>
+
+            <system:String x:Key="str_Flip">뒤집기</system:String>
+            <system:String x:Key="str_Unflip">뒤집기 해제</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

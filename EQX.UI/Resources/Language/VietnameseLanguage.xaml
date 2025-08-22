@@ -127,6 +127,9 @@
             <system:String x:Key="str_Results">Kết quả</system:String>
             <system:String x:Key="str_Input">Đầu vào</system:String>
             <system:String x:Key="str_Output">Đầu ra</system:String>
+
+            <system:String x:Key="str_Flip">Lật</system:String>
+            <system:String x:Key="str_Unflip">Bỏ lật</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
