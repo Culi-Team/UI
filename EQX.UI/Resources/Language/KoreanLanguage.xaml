@@ -132,6 +132,9 @@
 
             <system:String x:Key="str_Flip">뒤집기</system:String>
             <system:String x:Key="str_Unflip">뒤집기 해제</system:String>
+
+            <system:String x:Key="str_Clamp">클램프</system:String>
+            <system:String x:Key="str_Unclamp">언클램프</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

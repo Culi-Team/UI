@@ -133,6 +133,9 @@
             <system:String x:Key="str_Flip">翻转</system:String>
             <system:String x:Key="str_Unflip">复原</system:String>
 
+            <system:String x:Key="str_Clamp">夹紧</system:String>
+            <system:String x:Key="str_Unclamp">松开</system:String>
+
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

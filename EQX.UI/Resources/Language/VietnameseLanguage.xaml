@@ -130,6 +130,9 @@
 
             <system:String x:Key="str_Flip">Lật</system:String>
             <system:String x:Key="str_Unflip">Bỏ lật</system:String>
+
+            <system:String x:Key="str_Clamp">Kẹp</system:String>
+            <system:String x:Key="str_Unclamp">Nhả</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

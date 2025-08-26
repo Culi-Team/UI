@@ -130,6 +130,9 @@
 
             <system:String x:Key="str_Flip">Flip</system:String>
             <system:String x:Key="str_Unflip">Unflip</system:String>
+
+            <system:String x:Key="str_Clamp">Clamp</system:String>
+            <system:String x:Key="str_Unclamp">Unclamp</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>
