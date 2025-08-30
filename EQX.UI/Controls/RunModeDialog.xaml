@@ -1,0 +1,50 @@
+﻿<Window x:Class="EQX.UI.Controls.RunModeDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EQX.UI.Controls"
+        xmlns:core="clr-namespace:EQX.Core.Process;assembly=EQX.Core"
+        Title="Mode Select Viewer"
+        WindowStartupLocation="CenterOwner"
+        WindowStyle="None"
+        BorderBrush="Black"
+        BorderThickness="2"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight">
+    <Window.DataContext>
+        <local:RunModeDialogViewModel/>
+    </Window.DataContext>
+    <Border Padding="20">
+        <Grid>
+            <Button Content="EXIT"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top"
+                    Width="60"
+                    Height="30"
+                    Command="{Binding CloseCommand}"/>
+            <StackPanel Orientation="Horizontal"
+                        Margin="0,40,0,0"
+                        HorizontalAlignment="Center">
+                <Button Content="Auto Run"
+                        Width="120"
+                        Height="80"
+                        Margin="10"
+                        Command="{Binding SelectModeCommand}"
+                        CommandParameter="{x:Static core:EMachineRunMode.Auto}"/>
+                <Button Content="By-Pass"
+                        Width="120"
+                        Height="80"
+                        Margin="10"
+                        Command="{Binding SelectModeCommand}"
+                        CommandParameter="{x:Static core:EMachineRunMode.ByPass}"/>
+                <Button Content="Dry Run"
+                        Width="120"
+                        Height="80"
+                        Margin="10"
+                        Command="{Binding SelectModeCommand}"
+                        CommandParameter="{x:Static core:EMachineRunMode.Dryrun}"/>
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
