@@ -1,18 +1,21 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using EQX.Core.Process;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace EQX.UI.Controls
 {
-    public partial class RunModeDialogViewModel
+    public class RunModeDialogViewModel<T> : ObservableObject
     {
-        public RunModeDialogViewModel()
+        public RunModeDialogViewModel(IEnumerable<T> modes)
         {
-            SelectModeCommand = new RelayCommand<EMachineRunMode>(mode =>
+            Modes = new ObservableCollection<T>(modes);
+            SelectModeCommand = new RelayCommand<T>(mode =>
             {
                 SelectedMode = mode;
                 RequestClose?.Invoke();
@@ -20,9 +23,11 @@ namespace EQX.UI.Controls
             CloseCommand = new RelayCommand(() => RequestClose?.Invoke());
         }
 
-        public EMachineRunMode SelectedMode { get; private set; }
+        public ObservableCollection<T> Modes { get; }
 
-        public IRelayCommand<EMachineRunMode> SelectModeCommand { get; }
+        public T? SelectedMode { get; private set; }
+
+        public IRelayCommand<T> SelectModeCommand { get; }
 
         public IRelayCommand CloseCommand { get; }
 

@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:EQX.UI.Controls"
+        xmlns:cvt="clr-namespace:EQX.UI.Converters"
         xmlns:core="clr-namespace:EQX.Core.Process;assembly=EQX.Core"
         Title="Mode Select Viewer"
         WindowStartupLocation="CenterOwner"
@@ -12,9 +13,9 @@
         BorderThickness="2"
         ResizeMode="NoResize"
         SizeToContent="WidthAndHeight">
-    <Window.DataContext>
-        <local:RunModeDialogViewModel/>
-    </Window.DataContext>
+    <Window.Resources>
+        <cvt:EnumToStringConverter x:Key="EnumToStringConverter"/>
+    </Window.Resources>
     <Border Padding="20">
         <Grid>
             <Button Content="EXIT"
@@ -23,28 +24,25 @@
                     Width="60"
                     Height="30"
                     Command="{Binding CloseCommand}"/>
-            <StackPanel Orientation="Horizontal"
-                        Margin="0,40,0,0"
-                        HorizontalAlignment="Center">
-                <Button Content="Auto Run"
-                        Width="120"
-                        Height="80"
-                        Margin="10"
-                        Command="{Binding SelectModeCommand}"
-                        CommandParameter="{x:Static core:EMachineRunMode.Auto}"/>
-                <Button Content="By-Pass"
-                        Width="120"
-                        Height="80"
-                        Margin="10"
-                        Command="{Binding SelectModeCommand}"
-                        CommandParameter="{x:Static core:EMachineRunMode.ByPass}"/>
-                <Button Content="Dry Run"
-                        Width="120"
-                        Height="80"
-                        Margin="10"
-                        Command="{Binding SelectModeCommand}"
-                        CommandParameter="{x:Static core:EMachineRunMode.Dryrun}"/>
-            </StackPanel>
+            <ItemsControl ItemsSource="{Binding Modes}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal"
+                                    Margin="0,40,0,0"
+                                    HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Button Content="{Binding Converter={StaticResource EnumToStringConverter}}"
+                                Width="120"
+                                Height="80"
+                                Margin="10"
+                                Command="{Binding DataContext.SelectModeCommand, RelativeSource={RelativeSource AncestorType=Window}}"
+                                CommandParameter="{Binding}"/>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </Border>
 </Window>

@@ -24,27 +24,22 @@ namespace EQX.UI.Controls
         public RunModeDialog()
         {
             InitializeComponent();
-            if (DataContext is RunModeDialogViewModel vm)
-            {
-                vm.RequestClose += () =>
-                {
-                    DialogResult = true;
-                    SelectedMode = vm.SelectedMode;
-                    Close();
-                };
-            }
         }
-        public EMachineRunMode SelectedMode { get; private set; }
-
-        public static EMachineRunMode? ShowRunModeDialog()
+        public static T? ShowRunModeDialog<T>(IEnumerable<T> modes) where T : struct, Enum
         {
             return Application.Current.Dispatcher.Invoke(() =>
             {
-                var dialog = new RunModeDialog();
+                var vm = new RunModeDialogViewModel<T>(modes);
+                var dialog = new RunModeDialog { DataContext = vm };
+                vm.RequestClose += () =>
+                {
+                    dialog.DialogResult = true;
+                    dialog.Close();
+                };
                 var owner = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
                 if (owner != null)
                     dialog.Owner = owner;
-                return dialog.ShowDialog() == true ? dialog.SelectedMode : (EMachineRunMode?)null;
+                return dialog.ShowDialog() == true ? vm.SelectedMode : (T?)null;
             });
         }
     }
