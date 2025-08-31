@@ -8,7 +8,7 @@
                     <ControlTemplate TargetType="{x:Type ui:ImageButton}">
                         <Border BorderThickness="1"
                             Background="{TemplateBinding Background}"
-                            BorderBrush="{StaticResource PrimaryBorderBrush}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
                             CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -83,6 +83,8 @@
                 Value="Auto"/>
             <Setter Property="CornerRadius"
                 Value="5"/>
+            <Setter Property="BorderBrush"
+                    Value="{StaticResource PrimaryBorderBrush}" />
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0 0" EndPoint="0 1"
@@ -104,7 +106,7 @@
                     <ControlTemplate TargetType="{x:Type ui:ImageRadioButton}">
                         <Border BorderThickness="1"
                                 Background="{TemplateBinding Background}"
-                                BorderBrush="{StaticResource PrimaryBorderBrush}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
                                 CornerRadius="{TemplateBinding CornerRadius}">
                             <Grid>
                                 <Grid.ColumnDefinitions>
@@ -179,6 +181,8 @@
                     Value="Auto"/>
             <Setter Property="CornerRadius"
                     Value="5"/>
+            <Setter Property="BorderBrush"
+                    Value="{StaticResource PrimaryBorderBrush}" />
             <Setter Property="Background">
                 <Setter.Value>
                     <LinearGradientBrush StartPoint="0 0" EndPoint="0 1"
