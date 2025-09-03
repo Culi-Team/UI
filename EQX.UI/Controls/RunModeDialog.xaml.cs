@@ -33,13 +33,13 @@ namespace EQX.UI.Controls
                 var dialog = new RunModeDialog { DataContext = vm };
                 vm.RequestClose += () =>
                 {
-                    dialog.DialogResult = true;
+                    dialog.DialogResult = vm.SelectedMode.HasValue;
                     dialog.Close();
                 };
                 var owner = Application.Current.Windows.OfType<Window>().FirstOrDefault(w => w.IsActive);
                 if (owner != null)
                     dialog.Owner = owner;
-                return dialog.ShowDialog() == true ? vm.SelectedMode : (T?)null;
+                return dialog.ShowDialog() == true ? vm.SelectedMode : null;
             });
         }
     }

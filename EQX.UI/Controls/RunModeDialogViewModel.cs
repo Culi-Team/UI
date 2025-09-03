@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace EQX.UI.Controls
 {
-    public class RunModeDialogViewModel<T> : ObservableObject
+    public class RunModeDialogViewModel<T> : ObservableObject where T : struct, Enum
     {
         public RunModeDialogViewModel(IEnumerable<T> modes)
         {
