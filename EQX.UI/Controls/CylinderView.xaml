@@ -122,6 +122,24 @@
                                 </Setter.Value>
                             </Setter>
                         </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.ClampUnclamp}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger
+                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                            Value="{x:Static inoutCore:ECylinderType.ClampUnclampReverse}">
+                            <Setter Property="RenderTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </Grid.Style>
@@ -175,6 +193,11 @@
                             <DataTrigger
                                 Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                 Value="{x:Static inoutCore:ECylinderType.FlipUnflipReverse}">
+                                <Setter Property="Grid.Row" Value="3"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.ClampUnclampReverse}">
                                 <Setter Property="Grid.Row" Value="3"/>
                             </DataTrigger>
                         </Style.Triggers>
@@ -242,6 +265,11 @@
                             <DataTrigger
                                 Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
                                 Value="{x:Static inoutCore:ECylinderType.FlipUnflipReverse}">
+                                <Setter Property="Grid.Row" Value="0"/>
+                            </DataTrigger>
+                            <DataTrigger
+                                Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                Value="{x:Static inoutCore:ECylinderType.ClampUnclampReverse}">
                                 <Setter Property="Grid.Row" Value="0"/>
                             </DataTrigger>
                         </Style.Triggers>

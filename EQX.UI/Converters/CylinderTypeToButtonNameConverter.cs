@@ -40,6 +40,10 @@ namespace EQX.UI.Converters
                         return status1 ? (string)Application.Current.Resources["str_Flip"] : (string)Application.Current.Resources["str_Unflip"];
                     case ECylinderType.FlipUnflipReverse:
                         return status1 ? (string)Application.Current.Resources["str_Unflip"] : (string)Application.Current.Resources["str_Flip"];
+                    case ECylinderType.ClampUnclamp:
+                        return status1 ? (string)Application.Current.Resources["str_Clamp"] : (string)Application.Current.Resources["str_Unclamp"];
+                    case ECylinderType.ClampUnclampReverse:
+                        return status1 ? (string)Application.Current.Resources["str_Unclamp"] : (string)Application.Current.Resources["str_Clamp"];
                     default:
                         return Binding.DoNothing;
                 }
