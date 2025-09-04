@@ -5,7 +5,7 @@
     <SolidColorBrush x:Key="PrimaryBackgroundColor" Color="#FF173265"/>
     <SolidColorBrush x:Key="SecondaryBackgroundColor" Color="#FF031E51"/>
 
-    <SolidColorBrush x:Key="HighLightBackgroundColor" Color="#FF08b2d5"/>
+    <SolidColorBrush x:Key="HighLightBackgroundColor" Color="#FF135EB2"/>
     <SolidColorBrush x:Key="HighLightBackgroundConstrastColor" Color="#FF010204"/>
 
     <SolidColorBrush x:Key="ImageButtonMouseOverColor" Color="#FF135EB2"/>
