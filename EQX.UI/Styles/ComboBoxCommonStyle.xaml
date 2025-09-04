@@ -85,6 +85,18 @@
         <Setter Property="Margin"
                 Value="0 2" />
 
+        <Setter Property="MaxDropDownHeight"
+                Value="200" />
+
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel IsItemsHost="True" />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+
+
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
@@ -142,22 +154,14 @@
                                     BorderBrush="{StaticResource PrimaryBorderBrush}"
                                     MinWidth="{TemplateBinding FrameworkElement.ActualWidth}"
                                     MaxHeight="{TemplateBinding ComboBox.MaxDropDownHeight}">
-                                    <StackPanel>
-                                        <TextBlock
-                                            Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Tag, StringFormat='Select {0}'}"
-                                            Padding="16 7"
-                                            FontSize="{TemplateBinding FontSize}"
-                                            FontWeight="Bold"
-                                            Foreground="#24292e"
-                                            HorizontalAlignment="Left" />
-
-                                        <Grid>
-                                            <ScrollViewer SnapsToDevicePixels="True"
-                                                          Background="Transparent">
-                                                <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
-                                            </ScrollViewer>
-                                        </Grid>
-                                    </StackPanel>
+                                    <ScrollViewer SnapsToDevicePixels="True"
+                                                  Background="Transparent"
+                                                  Margin="4,6,4,6"
+                                                  CanContentScroll="True"
+                                                  VerticalScrollBarVisibility="Auto"
+                                                  HorizontalScrollBarVisibility="Disabled">
+                                        <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Contained" />
+                                    </ScrollViewer>
 
                                 </Border>
                             </Popup>
