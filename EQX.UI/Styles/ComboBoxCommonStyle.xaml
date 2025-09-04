@@ -86,7 +86,7 @@
                 Value="0 2" />
 
         <Setter Property="MaxDropDownHeight"
-                Value="200" />
+                Value="300" />
 
         <Setter Property="ItemsPanel">
             <Setter.Value>
