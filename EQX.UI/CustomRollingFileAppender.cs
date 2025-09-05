@@ -2,6 +2,7 @@
 using log4net.Core;
 using System.IO;
 using System.Windows.Documents;
+using System.Windows.Shapes;
 
 namespace EQX.UI
 {
@@ -11,6 +12,14 @@ namespace EQX.UI
         {
             if (File != null && Layout.Header != null)
             {
+                if (!System.IO.File.Exists(File))
+                {
+                    using (StreamWriter writer = new StreamWriter(System.IO.File.Create(File)))
+                    {
+                        writer.WriteLine(Layout.Header);
+                    }
+                }
+
                 string fileContent = System.IO.File.ReadAllText(File);
                 string header = Layout.Header;
 
