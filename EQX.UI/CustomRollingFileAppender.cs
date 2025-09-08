@@ -61,6 +61,30 @@ namespace EQX.UI
 
         }
 
+        protected override void RollOverRenameFiles(string baseFileName)
+        {
+            if (File != null && Layout?.Footer != null && System.IO.File.Exists(File))
+            {
+                try
+                {
+                    lock (this)
+                    {
+                        using (var stream = new FileStream(File, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                        using (var writer = new StreamWriter(stream))
+                        {
+                            writer.Write(Layout.Footer);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorHandler.Error("Failed to write footer before rolling", ex);
+                }
+            }
+
+            base.RollOverRenameFiles(baseFileName);
+        }
+
         private void WriteFooter()
         {
             if (File != null && Layout.Footer != null)
