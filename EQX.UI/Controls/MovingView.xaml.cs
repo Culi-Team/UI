@@ -50,7 +50,7 @@ namespace EQX.UI.Controls
         }
         // Using a DependencyProperty as the backing store for Motion.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty MotionProperty =
-            DependencyProperty.Register("Motion", typeof(IMotion), typeof(MotionView), new PropertyMetadata(null));
+            DependencyProperty.Register("Motion", typeof(IMotion), typeof(MovingView), new PropertyMetadata(null));
 
         public bool Interlock
         {
@@ -59,7 +59,7 @@ namespace EQX.UI.Controls
         }
         // Using a DependencyProperty as the backing store for Interlock.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty InterlockProperty =
-            DependencyProperty.Register("Interlock", typeof(bool), typeof(MotionView), new PropertyMetadata(true));
+            DependencyProperty.Register("Interlock", typeof(bool), typeof(MovingView), new PropertyMetadata(true));
 
 
         private void MoveDec_ButtonDown(object sender, MouseButtonEventArgs e)
@@ -138,46 +138,6 @@ namespace EQX.UI.Controls
             if (cbBoxStepInc.SelectedIndex < 0) cbBoxStepInc.SelectedIndex = 0;
 
             jogSpeedRate = jogSpeedRates[cbBoxStepInc.SelectedIndex];
-        }
-
-        private void ButtonServoOn_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsValid() == false) return;
-
-            if (Motion.Status.IsMotionOn)
-            {
-                Motion.MotionOff();
-            }
-            else
-            {
-                Motion.MotionOn();
-            }
-        }
-
-        private void ButtonOrigin_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsValid() == false) return;
-
-            Motion.SearchOrigin();
-        }
-        private void ButtonResetAlarm_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsValid() == false) return;
-
-            Motion.AlarmReset();
-        }
-
-        private void ButtonConnect_Click(object sender, RoutedEventArgs e)
-        {
-            if (IsValid() == false) return;
-            if (Motion.IsConnected)
-            {
-                Motion.Disconnect();
-            }
-            else
-            {
-                Motion.Connect();
-            }
         }
     }
 }
