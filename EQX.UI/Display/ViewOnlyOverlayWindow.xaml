@@ -1,0 +1,29 @@
+﻿<Window x:Class="EQX.UI.Display.ViewOnlyOverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EQX.UI.Display"
+        mc:Ignorable="d"
+        WindowStyle="None" ResizeMode="NoResize"
+        WindowStartupLocation="Manual"
+        Topmost="True" Background="Transparent" AllowsTransparency="True"
+        ShowInTaskbar="False">
+    <Grid x:Name="Root"
+          PreviewMouseDown="Eat"
+          PreviewMouseUp="Eat"
+          PreviewMouseMove="Eat"
+          PreviewTouchDown="Eat"
+          PreviewTouchMove="Eat"
+          PreviewTouchUp="Eat">
+        <Grid.Background>
+            <VisualBrush x:Name="MirrorBrush" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <TextBlock Text="VIEW ONLY"
+                   Foreground="White"
+                   FontSize="40"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   FontWeight="Bold"/>
+    </Grid>
+</Window>
