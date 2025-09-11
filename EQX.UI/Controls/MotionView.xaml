@@ -43,7 +43,7 @@
             </Grid.ColumnDefinitions>
             <Border Margin="2 2 0 2"
                     Grid.Column="0"
-                    Background="{Binding Motion.Status.HwNegLimitDetect, Converter={StaticResource BooleanToAlarmBrushConverter}}"
+                    Background="{Binding Status.HwNegLimitDetect, Converter={StaticResource BooleanToAlarmBrushConverter}}"
                     BorderThickness="1"
                     BorderBrush="{StaticResource PrimaryBorderBrush}">
                 <TextBlock Text="Limit (-)"
@@ -62,12 +62,12 @@
                          FontSize="20"
                          VerticalContentAlignment="Center"
                          HorizontalContentAlignment="Center"
-                         Text="{Binding Motion.Status.ActualPosition, Mode=OneWay, StringFormat='{}{0:0.###} mm'}"
+                         Text="{Binding Status.ActualPosition, Mode=OneWay, StringFormat='{}{0:0.###} mm'}"
                          IsReadOnly="True" />
             </Border>
             <Border Margin="0 2 2 2"
                     Grid.Column="2"
-                    Background="{Binding Motion.Status.HwPosLimitDetect,Converter={StaticResource BooleanToAlarmBrushConverter}}"
+                    Background="{Binding Status.HwPosLimitDetect,Converter={StaticResource BooleanToAlarmBrushConverter}}"
                     BorderThickness="1"
                     BorderBrush="{StaticResource PrimaryBorderBrush}">
                 <TextBlock Text="Limit (+)"
@@ -141,7 +141,7 @@
             <Ellipse Margin="10 0"
                      Width="26"
                      Height="26"
-                     Fill="{Binding Motion.Status.IsHomeDone,Converter={StaticResource BooleanToOnOffBrushConverter}}"
+                     Fill="{Binding Status.IsHomeDone,Converter={StaticResource BooleanToOnOffBrushConverter}}"
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <local:ImageButton Grid.Column="1"
@@ -161,7 +161,7 @@
             <Ellipse Margin="10 0"
                      Width="26"
                      Height="26"
-                     Fill="{Binding Motion.Status.IsMotionOn,Converter={StaticResource BooleanToOnOffBrushConverter}}"
+                     Fill="{Binding Status.IsMotionOn,Converter={StaticResource BooleanToOnOffBrushConverter}}"
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <uiControls:ImageButton Grid.Column="1"
@@ -180,7 +180,7 @@
             <Ellipse Margin="10 0"
                      Width="26"
                      Height="26"
-                     Fill="{Binding Motion.Status.IsAlarm,Converter={StaticResource BooleanToOnOffBrushConverter}, ConverterParameter=true}"
+                     Fill="{Binding Status.IsAlarm,Converter={StaticResource BooleanToOnOffBrushConverter}, ConverterParameter=true}"
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
             <local:ImageButton Grid.Column="1"

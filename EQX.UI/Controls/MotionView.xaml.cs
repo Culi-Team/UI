@@ -40,7 +40,6 @@ namespace EQX.UI.Controls
         public MotionView()
         {
             InitializeComponent();
-            this.DataContext = this;
             cbBoxStepInc.ItemsSource = jogSpeedList;
         }
 
