@@ -140,7 +140,15 @@ namespace EQX.UI
 
         protected override void WriteFooterAndCloseWriter()
         {
-            CloseWriter();
+            if (Layout != null && QuietWriter != null && !QuietWriter.Closed)
+            {
+                string footer = Layout.Footer;
+                if (footer != null)
+                {
+                    QuietWriter.Write(footer);
+                }
+            }
+            base.WriteFooterAndCloseWriter();
         }
     }
 }
