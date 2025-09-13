@@ -140,15 +140,43 @@ namespace EQX.UI
 
         protected override void WriteFooterAndCloseWriter()
         {
-            if (Layout != null && QuietWriter != null && !QuietWriter.Closed)
+            try
             {
-                string footer = Layout.Footer;
-                if (footer != null)
+                if (Layout != null && QuietWriter != null && !QuietWriter.Closed && File != null)
                 {
-                    QuietWriter.Write(footer);
+                    string footer = Layout.Footer;
+                    if (!string.IsNullOrEmpty(footer) && System.IO.File.Exists(File))
+                    {
+                        string fileContent = null;
+
+                        using (var fs = new FileStream(File, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                        {
+                            long length = fs.Length;
+                            int readSize = Math.Min(footer.Length + 50, (int)length); 
+                            byte[] buffer = new byte[readSize];
+
+                            fs.Seek(-readSize, SeekOrigin.End);
+                            fs.Read(buffer, 0, readSize);
+
+                            fileContent = System.Text.Encoding.UTF8.GetString(buffer);
+                        }
+
+                        if (!fileContent.EndsWith(footer))
+                        {
+                            QuietWriter.Write(footer);
+                            QuietWriter.Flush();
+                        }
+                    }
                 }
             }
-            base.WriteFooterAndCloseWriter();
+            catch (Exception ex)
+            {
+                ErrorHandler.Error("Failed to write footer on close", ex);
+            }
+            finally
+            {
+                CloseWriter();
+            }
         }
     }
 }
