@@ -47,7 +47,7 @@
             <Grid Margin="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="50"/>
+                    <ColumnDefinition Width="45"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
@@ -72,11 +72,13 @@
                            HorizontalAlignment="Center"
                            Grid.Column="1"/>
 
-                <TextBlock Text="{Binding Name}"
+                <Viewbox Stretch="Fill" StretchDirection="DownOnly" Grid.Column="2">
+                    <TextBlock Text="{Binding Name}"
                            d:Text="START_LED"
                            VerticalAlignment="Center"
-                           HorizontalAlignment="Center"
-                           Grid.Column="2"/>
+                           HorizontalAlignment="Center" />
+                </Viewbox>
+
             </Grid>
         </Border>
     </Button>
