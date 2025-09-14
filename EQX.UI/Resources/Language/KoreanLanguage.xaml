@@ -135,6 +135,8 @@
 
             <system:String x:Key="str_Clamp">클램프</system:String>
             <system:String x:Key="str_Unclamp">언클램프</system:String>
+            <system:String x:Key="str_On">켜기</system:String>
+            <system:String x:Key="str_Off">끄기</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

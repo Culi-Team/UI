@@ -61,7 +61,8 @@ namespace EQX.UI.Controls
                     cylinder.CylinderType == Core.InOut.ECylinderType.GripUngripReverse ||
                     cylinder.CylinderType == Core.InOut.ECylinderType.AlignUnalignReverse ||
                     cylinder.CylinderType == Core.InOut.ECylinderType.FlipUnflipReverse ||
-                    cylinder.CylinderType == Core.InOut.ECylinderType.ClampUnclampReverse
+                    cylinder.CylinderType == Core.InOut.ECylinderType.ClampUnclampReverse||
+                    cylinder.CylinderType == Core.InOut.ECylinderType.OnOff
                     )
                 {
                     cylinder.Backward();
@@ -88,7 +89,8 @@ namespace EQX.UI.Controls
                     cylinder.CylinderType == Core.InOut.ECylinderType.GripUngripReverse ||
                     cylinder.CylinderType == Core.InOut.ECylinderType.AlignUnalignReverse ||
                     cylinder.CylinderType == Core.InOut.ECylinderType.FlipUnflipReverse ||
-                    cylinder.CylinderType == Core.InOut.ECylinderType.ClampUnclampReverse
+                    cylinder.CylinderType == Core.InOut.ECylinderType.ClampUnclampReverse||
+                    cylinder.CylinderType == Core.InOut.ECylinderType.OnOff
                     )
                 {
                     cylinder.Forward();

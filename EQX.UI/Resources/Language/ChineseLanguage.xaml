@@ -135,6 +135,8 @@
 
             <system:String x:Key="str_Clamp">夹紧</system:String>
             <system:String x:Key="str_Unclamp">松开</system:String>
+            <system:String x:Key="str_On">开</system:String>
+            <system:String x:Key="str_Off">关</system:String>
 
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>

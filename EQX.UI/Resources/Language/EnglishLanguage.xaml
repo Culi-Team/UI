@@ -133,6 +133,8 @@
 
             <system:String x:Key="str_Clamp">Clamp</system:String>
             <system:String x:Key="str_Unclamp">Unclamp</system:String>
+            <system:String x:Key="str_On">On</system:String>
+            <system:String x:Key="str_Off">Off</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

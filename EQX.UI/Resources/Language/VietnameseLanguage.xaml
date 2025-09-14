@@ -133,6 +133,8 @@
 
             <system:String x:Key="str_Clamp">Kẹp</system:String>
             <system:String x:Key="str_Unclamp">Nhả</system:String>
+            <system:String x:Key="str_On">Bật</system:String>
+            <system:String x:Key="str_Off">Tắt</system:String>
         </ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 </ResourceDictionary>

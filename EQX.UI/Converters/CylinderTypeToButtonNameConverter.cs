@@ -44,6 +44,8 @@ namespace EQX.UI.Converters
                         return status1 ? (string)Application.Current.Resources["str_Clamp"] : (string)Application.Current.Resources["str_Unclamp"];
                     case ECylinderType.ClampUnclampReverse:
                         return status1 ? (string)Application.Current.Resources["str_Unclamp"] : (string)Application.Current.Resources["str_Clamp"];
+                    case ECylinderType.OnOff:
+                        return status1 ? (string)Application.Current.Resources["str_On"] : (string)Application.Current.Resources["str_Off"];
                     default:
                         return Binding.DoNothing;
                 }
