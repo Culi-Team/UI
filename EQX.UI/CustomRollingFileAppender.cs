@@ -163,8 +163,11 @@ namespace EQX.UI
 
                         if (!fileContent.EndsWith(footer))
                         {
-                            QuietWriter.Write(footer);
-                            QuietWriter.Flush();
+                            using (var fs = new FileStream(File, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                            using (var sw = new StreamWriter(fs))
+                            {
+                                sw.Write(footer);
+                            }
                         }
                     }
                 }
