@@ -69,10 +69,31 @@ namespace EQX.UI
                 {
                     lock (this)
                     {
-                        using (var stream = new FileStream(File, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
-                        using (var writer = new StreamWriter(stream))
+                        string footer = Layout.Footer;
+                        if (!string.IsNullOrEmpty(footer) && System.IO.File.Exists(File))
                         {
-                            writer.Write(Layout.Footer);
+                            string fileContent = null;
+
+                            using (var fs = new FileStream(File, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
+                            {
+                                long length = fs.Length;
+                                int readSize = Math.Min(footer.Length + 50, (int)length);
+                                byte[] buffer = new byte[readSize];
+
+                                fs.Seek(-readSize, SeekOrigin.End);
+                                fs.Read(buffer, 0, readSize);
+
+                                fileContent = System.Text.Encoding.UTF8.GetString(buffer);
+                            }
+
+                            if (!fileContent.EndsWith(footer))
+                            {
+                                using (var fs = new FileStream(File, FileMode.Append, FileAccess.Write, FileShare.ReadWrite))
+                                using (var sw = new StreamWriter(fs))
+                                {
+                                    sw.Write(footer);
+                                }
+                            }
                         }
                     }
                 }
