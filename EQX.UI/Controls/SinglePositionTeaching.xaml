@@ -40,7 +40,7 @@
                 <ColumnDefinition Width="0.75*"
                                   SharedSizeGroup="Recipe_Move" />
 
-                <ColumnDefinition Width="0.75*"
+                <ColumnDefinition Width="1*"
                                   SharedSizeGroup="Recipe_GetCurrentPosition" />
 
                 <ColumnDefinition Width="0.75*"
