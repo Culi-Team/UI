@@ -22,12 +22,12 @@ namespace EQX.UI.Controls
     public partial class SinglePositionTeaching : UserControl
     {
         public SinglePositionTeaching(SingleRecipeDescriptionAttribute singleRecipeDescription,
-           SingleRecipePositionAttribute singleRecipePosition)
+           SinglePositionTeachingAttribute singlePosition)
         {
             InitializeComponent();
 
             SingleRecipeDescription = singleRecipeDescription;
-            SingleRecipePosition = singleRecipePosition;
+            SinglePosition = singlePosition;
             this.DataContext = this;
         }
         public bool IsHeader
@@ -81,7 +81,7 @@ namespace EQX.UI.Controls
 
 
         public SingleRecipeDescriptionAttribute SingleRecipeDescription { get; set; }
-        public SingleRecipePositionAttribute SingleRecipePosition { get; set; }
+        public SinglePositionTeachingAttribute SinglePosition { get; set; }
 
         private void Value_MouseUp(object sender, MouseButtonEventArgs e)
         {

@@ -183,7 +183,7 @@
                             <DataTrigger Binding="{Binding DataContext.SingleRecipeDescription.IsSpacer, ElementName=root}"
                                          Value="False">
                                 <Setter Property="Content"
-                                        Value="{Binding DataContext.SingleRecipePosition.Motion, ElementName=root}" />
+                                        Value="{Binding DataContext.SinglePosition.Motion, ElementName=root}" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding IsHeader, ElementName=root}"
                                          Value="True">
