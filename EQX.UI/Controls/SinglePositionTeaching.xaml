@@ -281,7 +281,7 @@
                                         Value="Hand" />
                             </DataTrigger>
 
-                            <DataTrigger Binding="{Binding DataContext.SingleRecipeDescription.IsHeader, ElementName=root}"
+                            <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
                                          Value="True">
                                 <Setter Property="Cursor"
                                         Value="Arrow" />
