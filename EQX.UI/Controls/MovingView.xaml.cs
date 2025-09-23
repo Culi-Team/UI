@@ -1,4 +1,5 @@
 ﻿using EQX.Core.Motion;
+using System.Reflection.Metadata;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -43,45 +44,21 @@ namespace EQX.UI.Controls
             cbBoxStepInc.ItemsSource = jogSpeedList;
         }
 
-        public IMotion Motion
-        {
-            get { return (IMotion)GetValue(MotionProperty); }
-            set { SetValue(MotionProperty, value); }
-        }
-        // Using a DependencyProperty as the backing store for Motion.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty MotionProperty =
-            DependencyProperty.Register("Motion", typeof(IMotion), typeof(MovingView), new PropertyMetadata(null));
-
-        public bool Interlock
-        {
-            get { return (bool)GetValue(InterlockProperty); }
-            set { SetValue(InterlockProperty, value); }
-        }
-        // Using a DependencyProperty as the backing store for Interlock.  This enables animation, styling, binding, etc...
-        public static readonly DependencyProperty InterlockProperty =
-            DependencyProperty.Register("Interlock", typeof(bool), typeof(MovingView), new PropertyMetadata(true));
-
-
         private void MoveDec_ButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (IsValid() == false) return;
-            if (Interlock == false)
-            {
-                MessageBoxEx.ShowDialog("Interlock Check Error");
-                return;
-            }
 
             if (JogMode.IsChecked == true)
             {
-                Motion.MoveJog(
-                    Motion.Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
+                ((IMotion)DataContext).MoveJog(
+                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
                     false);
             }
             else
             {
                 // Move INC by 10% max speed
-                Motion.MoveInc((double)cbBoxStepInc.SelectedItem * -1,
-                   Motion.Parameter.MaxVelocity * .10);
+                ((IMotion)DataContext).MoveInc((double)cbBoxStepInc.SelectedItem * -1,
+                   ((IMotion)DataContext).Parameter.MaxVelocity * .10);
             }
         }
 
@@ -91,7 +68,7 @@ namespace EQX.UI.Controls
 
             if (JogMode.IsChecked == true)
             {
-                Motion.Stop();
+                ((IMotion)DataContext).Stop();
             }
         }
 
@@ -99,29 +76,23 @@ namespace EQX.UI.Controls
         {
             if (IsValid() == false) return;
 
-            if (Interlock == false)
-            {
-                MessageBoxEx.ShowDialog("Interlock Check Error");
-                return;
-            }
-
             if (JogMode.IsChecked == true)
             {
-                Motion.MoveJog(
-                    Motion.Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
+                ((IMotion)DataContext).MoveJog(
+                    ((IMotion)DataContext).Parameter.MaxVelocity * jogSpeedRates[cbBoxStepInc.SelectedIndex],
                     true);
             }
             else
             {
                 // Move INC by 10% max speed
-                Motion.MoveInc((double)cbBoxStepInc.SelectedItem,
-                    Motion.Parameter.MaxVelocity * .10);
+                ((IMotion)DataContext).MoveInc((double)cbBoxStepInc.SelectedItem,
+                    ((IMotion)DataContext).Parameter.MaxVelocity * .10);
             }
         }
 
         private bool IsValid()
         {
-            if (Motion == null) return false;
+            if (DataContext is IMotion motion == false) return false;
 
             return true;
         }
