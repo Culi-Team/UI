@@ -20,6 +20,88 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="{x:Type Button}">
+            <Style.Setters>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border Height="{TemplateBinding Height}"
+                                    Width="{TemplateBinding Width}">
+                                <Grid>
+                                    <TextBlock HorizontalAlignment="Center"
+                                               VerticalAlignment="Center"
+                                               Margin="{TemplateBinding Padding}"
+                                               Text="{TemplateBinding Content}"
+                                               TextWrapping="WrapWithOverflow"
+                                               TextAlignment="Center" />
+                                </Grid>
+
+                                <Border.Style>
+                                    <Style TargetType="{x:Type Border}">
+                                        <Style.Setters>
+                                            <Setter Property="Background"
+                                                    Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+
+                                            <Setter Property="BorderBrush"
+                                                    Value="#d3d5d6" />
+
+                                            <Setter Property="BorderThickness"
+                                                    Value="1" />
+
+                                            <Setter Property="CornerRadius"
+                                                    Value="0" />
+                                        </Style.Setters>
+                                    </Style>
+                                </Border.Style>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Setter Property="Background"
+                        Value="#fafbfc" />
+
+                <Setter Property="Foreground"
+                        Value="#24292e" />
+
+                <Setter Property="FontWeight"
+                        Value="Bold" />
+
+                <Setter Property="Padding"
+                        Value="5" />
+
+                <Setter Property="Cursor"
+                        Value="Hand" />
+            </Style.Setters>
+            <Style.Triggers>
+                <Trigger Property="IsEnabled"
+                         Value="False">
+                    <Setter Property="Foreground"
+                            Value="#959DA5" />
+
+                    <Setter Property="Cursor"
+                            Value="Arrow" />
+                </Trigger>
+
+                <Trigger Property="IsMouseOver"
+                         Value="True">
+                    <Setter Property="Background"
+                            Value="#f3f4f6" />
+                </Trigger>
+                
+                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
+                             Value="True">
+                    <Setter Property="Visibility"
+                            Value="Hidden" />
+                </DataTrigger>
+                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
+                             Value="False">
+                    <Setter Property="Visibility"
+                            Value="Visible" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
     </UserControl.Resources>
 
     <Grid>
@@ -40,7 +122,7 @@
                 <ColumnDefinition Width="0.75*"
                                   SharedSizeGroup="Recipe_Move" />
 
-                <ColumnDefinition Width="1*"
+                <ColumnDefinition Width="1.2*"
                                   SharedSizeGroup="Recipe_GetCurrentPosition" />
 
                 <ColumnDefinition Width="0.75*"
@@ -317,22 +399,6 @@
                         Command="{Binding DataContext.MovePositionTeachingCommand,ElementName=root}"
                         CommandParameter="{Binding DataContext,ElementName=root}"
                         Grid.Column="4">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
-                                             Value="True">
-                                    <Setter Property="Visibility"
-                                            Value="Hidden" />
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
-                                             Value="False">
-                                    <Setter Property="Visibility"
-                                            Value="Visible" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
                 </Button>
             </Border>
 
@@ -362,23 +428,6 @@
                         Command="{Binding DataContext.GetCurrentPositionCommand,ElementName=root}"
                         CommandParameter="{Binding DataContext,ElementName=root}"
                         Grid.Column="5">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
-                                             Value="True">
-                                    <Setter Property="Visibility"
-                                            Value="Collapsed" />
-                                </DataTrigger>
-
-                                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
-                                             Value="False">
-                                    <Setter Property="Visibility"
-                                            Value="Visible" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
                 </Button>
 
             </Border>
@@ -408,22 +457,6 @@
                         CommandParameter="{Binding DataContext,ElementName=root}"
                         HorizontalAlignment="Stretch"
                         VerticalAlignment="Stretch">
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Style.Triggers>
-                                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
-                                             Value="True">
-                                    <Setter Property="Visibility"
-                                            Value="Hidden" />
-                                </DataTrigger>
-                                <DataTrigger Binding="{Binding DataContext.IsHeader, ElementName=root}"
-                                             Value="False">
-                                    <Setter Property="Visibility"
-                                            Value="Visible" />
-                                </DataTrigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
                 </Button>
             </Border>
         </Grid>
