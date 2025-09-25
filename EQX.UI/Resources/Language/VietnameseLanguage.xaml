@@ -37,6 +37,8 @@
             <system:String x:Key="str_AreYouSureYouWantToSetMachineOrigin">Bạn có chắc chắn muốn CÀI ĐẶT HOME MÁY không?</system:String>
             <system:String x:Key="str_AreYouSureYouWantToSetMachineReady">Bạn có chắc chắn muốn CÀI ĐẶT MÁY SẴN SÀNG không?</system:String>
             <system:String x:Key="str_AreYouSureYouWantToStartMachine">Bạn chắc chắn muốn CHẠY MÁY?</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachineDryRun">Bạn có chắc chắn muốn CHẠY MÁY ở chế độ DRY RUN? Máy sẽ bỏ qua toàn bộ tín hiệu kiểm tra hàng.</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachineByPass">Bạn có chắc chắn muốn CHẠY MÁY ở chế độ BYPASS? Máy sẽ bỏ qua các tín hiệu an toàn như cửa.</system:String>
             <system:String x:Key="str_VisionRecipeSaveSuccessed">Công thức Vision lưu thành công!</system:String>
             <system:String x:Key="str_SaveAllData">Lưu tất cả dữ liệu!</system:String>
             <system:String x:Key="str_MachineInitializeFinishWithError">Khởi tạo máy kết thúc với lỗi. Vui lòng kiểm tra Nhật ký để biết thêm thông tin!</system:String>

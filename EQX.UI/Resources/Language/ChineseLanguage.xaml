@@ -67,6 +67,8 @@
             <system:String x:Key="str_IOConnect">I/O 连接</system:String>
             <system:String x:Key="str_Connect">连接</system:String>
             <system:String x:Key="str_Disconnect">断开连接</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachineDryRun">您确定要以空跑模式启动机器吗？系统将忽略所有产品检测信号。</system:String>
+            <system:String x:Key="str_AreYouSureYouWantToStartMachineByPass">您确定要以旁路模式启动机器吗？系统将忽略门等安全信号。</system:String>
 
             <system:String x:Key="str_Forward">前进</system:String>
             <system:String x:Key="str_Backward">后退</system:String>
