@@ -1,8 +1,6 @@
 ﻿using log4net.Appender;
 using log4net.Core;
 using System.IO;
-using System.Windows.Documents;
-using System.Windows.Shapes;
 
 namespace EQX.UI
 {

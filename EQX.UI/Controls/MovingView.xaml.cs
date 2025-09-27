@@ -1,5 +1,4 @@
 ﻿using EQX.Core.Motion;
-using System.Reflection.Metadata;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
