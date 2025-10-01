@@ -10,7 +10,7 @@
         Title="VirtualKeyboard" Height="450" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="10*"/>
         </Grid.RowDefinitions>
         <PasswordBox VerticalContentAlignment="Center"

@@ -11,8 +11,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using WindowsInput;
-using WindowsInput.Native;
 
 namespace EQX.UI.Controls
 {
@@ -21,7 +19,7 @@ namespace EQX.UI.Controls
     /// </summary>
     public partial class VirtualKeyboard : Window
     {
-        public string InputText { get; set; }
+        public string InputText { get; set; } = string.Empty;
 
         public VirtualKeyboard()
         {
