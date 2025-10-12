@@ -10,6 +10,7 @@ namespace EQX.UI.Controls
         public MessageBoxEx()
         {
             InitializeComponent();
+            Topmost = true;
         }
 
         public static void Show(string message, bool confirmRequest = true, string caption = "Confirm")
