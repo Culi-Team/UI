@@ -17,7 +17,7 @@
             <system:String x:Key="str_Start">Start</system:String>
             <system:String x:Key="str_Ready">Ready</system:String>
             <system:String x:Key="str_Stop">Stop</system:String>
-            <system:String x:Key="str_ResetAlarmBeforeRun">Reset alarm before run</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">Return to home position to clear alarm before running</system:String>
             <system:String x:Key="str_Confirm">Confirm</system:String>
             <system:String x:Key="str_TurnOnAllMotionsFirst">Turn on all Motions first</system:String>
             <system:String x:Key="str_ListTool">Tool list</system:String>
@@ -53,7 +53,7 @@
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Machine need to be READY before RUN</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">Recipe Changed. Do you want to save?</system:String>
             <system:String x:Key="str_OriginSuccess">ORIGIN SUCCESS!</system:String>
-            <system:String x:Key="str_RobotMayNotInOriginPosition">Robot may not in ORIGIN position</system:String>
+            <system:String x:Key="str_RobotMayNotInOriginPosition">Robot not in ORIGIN position</system:String>
             <system:String x:Key="str_RobotMoveToOriginPositionDone">Robot move to ORIGIN Position DONE</system:String>
             <system:String x:Key="str_ReadyToChange">Ready to change</system:String>
 

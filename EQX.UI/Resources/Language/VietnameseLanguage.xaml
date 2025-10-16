@@ -13,11 +13,11 @@
             <system:String x:Key="str_Data">Dữ liệu</system:String>
             <system:String x:Key="str_Teach">Cài đặt</system:String>
             <system:String x:Key="str_Vision">Vision</system:String>
-            <system:String x:Key="str_Origin">Gốc</system:String>
+            <system:String x:Key="str_Origin">Về Gốc</system:String>
             <system:String x:Key="str_Start">Bắt đầu</system:String>
             <system:String x:Key="str_Ready">Sẵn sàng</system:String>
             <system:String x:Key="str_Stop">Dừng</system:String>
-            <system:String x:Key="str_ResetAlarmBeforeRun">Cài lại cảnh báo trước khi chạy</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">Phải về vị trí gốc để xóa lỗi trước khi chạy</system:String>
             <system:String x:Key="str_Confirm">Xác nhận</system:String>
             <system:String x:Key="str_TurnOnAllMotionsFirst">Bật tất cả các motions trước</system:String>
             <system:String x:Key="str_ListTool">Danh sách tool</system:String>
@@ -53,7 +53,7 @@
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">Máy cần phải sẵn sàng trước khi chạy</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">Model thay đổi? Bạn có muốn lưu không?</system:String>
             <system:String x:Key="str_OriginSuccess">VỀ GỐC THÀNH CÔNG!</system:String>
-            <system:String x:Key="str_RobotMayNotInOriginPosition">Robot có thể không ở vị trí gốc</system:String>
+            <system:String x:Key="str_RobotMayNotInOriginPosition">Robot không ở vị trí gốc</system:String>
             <system:String x:Key="str_RobotMoveToOriginPositionDone">Robot đã di chuyển đến vị trí gốc</system:String>
             <system:String x:Key="str_ReadyToChange">Tray sẵn sàng để thay</system:String>
 

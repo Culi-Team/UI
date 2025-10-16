@@ -18,7 +18,7 @@
             <system:String x:Key="str_Start">开始</system:String>
             <system:String x:Key="str_Ready">准备</system:String>
             <system:String x:Key="str_Stop">停止</system:String>
-            <system:String x:Key="str_ResetAlarmBeforeRun">运行前重置警报</system:String>
+            <system:String x:Key="str_ResetAlarmBeforeRun">回到原点以清除报警后再运行</system:String>
             <system:String x:Key="str_Confirm">确认</system:String>
             <system:String x:Key="str_TurnOnAllMotionsFirst">先开启所有动作</system:String>
             <system:String x:Key="str_ListTool">Tool 列表</system:String>
@@ -52,8 +52,8 @@
             <system:String x:Key="str_MachineNeedToBeReadyBeforeRun">机器在运行前需要准备好</system:String>
             <system:String x:Key="str_RecipeChangeDoYoWantToSave">配方已更改。您想保存吗?</system:String>
             <system:String x:Key="str_OriginSuccess">起源成功!</system:String>
-            <system:String x:Key="str_RobotMayNotInOriginPosition">机器人可能不在原始位置</system:String>
-            <system:String x:Key="str_RobotMoveToOriginPositionDone">机器人已移动到原始位置</system:String>
+            <system:String x:Key="str_RobotMayNotInOriginPosition">机器人不在原点位置</system:String>
+            <system:String x:Key="str_RobotMoveToOriginPositionDone">机器人已移动到原点位置</system:String>
             <system:String x:Key="str_ReadyToChange">准备好更改</system:String>
             
             
