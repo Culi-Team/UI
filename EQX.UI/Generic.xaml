@@ -30,6 +30,8 @@
         <ResourceDictionary Source="/EQX.UI;component/Styles/Button/ButtonCommonStyle.xaml"/>
         <ResourceDictionary Source="/EQX.UI;component/Styles/InterlockButtonStyle.xaml"/>
 
+        <ResourceDictionary Source="/EQX.UI;component/Styles/RadioButton/ButtonLikeRadioButtonStyle.xaml"/>
+
         <ResourceDictionary Source="/EQX.UI;component/Styles/Checkbox/CheckboxCommonStyle.xaml" />
 
         <ResourceDictionary Source="/EQX.UI;component/Styles/TextBox/TextBoxWithNameLeftStyle.xaml" />

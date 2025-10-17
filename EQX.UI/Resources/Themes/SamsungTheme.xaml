@@ -16,6 +16,9 @@
     <SolidColorBrush x:Key="DisabledBorderBrush" Color="#888" />
     <SolidColorBrush x:Key="DisabledForegroundBrush" Color="#888" />
 
+    <SolidColorBrush x:Key="SelectedForegroundColor" Color="#2196F3"/>
+    <SolidColorBrush x:Key="MouseOverForegroundColor" Color="#42A5F5"/>
+
     <BitmapImage x:Key="ImageWindowMinimizeDefault" UriSource="/EQX.UI;component/Resources/Images/minimize_light.png"/>
     <BitmapImage x:Key="ImageWindowMaximizeDefault" UriSource="/EQX.UI;component/Resources/Images/maximize_light.png"/>
     <BitmapImage x:Key="ImageWindowNormalDefault" UriSource="/EQX.UI;component/Resources/Images/window_normal_light.png"/>
