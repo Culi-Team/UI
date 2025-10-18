@@ -17,7 +17,7 @@ namespace EQX.UI.Controls
                 nameof(InterlockKey),
                 typeof(string),
                 typeof(InterlockButton),
-                new PropertyMetadata(null));
+                new PropertyMetadata(null, OnInterlockKeyChanged));
 
         public InterlockButton()
         {
@@ -30,7 +30,11 @@ namespace EQX.UI.Controls
         private void OnLoaded(object sender, RoutedEventArgs e)
         {
             InterlockService.Default.InterlockChanged += OnInterlockChanged;
-            InterlockService.Default.Reevaluate();
+            UpdateInterlockState();
+            if (string.IsNullOrWhiteSpace(InterlockKey) == false)
+            {
+                InterlockService.Default.Reevaluate();
+            }
         }
 
         private void OnUnloaded(object? sender, RoutedEventArgs e)
@@ -48,6 +52,32 @@ namespace EQX.UI.Controls
                     IsHitTestVisible = satisfied;
                 }
             });
+        }
+
+        private static void OnInterlockKeyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is InterlockButton button)
+            {
+                button.UpdateInterlockState();
+                if (button.IsLoaded && string.IsNullOrWhiteSpace(button.InterlockKey) == false)
+                {
+                    InterlockService.Default.Reevaluate();
+                }
+            }
+        }
+
+        private void UpdateInterlockState()
+        {
+            if (string.IsNullOrWhiteSpace(InterlockKey))
+            {
+                IsEnabled = true;
+                IsHitTestVisible = true;
+            }
+            else
+            {
+                IsEnabled = false;
+                IsHitTestVisible = false;
+            }
         }
     }
 }
