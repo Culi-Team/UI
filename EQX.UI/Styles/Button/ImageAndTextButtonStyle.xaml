@@ -21,6 +21,7 @@
                                     <Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Image}"/>
+                                            <Setter Property="Stretch" Value="UniformToFill"/>
                                             <Style.Triggers>
                                                 <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=IsEnabled}"
                                                          Value="False">

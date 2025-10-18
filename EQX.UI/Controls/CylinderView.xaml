@@ -18,7 +18,7 @@
 
     <StackPanel>
         <Border
-            Height="35"
+            Height="45"
             BorderThickness="1"
             BorderBrush="{StaticResource PrimaryBorderBrush}"
             Background="{StaticResource HighLightBackgroundColor}">

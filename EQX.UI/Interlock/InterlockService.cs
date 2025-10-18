@@ -15,6 +15,7 @@
         public void Reevaluate() => Evaluate();
         private void Evaluate()
         {
+            return;
             foreach (var rule in _rules)
             {
                 bool satisfied = rule.IsSatisfied(_context);
