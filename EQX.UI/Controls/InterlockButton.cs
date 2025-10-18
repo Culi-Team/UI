@@ -1,4 +1,4 @@
-﻿using EQX.UI.Interlock;
+﻿using EQX.Core.Interlock;
 using System.Windows;
 using System.Windows.Controls;
 
