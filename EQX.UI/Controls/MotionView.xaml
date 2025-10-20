@@ -28,11 +28,18 @@
                 Height="25"
                 BorderThickness="1"
                 BorderBrush="{StaticResource HighLightBorderBrush}">
-            <TextBlock Text="{Binding Name}"
-                       VerticalAlignment="Center"
-                       HorizontalAlignment="Center"
-                       FontSize="12"
-                       FontWeight="Bold" />
+            <TextBlock
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="12"
+                FontWeight="Bold">
+                <TextBlock.Text>
+                    <MultiBinding StringFormat="{}[{0}] {1}">
+                        <Binding Path="Id"/>
+                        <Binding Path="Name"/>
+                    </MultiBinding>
+                </TextBlock.Text>
+            </TextBlock>
         </Border>
 
         <!-- Current Position, Limit Status -->
