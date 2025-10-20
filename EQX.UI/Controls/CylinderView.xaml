@@ -9,16 +9,22 @@
              xmlns:cvt="clr-namespace:EQX.UI.Converters"
              d:DataContext="{d:DesignInstance Type={x:Type inout:CylinderBase}}"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="200" d:DesignWidth="450">
 
     <UserControl.Resources>
         <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
         <cvt:CylinderTypeToButtonNameConverter x:Key="CylinderTypeToButtonNameConverter"/>
     </UserControl.Resources>
 
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
         <Border
-            Height="45"
+            Grid.Row="0"
+            Height="35"
             BorderThickness="1"
             BorderBrush="{StaticResource PrimaryBorderBrush}"
             Background="{StaticResource HighLightBackgroundColor}">
@@ -38,11 +44,10 @@
         </Border>
 
         <Grid
-            Width="Auto"
-            Height="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=StackPanel}}"
+            Grid.Row="1"
             RenderTransformOrigin="0.5, 0.5">
 
-            <Grid.Style>
+            <!--<Grid.Style>
                 <Style TargetType="{x:Type Grid}">
                     <Setter Property="RenderTransform">
                         <Setter.Value>
@@ -142,7 +147,7 @@
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </Grid.Style>
+            </Grid.Style>-->
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -152,7 +157,7 @@
             </Grid.RowDefinitions>
 
             <Border
-                Height="10"
+                Height="8"
                 BorderThickness="1"
                 BorderBrush="{StaticResource PrimaryBorderBrush}"
                 Background="{Binding IsForward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
@@ -206,6 +211,7 @@
             </Border>
 
             <local:ImageButton
+                Height="Auto"
                 Grid.Row="1"
                 Click="ForwardButton_Click"
                 Image="{StaticResource image_up_selected}"
@@ -215,6 +221,7 @@
                 Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=true}"/>
 
             <local:ImageButton
+                Height="Auto"
                 Grid.Row="2"
                 Click="BackwardButton_Click"
                 Image="{StaticResource image_down_selected}"
@@ -224,7 +231,7 @@
                 Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
 
             <Border
-                Height="10"
+                Height="8"
                 BorderThickness="1"
                 BorderBrush="{StaticResource PrimaryBorderBrush}"
                 Background="{Binding IsBackward, Converter={StaticResource BooleanToOnOffBrushConverter}}">
@@ -277,5 +284,5 @@
                 </Border.Style>
             </Border>
         </Grid>
-    </StackPanel>
+    </Grid>
 </UserControl>

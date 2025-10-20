@@ -135,7 +135,12 @@ namespace EQX.UI.Controls
 
             ((IMotion)DataContext).AlarmReset();
         }
+        private void ButtonStop_Click(object sender, RoutedEventArgs e)
+        {
+            if (IsValid() == false) return;
 
+            ((IMotion)DataContext).Stop();
+        }
         private void ButtonConnect_Click(object sender, RoutedEventArgs e)
         {
             if (IsValid() == false) return;

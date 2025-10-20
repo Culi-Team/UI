@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:EQX.UI.Controls"
              xmlns:motion="clr-namespace:EQX.Motion;assembly=EQX.Motion"
              xmlns:uiControls="clr-namespace:EQX.UI.Controls"
-             Height="260"
+             Height="240"
              Width="250"
              mc:Ignorable="d"
              xmlns:controls="clr-namespace:EQX.UI.Controls"
@@ -16,7 +16,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
@@ -24,7 +25,7 @@
         
         <!-- Motion Name Header -->
         <Border Margin="2"
-                Height="35"
+                Height="25"
                 BorderThickness="1"
                 BorderBrush="{StaticResource HighLightBorderBrush}">
             <TextBlock Text="{Binding Name}"
@@ -189,6 +190,16 @@
                                Margin="2"
                                HorizontalAlignment="Stretch"
                                Click="ButtonResetAlarm_Click" />
+        </Grid>
+
+        <!-- Servo Stop -->
+        <Grid Grid.Row="6">
+            <local:ImageButton Grid.Column="0"
+                       Content="{DynamicResource str_Stop}"
+                       FontWeight="Bold"
+                       Margin="2"
+                       HorizontalAlignment="Stretch"
+                       Click="ButtonStop_Click" />
         </Grid>
     </Grid>
 </UserControl>

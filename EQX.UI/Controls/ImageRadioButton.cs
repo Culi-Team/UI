@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace EQX.UI.Controls
 {
-    public class ImageButton : Button
+    public class ImageRadioButton : RadioButton
     {
         public CornerRadius CornerRadius
         {
@@ -14,7 +14,7 @@ namespace EQX.UI.Controls
 
         // Using a DependencyProperty as the backing store for CornerRadius.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty CornerRadiusProperty =
-            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ImageButton), new PropertyMetadata(new CornerRadius(0)));
+            DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(ImageRadioButton), new PropertyMetadata(new CornerRadius(0)));
 
         public ImageSource Image
         {
@@ -24,7 +24,7 @@ namespace EQX.UI.Controls
 
         // Using a DependencyProperty as the backing store for Image.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ImageProperty =
-            DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageButton), new PropertyMetadata(null));
+            DependencyProperty.Register("Image", typeof(ImageSource), typeof(ImageRadioButton), new PropertyMetadata(null));
 
 
         public ImageSource DisabledImage
@@ -35,6 +35,7 @@ namespace EQX.UI.Controls
 
         // Using a DependencyProperty as the backing store for DisabledImage.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty DisabledImageProperty =
-            DependencyProperty.Register("DisabledImage", typeof(ImageSource), typeof(ImageButton), new PropertyMetadata(null));
+            DependencyProperty.Register("DisabledImage", typeof(ImageSource), typeof(ImageRadioButton), new PropertyMetadata(null));
+
     }
 }

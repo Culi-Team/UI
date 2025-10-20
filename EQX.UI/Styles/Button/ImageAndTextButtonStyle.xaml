@@ -17,7 +17,7 @@
                                 </Grid.ColumnDefinitions>
 
                                 <Image x:Name="image"
-                                   Margin="{TemplateBinding Padding}">
+                                    Margin="{TemplateBinding Padding}">
                                     <Image.Style>
                                         <Style TargetType="{x:Type Image}">
                                             <Setter Property="Source" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Image}"/>

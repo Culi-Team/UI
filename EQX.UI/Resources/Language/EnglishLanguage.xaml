@@ -97,7 +97,7 @@
             <system:String x:Key="str_ServoOn">Servo ON</system:String>
             <system:String x:Key="str_ServoOff">Servo OFF</system:String>
             <system:String x:Key="str_AlarmReset">Alarm Reset</system:String>
-            
+
             <system:String x:Key="str_SuperSlow">SuperSlow</system:String>
             <system:String x:Key="str_Slow">Slow</system:String>
             <system:String x:Key="str_Medium">Medium</system:String>
