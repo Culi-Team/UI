@@ -16,6 +16,7 @@
             <cvt:BooleanToVisibilityInvertConverter x:Key="BooleanToVisibilityInvertConverter"/>
             <cvt:ProcessModeToColorConverter x:Key="ProcessModeToColorConverter"/>
             <cvt:ImageKeyToImageConverter x:Key="ImageKeyToImageConverter"/>
+            <cvt:AccelerationUnitConverter x:Key="AccelerationUnitConverter"/>
         </ResourceDictionary>
 
         <ResourceDictionary Source="/EQX.UI;component/Resources/Language/KoreanLanguage.xaml" />
