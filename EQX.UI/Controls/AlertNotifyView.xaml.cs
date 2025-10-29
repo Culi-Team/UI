@@ -35,10 +35,17 @@ namespace EQX.UI.Controls
                 isShown = Application.Current.Windows.OfType<MessageBoxEx>().Any();
                 if (isShown) Application.Current.Windows.OfType<MessageBoxEx>().First().Close();
 
+
+                var mainWindow = Application.Current.MainWindow;
+                double width = mainWindow.ActualWidth;
+                double height = mainWindow.ActualHeight;
+
                 AlertNotifyView messageBoxEx = new AlertNotifyView()
                 {
                     IsWarning = isWarning,
-                    AlertModel = alarmModel
+                    AlertModel = alarmModel,
+                    Width = width * 0.6,
+                    Height = height * 0.6,
                 };
 
                 messageBoxEx.ShowDialog();
