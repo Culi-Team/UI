@@ -24,6 +24,48 @@ namespace EQX.UI.Controls
         public VirtualKeyboard()
         {
             InitializeComponent();
+            // Set focus to window instead of any button
+            Loaded += (s, e) => Focus();
+            
+            // Add touch event handler to all buttons
+            Loaded += (s, args) =>
+            {
+                foreach (var button in FindVisualChildren<Button>(this))
+                {
+                    button.PreviewTouchDown += Button_PreviewTouchDown;
+                }
+            };
+        }
+        
+        private void Button_PreviewTouchDown(object sender, TouchEventArgs e)
+        {
+            // Immediately trigger the click event
+            if (sender is Button button)
+            {
+                var clickArgs = new RoutedEventArgs(Button.ClickEvent, button);
+                button.RaiseEvent(clickArgs);
+                e.Handled = true;
+            }
+        }
+        
+        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T t)
+                    {
+                        yield return t;
+                    }
+                    
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

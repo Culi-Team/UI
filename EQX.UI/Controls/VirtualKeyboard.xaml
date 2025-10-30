@@ -56,6 +56,14 @@
                                 Value="Press" />
                         <Setter Property="IsManipulationEnabled"
                                 Value="False" />
+                        <Setter Property="Focusable"
+                                Value="False" />
+                        <Setter Property="FocusVisualStyle"
+                                Value="{x:Null}" />
+                        <Setter Property="Stylus.IsPressAndHoldEnabled"
+                                Value="False" />
+                        <Setter Property="Stylus.IsTapFeedbackEnabled"
+                                Value="False" />
                         <Setter Property="Background"
                                 Value="White" />
                         <Setter Property="Foreground"
