@@ -21,32 +21,53 @@ namespace EQX.UI.Controls
     {
         public string InputText { get; set; } = string.Empty;
 
+        // Store buttons that should use PreviewTouchDown
+        private HashSet<Button> _characterButtons = new HashSet<Button>();
+        
         public VirtualKeyboard()
         {
             InitializeComponent();
             // Set focus to window instead of any button
             Loaded += (s, e) => Focus();
             
-            // Add touch event handler to all buttons
+            // Add touch event handler to all character buttons
             Loaded += (s, args) =>
             {
                 foreach (var button in FindVisualChildren<Button>(this))
                 {
                     button.PreviewTouchDown += Button_PreviewTouchDown;
+                    _characterButtons.Add(button);
                 }
             };
         }
         
         private void Button_PreviewTouchDown(object sender, TouchEventArgs e)
         {
-            // Immediately trigger the click event
-            if (sender is Button button)
+            // Only trigger click for character buttons (not special buttons)
+            if (sender is Button button && IsCharacterButton(button))
             {
                 var clickArgs = new RoutedEventArgs(Button.ClickEvent, button);
                 button.RaiseEvent(clickArgs);
                 e.Handled = true;
             }
         }
+        
+        private bool IsCharacterButton(Button button)
+        {
+            // Check if button has Button_Click handler by looking at button's Content
+            // Character buttons don't include special buttons like Tab, Shift, Ctrl, Alt, Win, Close, Enter, Backspace
+            if (button.Content is string content)
+            {
+                var specialButtons = new[] { "Tab", "Shift", "Ctrl", "Alt", "Win", "Close", "Enter", "Backspace", "Caps Lock", "Space" };
+                if (specialButtons.Contains(content))
+                {
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
         
         private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
