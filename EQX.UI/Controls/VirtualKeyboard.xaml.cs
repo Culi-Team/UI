@@ -21,96 +21,102 @@ namespace EQX.UI.Controls
     {
         public string InputText { get; set; } = string.Empty;
 
-        // Store buttons that should use PreviewTouchDown
-        private HashSet<Button> _characterButtons = new HashSet<Button>();
-        
+        private bool _touchHandled = false;
+
         public VirtualKeyboard()
         {
             InitializeComponent();
-            // Set focus to window instead of any button
-            Loaded += (s, e) => Focus();
-            
-            // Add touch event handler to all character buttons
-            Loaded += (s, args) =>
-            {
-                foreach (var button in FindVisualChildren<Button>(this))
-                {
-                    button.PreviewTouchDown += Button_PreviewTouchDown;
-                    _characterButtons.Add(button);
-                }
-            };
-        }
-        
-        private void Button_PreviewTouchDown(object sender, TouchEventArgs e)
-        {
-            // Only trigger click for character buttons (not special buttons)
-            if (sender is Button button && IsCharacterButton(button))
-            {
-                var clickArgs = new RoutedEventArgs(Button.ClickEvent, button);
-                button.RaiseEvent(clickArgs);
-                e.Handled = true;
-            }
-        }
-        
-        private bool IsCharacterButton(Button button)
-        {
-            // Check if button has Button_Click handler by looking at button's Content
-            // Character buttons don't include special buttons like Tab, Shift, Ctrl, Alt, Win, Close, Enter, Backspace
-            if (button.Content is string content)
-            {
-                var specialButtons = new[] { "Tab", "Shift", "Ctrl", "Alt", "Win", "Close", "Enter", "Backspace", "Caps Lock", "Space" };
-                if (specialButtons.Contains(content))
-                {
-                    return false;
-                }
-            }
-            
-            return true;
-        }
-        
-        
-        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
-        {
-            if (depObj != null)
-            {
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
-                    if (child != null && child is T t)
-                    {
-                        yield return t;
-                    }
-                    
-                    foreach (T childOfChild in FindVisualChildren<T>(child))
-                    {
-                        yield return childOfChild;
-                    }
-                }
-            }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             if (sender is Button btn == false) return;
 
+            if (_touchHandled)
+            {
+                _touchHandled = false;
+                e.Handled = true;
+                return; 
+            }
+
             passwordBox.Password += btn.Content.ToString();
+            e.Handled = true;
         }
 
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_touchHandled)
+            {
+                _touchHandled = false;
+                e.Handled = true;
+                return;
+            }
+
             DialogResult = false;
+            e.Handled = true;
         }
 
         private void EnterButton_Click(object sender, RoutedEventArgs e)
         {
+            if (_touchHandled)
+            {
+                _touchHandled = false;
+                e.Handled = true;
+                return;
+            }
+
             DialogResult = true;
             InputText = passwordBox.Password;
+            e.Handled = true;
         }
 
         private void BackspaceButton_Click(object sender, RoutedEventArgs e)
         {
-            if(passwordBox.Password.Length <= 0 ) return;
+            if (_touchHandled)
+            {
+                _touchHandled = false;
+                e.Handled = true;
+                return;
+            }
+
+            if (passwordBox.Password.Length <= 0 ) return;
             passwordBox.Password = passwordBox.Password[..^1];
+            e.Handled = true;
+        }
+
+        private void Button_TouchUp(object sender, TouchEventArgs e)
+        {
+            if (sender is Button btn == false) return;
+            _touchHandled = true;
+
+            passwordBox.Password += btn.Content.ToString();
+            e.Handled = true;
+        }
+
+        private void CloseButton_TouchUp(object sender, TouchEventArgs e)
+        {
+            _touchHandled = true;
+
+            DialogResult = false;
+            e.Handled = true;
+        }
+
+        private void EnterButton_TouchUp(object sender, TouchEventArgs e)
+        {
+            _touchHandled = true;
+
+            DialogResult = true;
+            InputText = passwordBox.Password;
+            e.Handled = true;
+        }
+
+        private void BackspaceButtonTouchUp(object sender, TouchEventArgs e)
+        {
+            _touchHandled = true;
+
+            if (passwordBox.Password.Length <= 0) return;
+            passwordBox.Password = passwordBox.Password[..^1];
+            e.Handled = true;
         }
     }
 }
