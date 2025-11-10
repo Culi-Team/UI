@@ -95,12 +95,6 @@ namespace EQX.UI.Controls
             return true;
         }
 
-        private void JogAbsMode_Checked(object sender, RoutedEventArgs e)
-        {
-            cbBoxStepInc.ItemsSource = JogMode.IsChecked == true ? jogSpeedList : absDistanceList;
-            cbBoxStepInc.SelectedIndex = 0;
-        }
-
         private void cbBoxStepInc_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (JogMode.IsChecked == false) return;
@@ -152,6 +146,12 @@ namespace EQX.UI.Controls
             {
                 ((IMotion)DataContext).Connect();
             }
+        }
+
+        private void JogMode_Click(object sender, RoutedEventArgs e)
+        {
+            cbBoxStepInc.ItemsSource = JogMode.IsChecked == true ? jogSpeedList : absDistanceList;
+            cbBoxStepInc.SelectedIndex = 0;
         }
     }
 }
