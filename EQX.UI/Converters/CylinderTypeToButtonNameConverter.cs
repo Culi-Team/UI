@@ -16,14 +16,17 @@ namespace EQX.UI.Converters
                 switch (cylinderType)
                 {
                     case ECylinderType.ForwardBackward:
-                    case ECylinderType.ForwardBackwardReverse:
                         return status1 ? (string)Application.Current.Resources["str_Forward"] : (string)Application.Current.Resources["str_Backward"];
+                    case ECylinderType.ForwardBackwardReverse:
+                        return status1 ? (string)Application.Current.Resources["str_Backward"] : (string)Application.Current.Resources["str_Forward"];
                     case ECylinderType.UpDown:
-                    case ECylinderType.UpDownReverse:
                         return status1 ? (string)Application.Current.Resources["str_Up"] : (string)Application.Current.Resources["str_Down"];
+                    case ECylinderType.UpDownReverse:
+                        return status1 ? (string)Application.Current.Resources["str_Down"] : (string)Application.Current.Resources["str_Up"];
                     case ECylinderType.RightLeft:
-                    case ECylinderType.RightLeftReverse:
                         return status1 ? (string)Application.Current.Resources["str_Right"] : (string)Application.Current.Resources["str_Left"];
+                    case ECylinderType.RightLeftReverse:
+                        return status1 ? (string)Application.Current.Resources["str_Left"] : (string)Application.Current.Resources["str_Right"];
                     case ECylinderType.GripUngrip:
                         return status1 ? (string)Application.Current.Resources["str_Grip"] : (string)Application.Current.Resources["str_Ungrip"];
                     case ECylinderType.GripUngripReverse:
