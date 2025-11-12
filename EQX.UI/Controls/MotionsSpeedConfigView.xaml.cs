@@ -49,7 +49,7 @@ namespace EQX.UI.Controls
             var minMaxAttribute = new SingleRecipeMinMaxAttribute
             {
                 Min = 0,
-                Max = 999.999
+                Max = 2000.0,
             };
 
             double currentValue = 0;

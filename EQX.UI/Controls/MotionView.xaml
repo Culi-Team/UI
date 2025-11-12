@@ -15,14 +15,14 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition />
+            <RowDefinition Height="35" />
+            <RowDefinition Height="50" />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
             <RowDefinition />
         </Grid.RowDefinitions>
-        
+
         <!-- Motion Name Header -->
         <Border Margin="2"
                 Height="25"
@@ -49,21 +49,21 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="50"/>
             </Grid.ColumnDefinitions>
-            <Border Margin="2 2 0 2"
+            <Border Margin="1 1 0 1"
                     Grid.Column="0"
                     Background="{Binding Status.HwNegLimitDetect, Converter={StaticResource BooleanToAlarmBrushConverter}}"
                     BorderThickness="1"
                     BorderBrush="{StaticResource PrimaryBorderBrush}">
-                <TextBlock Text="Limit (-)"
+                <TextBlock Text="Lmt. (-)"
+                           FontWeight="Bold"
                            TextAlignment="Center"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontSize="14"
+                           FontSize="12"
                            TextWrapping="Wrap">
                 </TextBlock>
             </Border>
-            <Border Height="40"
-                    Margin="0 2"
+            <Border Margin="0 1"
                     Grid.Column="1"
                     BorderBrush="{StaticResource PrimaryBorderBrush}">
                 <TextBox Background="MintCream"
@@ -73,23 +73,23 @@
                          Text="{Binding Status.ActualPosition, Mode=OneWay, StringFormat='{}{0:0.###} mm'}"
                          IsReadOnly="True" />
             </Border>
-            <Border Margin="0 2 2 2"
+            <Border Margin="0 1 1 1"
                     Grid.Column="2"
                     Background="{Binding Status.HwPosLimitDetect,Converter={StaticResource BooleanToAlarmBrushConverter}}"
                     BorderThickness="1"
                     BorderBrush="{StaticResource PrimaryBorderBrush}">
-                <TextBlock Text="Limit (+)"
+                <TextBlock Text="Lmt. (+)"
+                           FontWeight="Bold"
                            TextAlignment="Center"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontSize="14"
+                           FontSize="12"
                            TextWrapping="Wrap"/>
             </Border>
         </Grid>
 
         <!-- Jog / Inc Motion -->
-        <Grid Grid.Row="2"
-              Height="40">
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="Auto" />
@@ -100,8 +100,8 @@
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
-                <uiControls:ImageButton Width="40"
-                                        Margin="2"
+                <uiControls:ImageButton Width="45"
+                                        Margin="1"
                                         Padding="0"
                                         Grid.Column="0"
                                         PreviewMouseLeftButtonDown="MoveDec_ButtonDown"
@@ -109,11 +109,12 @@
                     <Image Source="{StaticResource image_left_selected}" />
                 </uiControls:ImageButton>
                 <ComboBox Grid.Column="1"
+                          FontSize="12"
                           x:Name="cbBoxStepInc"
                           SelectedIndex="0"
                           SelectionChanged="cbBoxStepInc_SelectionChanged" />
-                <uiControls:ImageButton Width="40"
-                                        Margin="2"
+                <uiControls:ImageButton Width="45"
+                                        Margin="1"
                                         Padding="0"
                                         Grid.Column="2"
                                         PreviewMouseLeftButtonDown="MoveInc_ButtonDown"
@@ -121,23 +122,90 @@
                     <Image Source="{StaticResource image_right_selected}" />
                 </uiControls:ImageButton>
             </Grid>
-            <Grid VerticalAlignment="Center"
-                  Width="50"
-                  Grid.Column="1">
-                <Grid.RowDefinitions>
-                    <RowDefinition />
-                    <RowDefinition />
-                </Grid.RowDefinitions>
-                <RadioButton Grid.Row="0"
-                             Content="Jog"
-                             x:Name="JogMode"
-                             IsChecked="True"
-                             Checked="JogAbsMode_Checked" />
-                <RadioButton Grid.Row="1"
-                             Content="Inc"
-                             x:Name="IncMode"
-                             Checked="JogAbsMode_Checked" />
-            </Grid>
+            <CheckBox Grid.Column="1"
+                      Width="50"
+                      Margin="1"
+                      Name="JogMode"
+                      Click="JogMode_Click">
+                <CheckBox.Style>
+                    <Style TargetType="{x:Type CheckBox}">
+                        <Style.Setters>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                                        <Border Height="{TemplateBinding Height}"
+                                            Width="{TemplateBinding Width}">
+                                            <Grid>
+                                                <TextBlock HorizontalAlignment="Center"
+                                                    VerticalAlignment="Center"
+                                                    Foreground="{TemplateBinding Foreground}"
+                                                    Margin="{TemplateBinding Padding}"
+                                                    Text="{TemplateBinding Content}"
+                                                    TextWrapping="WrapWithOverflow"
+                                                    TextAlignment="Center" />
+                                            </Grid>
+
+                                            <Border.Style>
+                                                <Style TargetType="{x:Type Border}">
+                                                    <Style.Setters>
+                                                        <Setter Property="Background"
+                                                            Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+
+                                                        <Setter Property="BorderBrush"
+                                                            Value="#d3d5d6" />
+
+                                                        <Setter Property="BorderThickness"
+                                                            Value="1" />
+
+                                                        <Setter Property="CornerRadius"
+                                                            Value="3" />
+                                                    </Style.Setters>
+                                                </Style>
+                                            </Border.Style>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+
+                            <Setter Property="IsChecked"
+                                    Value="True" />
+                            <Setter Property="Content"
+                                    Value="Jog Mode" />
+                            
+                            <Setter Property="Background"
+                                Value="#fafbfc" />
+
+                            <Setter Property="Foreground"
+                                Value="#24292e" />
+
+                            <Setter Property="FontWeight"
+                                Value="Bold" />
+
+                            <Setter Property="Padding"
+                                Value="5" />
+
+                            <Setter Property="Cursor"
+                                Value="Hand" />
+                        </Style.Setters>
+                        <Style.Triggers>
+                            <Trigger Property="IsChecked"
+                                Value="False">
+                                <Setter Property="Content"
+                                    Value="Inc. Mode" />
+
+                                <Setter Property="Foreground"
+                                    Value="{StaticResource HighLightBackgroundColor}" />
+                            </Trigger>
+
+                            <Trigger Property="IsMouseOver"
+                                    Value="True">
+                                <Setter Property="Background"
+                                    Value="#f3f4f6" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </CheckBox.Style>
+            </CheckBox>
         </Grid>
 
         <!-- Origin -->

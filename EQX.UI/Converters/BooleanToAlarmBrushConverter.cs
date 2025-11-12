@@ -28,7 +28,7 @@ namespace EQX.UI.Converters
         {
             if (value is bool onOff)
             {
-                return onOff ? Brushes.Red : Brushes.WhiteSmoke;
+                return onOff ? Brushes.Red : new SolidColorBrush(Color.FromRgb(0xfa, 0xfb, 0xfc));
             }
 
             return Binding.DoNothing;
