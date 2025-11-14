@@ -9,6 +9,7 @@
         WindowStartupLocation="CenterScreen"
         MouseDown="Window_MouseDown"
         mc:Ignorable="d"
+        Background="Yellow"
         d:DataContext="{d:DesignInstance Type=local:AlertNotifyView}"
         Height="600"
         Width="900">
