@@ -14,6 +14,8 @@
     <UserControl.Resources>
         <cvt:AddSpacesToSentenceConverter x:Key="AddSpacesToSentenceConverter"/>
         <cvt:CylinderTypeToButtonNameConverter x:Key="CylinderTypeToButtonNameConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+        <cvt:BooleanAndConverter x:Key="BooleanAndConverter"/>
     </UserControl.Resources>
 
     <Grid>
@@ -21,9 +23,15 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Border
             Grid.Row="0"
+            Grid.ColumnSpan="2"
             Height="35"
             BorderThickness="1"
             BorderBrush="{StaticResource PrimaryBorderBrush}"
@@ -43,111 +51,33 @@
             </TextBlock>
         </Border>
 
-        <Grid
-            Grid.Row="1"
-            RenderTransformOrigin="0.5, 0.5">
+        <Grid x:Name="CylinderGrid"
+              Grid.Row="1"
+              Grid.Column="0"
+              RenderTransformOrigin="0.5, 0.5">
 
-            <!--<Grid.Style>
+            <Grid.Style>
                 <Style TargetType="{x:Type Grid}">
-                    <Setter Property="RenderTransform">
-                        <Setter.Value>
-                            <RotateTransform Angle="0"/>
-                        </Setter.Value>
-                    </Setter>
+                    <Setter Property="Opacity" Value="1"/>
                     <Style.Triggers>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.GripUngrip}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.GripUngripReverse}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.RightLeft}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.RightLeftReverse}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.AlignUnalign}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.AlignUnalignReverse}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.FlipUnflip}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.FlipUnflipReverse}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.ClampUnclamp}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </DataTrigger>
-                        <DataTrigger
-                            Binding="{Binding DataContext.CylinderType, RelativeSource={RelativeSource AncestorType=UserControl}}"
-                            Value="{x:Static inoutCore:ECylinderType.ClampUnclampReverse}">
-                            <Setter Property="RenderTransform">
-                                <Setter.Value>
-                                    <RotateTransform Angle="90"/>
-                                </Setter.Value>
-                            </Setter>
+                        <DataTrigger Binding="{Binding IsActuating}" Value="True">
+                            <DataTrigger.EnterActions>
+                                <BeginStoryboard x:Name="CylinderBlink">
+                                    <Storyboard RepeatBehavior="Forever" AutoReverse="True" FillBehavior="Stop">
+                                        <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                                         From="1"
+                                                         To="0.5"
+                                                         Duration="0:0:0.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </DataTrigger.EnterActions>
+                            <DataTrigger.ExitActions>
+                                <StopStoryboard BeginStoryboardName="CylinderBlink"/>
+                            </DataTrigger.ExitActions>
                         </DataTrigger>
                     </Style.Triggers>
                 </Style>
-            </Grid.Style>-->
+            </Grid.Style>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -217,8 +147,63 @@
                 Image="{StaticResource image_up_selected}"
                 CornerRadius="0"
                 Padding="5"
-                d:Content="Forward"
-                Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=true}"/>
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                d:Content="Forward">
+                <local:ImageButton.Content>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Rectangle
+                            Width="12"
+                            Height="12"
+                            RadiusX="2"
+                            RadiusY="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="2"
+                            Stroke="{StaticResource PrimaryBorderBrush}">
+                            <Rectangle.Style>
+                                <Style TargetType="Rectangle">
+                                    <Setter Property="Fill" Value="DarkGray"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Value="True">
+                                            <DataTrigger.Binding>
+                                                <MultiBinding Converter="{StaticResource BooleanAndConverter}">
+                                                    <Binding Path="Interlock" RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+                                                    <Binding Path="IsInterlockSatisfiedState"/>
+                                                </MultiBinding>
+                                            </DataTrigger.Binding>
+                                            <Setter Property="Fill" Value="Lime"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Rectangle.Style>
+                        </Rectangle>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=true}"/>
+                    </Grid>
+                </local:ImageButton.Content>
+                <local:ImageButton.Style>
+                    <Style TargetType="local:ImageButton">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsActuating}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsBackwarding}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsInterlockSatisfiedState}" Value="False">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Interlock, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="False">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local:ImageButton.Style>
+            </local:ImageButton>
 
             <local:ImageButton
                 Height="Auto"
@@ -227,8 +212,63 @@
                 Image="{StaticResource image_down_selected}"
                 CornerRadius="0"
                 Padding="5"
-                d:Content="Backward"
-                Content="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
+                HorizontalContentAlignment="Stretch"
+                VerticalContentAlignment="Stretch"
+                d:Content="Backward">
+                <local:ImageButton.Content>
+                    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Rectangle
+                            Width="12"
+                            Height="12"
+                            RadiusX="2"
+                            RadiusY="2"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="2"
+                            Stroke="{StaticResource PrimaryBorderBrush}">
+                            <Rectangle.Style>
+                                <Style TargetType="Rectangle">
+                                    <Setter Property="Fill" Value="DarkGray"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Value="True">
+                                            <DataTrigger.Binding>
+                                                <MultiBinding Converter="{StaticResource BooleanAndConverter}">
+                                                    <Binding Path="Interlock" RelativeSource="{RelativeSource AncestorType=UserControl}"/>
+                                                    <Binding Path="IsInterlockSatisfiedState"/>
+                                                </MultiBinding>
+                                            </DataTrigger.Binding>
+                                            <Setter Property="Fill" Value="Lime"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Rectangle.Style>
+                        </Rectangle>
+                        <TextBlock
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Text="{Binding CylinderType, Converter={StaticResource CylinderTypeToButtonNameConverter}, ConverterParameter=false}"/>
+                    </Grid>
+                </local:ImageButton.Content>
+                <local:ImageButton.Style>
+                    <Style TargetType="local:ImageButton">
+                        <Setter Property="IsEnabled" Value="True"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding IsActuating}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsForwarding}" Value="True">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding IsInterlockSatisfiedState}" Value="False">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding Interlock, RelativeSource={RelativeSource AncestorType=UserControl}}" Value="False">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </local:ImageButton.Style>
+            </local:ImageButton>
 
             <Border
                 Height="8"
@@ -284,5 +324,26 @@
                 </Border.Style>
             </Border>
         </Grid>
+        <StackPanel Grid.Row="1" Grid.Column="1" Margin="8 5 0 5" VerticalAlignment="Center">
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="Margin" Value="0 2 0 10"/>
+                </Style>
+                <Style TargetType="TextBlock">
+                    <Setter Property="Margin" Value="0 0 0 2"/>
+                    <Setter Property="FontWeight" Value="SemiBold"/>
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Text="Forward time (s)" Visibility="{Binding HasForwardSensor, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock
+                Visibility="{Binding HasForwardSensor, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Text="{Binding ForwardElapsedSeconds, StringFormat=F2}"/>
+
+            <TextBlock Text="Backward time (s)" Visibility="{Binding HasBackwardSensor, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+            <TextBlock
+                Visibility="{Binding HasBackwardSensor, Converter={StaticResource BooleanToVisibilityConverter}}"
+                Text="{Binding BackwardElapsedSeconds, StringFormat=F2}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
