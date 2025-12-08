@@ -46,11 +46,11 @@ namespace EQX.UI.Controls
             var timeout = TimeSpan.FromSeconds(cylinder.ForwardTimeoutSeconds);
             if (IsReverseCylinder(cylinder))
             {
-                await cylinder.MoveBackwardWithTimeoutAsync(timeout);
+                await cylinder.MoveBackwardWithTimeoutAsync(timeout, trackElapsed: true);
                 return;
             }
 
-            await cylinder.MoveForwardWithTimeoutAsync(timeout);
+            await cylinder.MoveForwardWithTimeoutAsync(timeout, trackElapsed: true);
         }
 
         private async void BackwardButton_Click(object sender, RoutedEventArgs e)
@@ -68,11 +68,11 @@ namespace EQX.UI.Controls
             var timeout = TimeSpan.FromSeconds(cylinder.BackwardTimeoutSeconds);
             if (IsReverseCylinder(cylinder))
             {
-                await cylinder.MoveForwardWithTimeoutAsync(timeout);
+                await cylinder.MoveForwardWithTimeoutAsync(timeout, trackElapsed: true);
                 return;
             }
 
-            await cylinder.MoveBackwardWithTimeoutAsync(timeout);
+            await cylinder.MoveBackwardWithTimeoutAsync(timeout, trackElapsed: true);
         }
 
         private bool IsInterlockSatisfied(CylinderBase cylinder)

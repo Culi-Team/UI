@@ -64,4 +64,7 @@
         <views:CylinderView/>
     </DataTemplate>
 
+    <DataTemplate DataType="{x:Type inout:VacuumBase}">
+        <views:VacuumView/>
+    </DataTemplate>
 </ResourceDictionary>

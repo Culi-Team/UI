@@ -10,6 +10,19 @@ namespace EQX.UI.Controls
     /// </summary>
     public partial class MotionView : UserControl
     {
+        public string? OriginInterlockKey
+        {
+            get => (string?)GetValue(OriginInterlockKeyProperty);
+            set => SetValue(OriginInterlockKeyProperty, value);
+        }
+
+        public static readonly DependencyProperty OriginInterlockKeyProperty =
+            DependencyProperty.Register(
+                nameof(OriginInterlockKey),
+                typeof(string),
+                typeof(MotionView),
+                new PropertyMetadata(null));
+
         private List<string> jogSpeedList = new List<string>
         {
             (string)Application.Current.Resources["str_SuperSlow"],

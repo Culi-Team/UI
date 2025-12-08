@@ -220,12 +220,25 @@
                      Fill="{Binding Status.IsHomeDone,Converter={StaticResource BooleanToOnOffBrushConverter}}"
                      Stroke="{StaticResource PrimaryBorderBrush}"
                      StrokeThickness="1" />
-            <local:ImageButton Grid.Column="1"
-                               Content="{DynamicResource str_Origin}"
-                               FontWeight="Bold"
-                               Margin="2"
-                               HorizontalAlignment="Stretch"
-                               Click="ButtonOrigin_Click" />
+            <Grid Grid.Column="1"
+                  Margin="2">
+                <local:ImageButton x:Name="OriginButton"
+                                   Content="{DynamicResource str_Origin}"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Stretch"
+                                   Click="ButtonOrigin_Click"
+                                   IsEnabled="{Binding IsEnabled, ElementName=OriginInterlockIndicator}" />
+                <controls:InterlockButton x:Name="OriginInterlockIndicator"
+                                          Width="28"
+                                          Height="10"
+                                          Padding="0"
+                                          BorderThickness="0"
+                                          Background="Transparent"
+                                          Content=""
+                                          HorizontalAlignment="Left"
+                                          VerticalAlignment="Top"
+                                          InterlockKey="{Binding OriginInterlockKey, RelativeSource={RelativeSource AncestorType=local:MotionView}}" />
+            </Grid>
         </Grid>
 
         <!-- Servo ON/OFF -->
