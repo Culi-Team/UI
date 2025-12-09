@@ -1,7 +1,8 @@
-﻿using EQX.Core.Motion;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using EQX.Core.Interlock;
+using EQX.Core.Motion;
 
 namespace EQX.UI.Controls
 {
@@ -50,10 +51,61 @@ namespace EQX.UI.Controls
             10,
         };
 
+        private string? _pendingOriginInterlockKey;
+
         public MotionView()
         {
             InitializeComponent();
             cbBoxStepInc.ItemsSource = jogSpeedList;
+            DataContextChanged += MotionView_DataContextChanged;
+            Loaded += MotionView_Loaded;
+            Unloaded += MotionView_Unloaded;
+        }
+
+        private void MotionView_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            UpdateOriginInterlockKey(DataContext as IMotion);
+        }
+
+        private void MotionView_Loaded(object sender, RoutedEventArgs e)
+        {
+            InterlockService.Default.InterlockChanged += OnInterlockChanged;
+            InterlockService.Default.Reevaluate();
+        }
+
+        private void MotionView_Unloaded(object sender, RoutedEventArgs e)
+        {
+            InterlockService.Default.InterlockChanged -= OnInterlockChanged;
+        }
+
+        private void OnInterlockChanged(string key, bool satisfied)
+        {
+            if (string.Equals(key, _pendingOriginInterlockKey, StringComparison.Ordinal) == false)
+            {
+                return;
+            }
+
+            if (Dispatcher.CheckAccess() == false)
+            {
+                _ = Dispatcher.InvokeAsync(() => OnInterlockChanged(key, satisfied));
+                return;
+            }
+
+            OriginInterlockKey = _pendingOriginInterlockKey;
+        }
+
+        private void UpdateOriginInterlockKey(IMotion? motion)
+        {
+            if (motion == null)
+            {
+                _pendingOriginInterlockKey = null;
+                OriginInterlockKey = string.Empty;
+                return;
+            }
+
+            _pendingOriginInterlockKey = $"Motion.{motion.Name}.Origin";
+            OriginInterlockKey = string.Empty;
+            InterlockService.Default.Reevaluate();
         }
         private void MoveDec_ButtonDown(object sender, MouseButtonEventArgs e)
         {
