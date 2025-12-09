@@ -4,6 +4,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:EQX.UI.Controls"
+        xmlns:core="clr-namespace:EQX.Core.Common;assembly=EQX.Core"
         xmlns:cvt="clr-namespace:EQX.UI.Converters"
         WindowStyle="None"
         WindowStartupLocation="CenterScreen"
@@ -48,10 +49,11 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="8*" />
                 <RowDefinition Height="2.5*" />
-                <RowDefinition Height="1.5*" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
             <Border Grid.Row="0"
                     Grid.Column="0">
@@ -68,36 +70,142 @@
                     Grid.Column="1">
                 <TextBlock Text="{DynamicResource str_Detail}" />
             </Border>
-            <Border Grid.Row="1">
+            <StackPanel Grid.Row="1"
+                        Grid.ColumnSpan="2"
+                        Orientation="Horizontal"
+                        HorizontalAlignment="Right"
+                        Margin="10,5">
+                <TextBlock Text="Language"
+                           VerticalAlignment="Center"
+                           Margin="0,0,8,0" />
+                <ComboBox Width="160"
+                          ItemsSource="{Binding AvailableLanguages}"
+                          SelectedItem="{Binding SelectedLanguage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            </StackPanel>
+            <Border Grid.Row="2">
                 <Canvas Grid.Row="1">
                     <Image Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Canvas}}"
                            Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=Canvas}}"
                            Source="{Binding AlertModel.AlertOverviewSource}"
                            Stretch="Uniform" />
-                    <Border BorderBrush="{Binding IsWarning, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BooleanToAlertColorConverter}}"
-                            BorderThickness="3"
-                            Canvas.Left="{Binding AlertModel.AlertOverviewHighlightRectangle.Left}"
-                            Canvas.Top="{Binding AlertModel.AlertOverviewHighlightRectangle.Top}"
-                            Width="{Binding AlertModel.AlertOverviewHighlightRectangle.Width}"
-                            Height="{Binding AlertModel.AlertOverviewHighlightRectangle.Height}" />
+                    <ItemsControl ItemsSource="{Binding AlertModel.AlertOverviewShapes}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type core:AlertShapeModel}">
+                                <Grid>
+                                    <Border x:Name="RectShape"
+                                            BorderBrush="{Binding IsWarning, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BooleanToAlertColorConverter}}"
+                                            BorderThickness="{Binding StrokeThickness}"
+                                            Canvas.Left="{Binding CanvasLeft}"
+                                            Canvas.Top="{Binding CanvasTop}"
+                                            Width="{Binding CanvasWidth}"
+                                            Height="{Binding CanvasHeight}"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            Visibility="Collapsed">
+                                        <Border.RenderTransform>
+                                            <RotateTransform Angle="{Binding RotationDegrees}" />
+                                        </Border.RenderTransform>
+                                    </Border>
+                                    <Ellipse x:Name="CircleShape"
+                                             StrokeThickness="{Binding StrokeThickness}"
+                                             Stroke="{Binding IsWarning, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BooleanToAlertColorConverter}}"
+                                             Canvas.Left="{Binding CanvasLeft}"
+                                             Canvas.Top="{Binding CanvasTop}"
+                                             Width="{Binding CanvasWidth}"
+                                             Height="{Binding CanvasHeight}"
+                                             RenderTransformOrigin="0.5,0.5"
+                                             Visibility="Collapsed">
+                                        <Ellipse.RenderTransform>
+                                            <RotateTransform Angle="{Binding RotationDegrees}" />
+                                        </Ellipse.RenderTransform>
+                                    </Ellipse>
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding Type}"
+                                                 Value="Rectangle">
+                                        <Setter TargetName="RectShape"
+                                                Property="Visibility"
+                                                Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Type}"
+                                                 Value="Circle">
+                                        <Setter TargetName="CircleShape"
+                                                Property="Visibility"
+                                                Value="Visible" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Canvas>
             </Border>
-            <Border Grid.Row="1"
+            <Border Grid.Row="2"
                     Grid.Column="1">
                 <Canvas Grid.Row="1">
                     <Image Width="{Binding Path=ActualWidth, RelativeSource={RelativeSource AncestorType=Canvas}}"
                            Height="{Binding Path=ActualHeight, RelativeSource={RelativeSource AncestorType=Canvas}}"
                            Source="{Binding AlertModel.AlertDetailviewSource}"
                            Stretch="Uniform" />
-                    <Border BorderBrush="{Binding IsWarning, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BooleanToAlertColorConverter}}"
-                            BorderThickness="3"
-                            Canvas.Left="{Binding AlertModel.AlertDetailviewHighlightRectangle.Left}"
-                            Canvas.Top="{Binding AlertModel.AlertDetailviewHighlightRectangle.Top}"
-                            Width="{Binding AlertModel.AlertDetailviewHighlightRectangle.Width}"
-                            Height="{Binding AlertModel.AlertDetailviewHighlightRectangle.Height}" />
+                    <ItemsControl ItemsSource="{Binding AlertModel.AlertDetailviewShapes}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Canvas />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate DataType="{x:Type core:AlertShapeModel}">
+                                <Grid>
+                                    <Border x:Name="RectShape"
+                                            BorderBrush="{Binding IsWarning, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BooleanToAlertColorConverter}}"
+                                            BorderThickness="{Binding StrokeThickness}"
+                                            Canvas.Left="{Binding CanvasLeft}"
+                                            Canvas.Top="{Binding CanvasTop}"
+                                            Width="{Binding CanvasWidth}"
+                                            Height="{Binding CanvasHeight}"
+                                            RenderTransformOrigin="0.5,0.5"
+                                            Visibility="Collapsed">
+                                        <Border.RenderTransform>
+                                            <RotateTransform Angle="{Binding RotationDegrees}" />
+                                        </Border.RenderTransform>
+                                    </Border>
+                                    <Ellipse x:Name="CircleShape"
+                                             StrokeThickness="{Binding StrokeThickness}"
+                                             Stroke="{Binding IsWarning, RelativeSource={RelativeSource AncestorType=Window}, Converter={StaticResource BooleanToAlertColorConverter}}"
+                                             Canvas.Left="{Binding CanvasLeft}"
+                                             Canvas.Top="{Binding CanvasTop}"
+                                             Width="{Binding CanvasWidth}"
+                                             Height="{Binding CanvasHeight}"
+                                             RenderTransformOrigin="0.5,0.5"
+                                             Visibility="Collapsed">
+                                        <Ellipse.RenderTransform>
+                                            <RotateTransform Angle="{Binding RotationDegrees}" />
+                                        </Ellipse.RenderTransform>
+                                    </Ellipse>
+                                </Grid>
+                                <DataTemplate.Triggers>
+                                    <DataTrigger Binding="{Binding Type}"
+                                                 Value="Rectangle">
+                                        <Setter TargetName="RectShape"
+                                                Property="Visibility"
+                                                Value="Visible" />
+                                    </DataTrigger>
+                                    <DataTrigger Binding="{Binding Type}"
+                                                 Value="Circle">
+                                        <Setter TargetName="CircleShape"
+                                                Property="Visibility"
+                                                Value="Visible" />
+                                    </DataTrigger>
+                                </DataTemplate.Triggers>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </Canvas>
             </Border>
-            <Border Grid.Row="2"
+            <Border Grid.Row="3"
                     Grid.ColumnSpan="2">
                 <ItemsControl AlternationCount="10"
                               ItemsSource="{Binding AlertModel.TroubleshootingSteps}">
